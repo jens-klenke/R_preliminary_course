@@ -1,0 +1,143 @@
+---
+title: 'R Propädeutikum'
+author: 'Martin Arnold'
+author2: 'Jens Klenke'
+subtitle: 'Arbeitsblatt 2'
+semester: "Sommersemester 2020/2021"
+output:
+  pdf_document:
+    keep_tex: yes
+    template: ../template.tex
+    fig_caption: yes
+    citation_package: biblatex
+    number_sections: true
+toc: true
+lot: true
+lof: true
+graphics: true
+linkcolor: black
+urlcolor: black
+citecolor: black
+colorlinks: true
+font: Times New Roman
+fontsize: 12pt
+geometry: lmargin = 2cm, rmargin = 2.5cm, tmargin = 2cm, bmargin = 2.5cm
+classoption: a4paper
+---
+
+```{r , include=FALSE}
+Sys.setlocale(locale = "English_United States.1252") ## English US Windows
+knitr::opts_chunk$set(echo = TRUE)
+
+#options(kableExtra.latex.load_packages = FALSE)
+#### required packages ####
+source(here::here("packages/packages.R"))
+```
+
+# Sind die folgenden Ausdrücke `TRUE` oder `FALSE`?
+
+\begin{itemize}
+  \item $5 \geq 5$
+  \item $5 > 5$
+  \item $T = 5$
+  \item $T \land F \ \lor \ F \land T$
+  \item $F \land F \land F\ \lor \ T$
+  \item $(\neg (5 > 3) \lor A = B)$
+  \item $\neg(((T > F) > T) \land \ \neg T)$
+\end{itemize}
+
+# Es sei `z <- c(1, 2, NA, 4)`. Überprüfen Sie die folgenden Aussagen mittels einer Logikabfrage in `R`.
+
+\begin{itemize}
+  \item Die Länge des Vektors $z$ ist ungleich $2$.
+  \item Die Länge der logischen Überprüfungen, ob die einzelnen Elemente gleich $2$ sind, ist $4$.
+  \item Der Vektor $z$ hat die Klasse `numeric`.
+  \item Einige Elemente des Vektors $z$ sind `NA`. 
+  \item Das zweite Element des Vektors $z$ ist `numeric`.
+  \item Das Minimum und das Maximum sind ungleich. 
+\end{itemize}
+
+# Es sei \texttt{M <- matrix(1:9, ncol = 3)}. Was ergeben folgende Ausdrücke:
+
+\begin{itemize}
+  \item sum$(M[ , 1]) == 6$
+  \item max$(M[ , 2]) <= 5$
+  \item $M[2, 2] != 4 \& M[2, 2] > 6$
+\end{itemize}
+
+# Verschaffen Sie sich einen Überblick über den Datensatz \texttt{mtcars} (dieser ist in base R bereits geladen). Aus wie vielen Variablen besteht er? Welche Klasse haben die einzelnen Variablen?
+
+# Lassen Sie sich folgende Subsets von \texttt{mtcars} ausgeben:
+
+\begin{itemize}
+  \item nur die Variable \texttt{mpg}
+  \item nur die ersten drei Zeilen
+  \item nur die ersten drei Variablen
+  \item nur die ersten beiden Beobachtungen der Variablen \texttt{cyl} und \texttt{hp}
+  \item alle Beobachtungen deren Ausprägung der Variable \texttt{hp} größer ist als $200$
+\end{itemize}
+
+
+# Erstellen Sie einen dataframe \texttt{persons} mit den Variablen \texttt{Name} (\texttt{character}), \texttt{Height} (cm, \texttt{numeric}) und \texttt{Weight} (kg, \texttt{numeric}) von 5 fiktiven Personen.
+
+\begin{itemize}
+  \item Lassen Sie sich das Körpergewicht der 3. Person anzeigen.
+  \item Lassen Sie sich nun die Körpergröße aller Personen anzeigen.
+  \item Fügen Sie die Variable “Augenfarbe” hinzu. Die Ausprägungen sollten vom Typ \texttt{character} sein. Schauen Sie sich den veränderten dataframe an.
+\end{itemize}
+
+# Schreiben Sie Code, der die Wurzel (\texttt{sqrt()}) eines Vektors \texttt{x} der Länge 1 berechnet, wenn der Wert in \texttt{x} nicht negativ ist.
+
+# Erstellen Sie Code, welcher die Wurzel der Elemente eines Vektors \texttt{x} berechnet, wenn alle Werte in \texttt{x} nicht negativ sind.
+
+  *Hinweis:* Nutzen Sie eine Funktion wie `min()` oder `sum()`.
+
+# Schreibe Code, der die Struktur (\texttt{str()}) eines Objekts \texttt{df} wiedergibt, sofern \texttt{df} zur Klasse \texttt{data.frame} gehört. Andernfalls soll die Länge des Objekts wiedergegeben werden.
+
+# Schreiben Sie eine Schleife, welche die Zahlen von 1 bis 15 aufaddiert.
+
+# Erstellen Sie eine Matrix $M$ mit folgender Gestalt:
+
+$$
+M=\begin{pmatrix}
+1 & 4 & 7 & 10 & 13\\
+2 & 5 & 8 & 11 & 14\\
+3 & 6 & 9 & 12 & 15\\
+\end{pmatrix}
+$$
+
+
+Schreiben Sie eine Schleife, welche für jede Spalte die Spaltensumme berechnet und ausgibt.
+
+# Mit \texttt{rnorm(1)} ziehen Sie eine Zufallszahl aus der Standardnormalverteilung (in der Konsole ausprobieren!). Schreiben Sie eine Schleife, welche solange ausgeführt wird, bis ein Wert gezogen wird, der größer als 1 ist. 
+
+Geben Sie in jedem Durchlauf die gezogene Zahl mit ` cat(x, "\n")` aus. (Hinweis: `\n` steht für einen Zeilenumbruch)
+
+# Die Dichte der Standardnormalverteilung lautet $\displaystyle \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}}$. Schreiben Sie eine Funktion `stdnv`, welche die Dichte von `x` berechnet und zurückgibt.
+
+\begin{itemize}
+  \item \textit{Hinweis:} `?exp`, `?pi`
+  \item \textit{Hinweis:} Wenn die Funktion korrekt ist, sollten `stdnv(x)` und `dnorm(x)` die gleichen Ergebnisse liefern.
+\end{itemize}
+
+# Schreiben Sie eine Funktion, welche die Argumente `z` sowie `opt` erwartet. Im Funktionskörper soll mit einer If-Anweisung gesteuert werden, welche Operation auf `z` ausgeführt werden soll:
+
+*WENN opt gleich "add" ist, DANN addiere die Elemente von `z`, WENN `opt` gleich "mult" ist, dann multipliziere die Elemente von `z`, andernfalls führe keine Operation aus.*\newline\newline
+Am Ende soll die Funktion das jeweilige Ergebnis wiedergeben.
+
+# Schreiben Sie eine Funktion, die den MSE (mean squared error) von zwei Vektoren `y` und `yhat` (die Argumente) berechnet. Der MSE is definiert als $\frac{1}{n}\sum_{i=1}^n (\hat{Y}_i - Y_i)^2$. 
+
+Testen Sie Ihre Funktion anhand der beiden Vektoren $y = {2, 4, 2, 5, 7}$ und $\hat{y}= {2.3, 3.5, 2.1, 5.5, 7.6}$ (das Ergebnis sollte 0.192 lauten).
+
+
+<!-- 
+und \cup 
+oder cap
+vernein \neg
+-->
+
+
+
+
+
+

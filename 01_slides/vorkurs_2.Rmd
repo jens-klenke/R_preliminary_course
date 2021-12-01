@@ -1,8 +1,8 @@
 ---
-title: "R Vorkurs"
+title: "R-Vorkurs"
 subtitle: "Teil 2"
-author: "Martin Arnold & Jens Klenke"
-date: "08.04.2021"
+author: "Martin Arnold & Janine Langerbein"
+date: "05.10.2021"
 output:
   xaringan::moon_reader:
     css: ["default", "assets/sydney-fonts.css", "assets/sydney.css"]
@@ -19,19 +19,26 @@ output:
       navigation:
         scroll: true #disable slide transitions by scrolling
 ---
-class: inverse
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = T, small = T)
-
+options(repos = list(CRAN = "http://cran.rstudio.com/"))
 options(htmltools.dir.version = FALSE)
 options(servr.daemon = TRUE)
 options(servr.interval = 0.5)
 
 #xaringan::inf_mr()
 
+library(icons)
+
+r_white <- icon_style(fontawesome$brands$'r-project', fill = "white")
+r_black <- icon_style(fontawesome$brands$'r-project', fill = "black")
+r_blue <- icon_style(fontawesome$brands$'r-project', fill = "#004c93")
+
+
 #### required packages ####
 # packages
-suppressWarnings(source(here::here('neu/00_packages/packages.R')))
+suppressWarnings(source(here::here('00_packages/packages.R')))
 ```
 
 
@@ -45,17 +52,17 @@ suppressWarnings(source(here::here('neu/00_packages/packages.R')))
 4. Bedingte Anweisungen
 5. Schleifen
 6. Funktionen
-7. <code>R</code> Pakete
+7. `r r_black`-Pakete
 
 ---
 ## Logische Operatoren
 ### Einführung
 
-Die Klasse `logical` habt ihr im ersten Teil schon mal gesehen (`is.na()`)
+Die Klasse `logical` habt Ihr im ersten kennengelernt (`is.na()`).
 
-Logische Vergleiche werden für das Programmieren bedingter Anweisungen benötigt. Sie kommen aber auch häufig bei Schleifen und beim Subsetten von Daten zum Einsatz.
+Logische Vergleiche werden für das Programmieren bedingter Anweisungen benötigt. Sie kommen aber auch häufig bei Schleifen und beim Subsetting von Daten zum Einsatz.
 
-Das Ergebnis logischer Vergleiche ist immer ein *boolscher Wert*, also `TRUE` / `FALSE` bzw. `T ` / `F `.
+Das Ergebnis logischer Vergleiche ist **immer** ein *boolscher Wert*, also `TRUE` / `FALSE` bzw. `T ` / `F `.
 
 Die wichtigsten Operatoren im Überblick:
 ```{r, eval = FALSE}
@@ -94,54 +101,60 @@ x > y | x == 10
 ```
 
 ```{r, fig_dens_2, echo = FALSE, out.width = '50%',  fig.align = "center"}
-   knitr::include_graphics(here::here('neu/01_slides/Untitled.png'), auto_pdf = FALSE)
+   knitr::include_graphics('./Untitled.png', auto_pdf = FALSE)
 ```
 
 ---
 ## Logische Operatoren
 ### Übungsaufgaben 
 
-1. Sind die folgenden Ausdrücke `TRUE` oder `FALSE`?
-- $5 \geq 5$
-- $5 > 5$
-- $T = 5$
-- $T \land F \ \lor \ F \land T$
-- $F \land F \land F\ \lor \ T$
-- $( \neg (5 > 3) \lor A = B)$
-- $\neg(((T > F) > T) \land \ \neg T$
+<ol start = "1">
+  <li>Sind die folgenden Ausdrücke <code>TRUE</code> oder <code>FALSE</code>? Überprüfe mit `r r_black`-Code!</li>
+  <ul>
+    <li>\(5 \geq 5\)</li>
+    <li>\(5 > 5\)</li>
+    <li>\(T = 5\)</li>
+    <li>\(T \land F \ \lor \ F \land T\)</li>
+    <li>\(F \land F \land F\ \lor \ T\)</li>
+    <li>\(( \neg (5 > 3) \lor A = B)\)</li>
+    <li>\(\neg(((T > F) > T) \land \ \neg T)\)</li>
+  </ul>
+</ol>
 
 ---
 ## Logische Operatoren
 ### Übungsaufgaben 
 
 <ol start = "2">
-    <li>Es sei <code>z <- c(1, 2, NA, 4)</code>. Überprüfen Sie die folgenden Aussagen mittels einer Logikabfrage in `R`.</li>
+    <li>Es sei <code>z <- c(1, 2, NA, 4)</code>. Überprüf die folgenden Aussagen mittels einer Logikabfrage in `r r_black`.</li>
+    <ul>
+      <li>Die Länge des Vektors <code>z</code> ist ungleich <code>2</code></li>
+      <li>Die Länge der logischen Überprüfungen, ob die einzenlen Elementen gleich <code>2</code> sind, ist <code>4</code></li>
+      <li>Der Vektor <code>z</code> hat die Klasse <code>numeric</code></li>
+      <li>Einige Elemente des Vektors <code>z</code> sind <code>NA</code></li> 
+      <li>Das zweite Element des Vektors <code>z</code> ist <code>numeric</code></li>
+      <li>Das Minimum und das Maximum sind ungleich</li> 
+    </ul>
 </ol>
-
-- Die Länge des Vektors $z$ ist ungleich $2$.
-- Die Länge der logischen Überprüfungen, ob die einzenlen Elementen gleich $2$ sind, ist $4$.
-- Der Vektor $z$ hat die Klasse `numeric`.
-- Einige Elemente des Vektors $z$ sind `NA`. 
-- Das Zweite Element des Vektors $z$ ist `numeric`.
-- Das Minimum und das Maximum sind ungleich. 
 
 ---
 ## Logische Operatoren
 ### Übungsaufgaben  
 
 <ol start = "3">
-    <li> Es sei <code>M <- matrix(1:9, ncol = 3)</code>. Was ergeben folgende Ausdrücke? </li>
+    <li> Es sei <code>M <- matrix(1:9, ncol = 3)</code>. Was ergeben folgende Ausdrücke?</li>
+    <ul>
+      <li><code>sum(M[, 1]) == 6</code></li>
+      <li><code>max(M[, 2]) <= 5</code></li>
+      <li><code>M[2, 2] != 4  &  M[2, 2] > 6</code></li>
+    </ul>
 </ol>
-
-- sum\((M[ &nbsp;  , 1]) == 6\)
-- max\((M[ &nbsp;  , 2]) <= 5\)
-- \(M[2, 2] != 4  &  M[2, 2] > 6\)
 
 ---
 ## Dataframes
 ### Über Dataframes
 
-Ein dataframe ist eine Sammlung von Variablen, ähnlich einer Matrix. 
+Ein Dataframe ist eine Sammlung von Variablen, ähnlich einer Matrix. 
 
 Am Beispiel des Datensatzes `iris`:
 
@@ -163,7 +176,7 @@ Wir sehen:
 
 - Das Objekt `iris` hat die Klasse `data.frame`
 - `iris` hat 150 Zeilen (Beobachtungen) und 5 Spalten (Variablen).
-- Vier der Variablen gehören zur Klasse `numeric`, 1 Variable zur Klasse `Factor`
+- Vier Variablen gehören zur Klasse `numeric`, eine Variable hat die Klasse `factor`
 
 ---
 ## Dataframes 
@@ -178,10 +191,12 @@ z <- c(1, 2, NA, 4)
 ```
 
 ```{r, eval = T}
-df <- data.frame(Letters = c("A", "B", "C", "D"), 
-                 Numbers = 1:4,
-                 Logicals = c(T, F, FALSE, TRUE),
-                 z)
+df <- data.frame(
+  Letters = c("A", "B", "C", "D"), 
+  Numbers = 1:4,
+  Logicals = c(T, F, FALSE, TRUE),
+  z
+)
 df
 ```
 
@@ -190,14 +205,14 @@ df
 ### Zugriff auf Spalten und Elemente
 
 .font80[
-Auf die einzelnen Zellen in einem dataframe kann man wie bei Matrizen durch Indexierung mit `[ ]` zugreifen. Zugriff auf einzelne Variablen/Spalten erhält man mit `$`:
+Auf die einzelnen "Zellen" eines Dataframes kann man wie bei Matrizen durch Subsetting mit `[ ]` zugreifen. Zugriff auf einzelne "Variablen/Spalten" erhält man mit `$`:
 
 
 ```{r}
-df[ , 1]       # Spalte 1
-df[1, ]        # Zeile 1
-df[1, 1]       # Zeile 1, Spalte 1
-df[ , 1:2]     # Spalten 1 und 2
+df[, 1]       # Spalte 1
+df[1, ]       # Zeile 1
+df[1, 1]      # Zeile 1, Spalte 1
+df[, 1:2]     # Spalten 1 und 2
 ```
 ]
 
@@ -223,8 +238,10 @@ df[df$Numbers > 2, ]
 ---
 ## Dataframes 
 ### Bearbeiten von Dataframes
-<br></br>
-Ein dataframe ist nach seiner Erstellung nicht unveränderbar. Man kann Spalten und Zeilen hinzufügen oder entfernen. Das gilt auch für einzelne Beobachtungen.
+
+</br>
+
+Ein Dataframe ist nach seiner Erstellung veränderbar. Man kann Spalten und Zeilen hinzufügen oder entfernen. Das gilt auch für einzelne Zellen.
 
 ```{r, eval = T}
 df$Greeks <- c("alpha", "beta", "gamma", "delta")   # Hinzufügen der Spalte "Greeks"
@@ -237,12 +254,14 @@ df
 ## Dataframes 
 ### Übungsaufgaben
 
+</br>
+
 <ol start = "4">
-    <li>Verschaffen Sie sich einen Überblick über den Datensatz <code>mtcars</code> (dieser ist in base R bereits geladen)</li>
+    <li>Verschaffe Dir einen Überblick über den Datensatz <code>mtcars</code> (dieser ist bereits geladen)</li>
     <ul>
-      <li>Aus wie vielen Variablen besteht er? Welche Klasse haben die einzelnen Variablen?</li>
+      <li>Wie vielen Variablen hat <code>mtcars</code>? Welche Klasse haben die einzelnen Variablen?</li>
     </ul>
-    <li>Lassen Sie sich folgende Subsets von <code>mtcars</code> ausgeben:</li>
+    <li>Lass folgende Subsets von <code>mtcars</code> ausgeben:</li>
     <ul>
       <li>nur die Variable <code>mpg</code></li>
       <li>nur die ersten drei Zeilen</li>
@@ -257,12 +276,14 @@ df
 ## Dataframes 
 ### Übungsaufgaben
 
+</br>
+
 <ol start = "6">
-    <li>Erstellen Sie einen dataframe `persons` mit den Variablen <code>Name</code> (<code>character</code>), <code>Height</code> (cm, <code>numeric</code>) und <code>Weight</code> (kg, <code>numeric</code>) von 5 fiktiven Personen.</li>
+    <li>Erstelle einen Dataframe <code>persons</code> mit Beobachtungen der Variablen <code>Name</code> (<code>character</code>), <code>Height</code> (cm, <code>numeric</code>) und <code>Weight</code> (kg, <code>numeric</code>) für 5 fiktive Personen.</li>
     <ul>
-      <li>Lassen Sie sich das Körpergewicht der 3. Person anzeigen.</li>
-      <li>Lassen Sie sich nun die Körpergröße aller Personen anzeigen.</li>
-      <li>Fügen Sie die Variable "Augenfarbe" hinzu. Die Ausprägungen sollten vom Typ <code>character</code> sein. Schauen Sie sich den veränderten dataframe an.</li>
+      <li>Betrachte das Körpergewicht der 3. Person</li>
+      <li>Betrachte nun die Körpergröße aller Personen</li>
+      <li>Füge die Variable "Augenfarbe" hinzu. Die Ausprägungen sollten vom Typ <code>character</code> sein. Betrachte den veränderten dataframe.</li>
     </ul>
 </ol>
 
@@ -270,7 +291,7 @@ df
 ## Listen
 ### Listen erzeugen
 
-Listen werden mit der Funktion `list()` erzeugt. Ein .blue[**Vorteil**] von Listen ist, dass die einzelnen Elemente von unterschiedlicher Größe und Typ sein können.
+Listen werden mit der Funktion `list()` erzeugt. Ein **Vorteil** von Listen ist, dass die einzelnen Elemente von unterschiedlicher Größe und verschiedenen Typs sein können.
 
 Der Zugriff auf Listenelemente erfolgt ebenfalls mit `$`.
 
@@ -278,8 +299,7 @@ Der Zugriff auf Listenelemente erfolgt ebenfalls mit `$`.
 my.list <- list(A = 1:5, B = mtcars, C = list(letters, LETTERS))
 ```
 
-Viele Funktionen in R geben Ergebnisse als Listen zurück.
-
+Viele Funktionen in `r r_black` geben Ergebnisse als Listen zurück.
 
 ```{r, eval = FALSE}
 # Regressionsmodell
@@ -289,12 +309,11 @@ model$coefficients
 model$residuals
 ```
 
-
-(Mehr dazu in Teil 3)
+(Mehr dazu in Teil 3 der Veranstaltung)
 
 ---
 ## Bedingte Anweisungen
-### If-Anweisung
+### `if`-Anweisung
 
 Bedingte Anweisungen helfen uns den Programmablauf zu steuern. Die einfachste Anweisung ist die `if`-Anweisung:
 
@@ -306,11 +325,10 @@ Dies kann man lesen wie eine natürliche Sprache:
 
 .center[ .blue[<em>FALLS</em>] `x` gleich 5 ist, .blue[<em>DANN</em>] gebe "Hallo Welt!" aus.]
 
-Die Bedingung muss immer zu `TRUE` oder `FALSE` evaluieren. Nur wenn der Ausdruck in den Klammern nach <em>if</em> &nbsp; wahr ist, wird der nachfolgende Code ausgeführt.
-
+Die Bedingung muss immer zu `TRUE` oder `FALSE` evaluieren. Nur falls der Ausdruck in den Klammern nach <b><code>if</code></b> wahr (<code>TRUE</code>) ist, wird der nachfolgende Code ausgeführt.
 
 ---
-### If-Anweisung
+### `if`-Anweisung
 
 Wenn der auszuführende Code länger als eine Zeile ist, nutzt man *geschweifte Klammern* um einen Code-Block zu erzeugen:
 
@@ -346,28 +364,31 @@ if (length(z) > 1 & op == "add") {
 
 ---
 ## Bedingte Anweisungen
-### If-Else Anweisung
-<br></br>
-Wenn der Ausdruck innerhalb der Klammern nicht `TRUE` ist, wird der Codeblock nicht ausgeführt.
+### `if`-`else`-Anweisung
 
-Aber was wäre wenn wir in diesem Fall einen anderen Code ausführen wollen?
+</br>
 
-.blue[<b>Lösung</b>]: Die `If-Else`-Anweisung
+Falls der Ausdruck innerhalb der Klammern nicht `TRUE` ist, wird der Codeblock nicht ausgeführt.
+
+Und falls wir in diesem Fall einen anderen Code ausführen wollen?
+
+.blue[<b>Lösung</b>]: Die `if`-`else`-Anweisung
 
 ```{r, eval = F}
-if (expr) {    # Wenn "expr" TRUE ist, ...
+if (expr) {    # Falls "expr" TRUE ist, ...
   # BLOCK 1    # dann führe BLOCK 1 aus.
-} else {       # Wenn "expr" FALSE ist, ...
+} else {       # Falls "expr" FALSE ist, ...
   # BLOCK 2    # dann führe BLOCK 2 aus.
 }
 ```
 
 ---
 ## Bedingte Anweisungen
-### If-Else Anweisung
+### `if`-`else`-Anweisung
 
-<br></br>
-Auch hier Beispiele:
+</br>
+
+Auch hierzu Beispiele:
 
 .font80[
 ```{r , eval = FALSE}
@@ -388,11 +409,12 @@ if(length(z) > 0 & op == "add") {
 ]
 
 ---
-## Bedingte Anweisunge
-### If-Else(-If) Anweisung
-<br></br>
+## Bedingte Anweisungen
+### `if`-`else`-Anweisung
 
-Wie im letzten Beispiel gesehen kann man beliebig viele Bedingungen mit `If` und `Else` verknüpfen.
+</br>
+
+Wie im letzten Beispiel gesehen kann man beliebig viele Bedingungen mit `if` und `else` verknüpfen.
 
 ```{r, eval = FALSE}
 if (expression) {
@@ -407,26 +429,30 @@ if (expression) {
 ```
 
 ---
-## Bedingte Anweisunge
+## Bedingte Anweisungen
 ### Übungsaufgaben
 
+</br>
+
 <ol start = "7">
-    <li>Schreibe Code, der die Wurzel (\(sqrt()\)) eines Vektors `x` der Länge 1 berechnet, wenn der Wert in `x` nicht negativ ist.</li>
-    <li>Erstelle Code, welcher die Wurzel der Elemente eines Vektors `x` berechnet, wenn alle Werte in `x` nicht negativ sind.</li>
+    <li>Schreibe Code, der die Wurzel <code>sqrt()</code> eines Vektors <code>x</code> der Länge 1 berechnet, falls der Wert in  <code>x</code> nicht-negativ ist.</li>
+    <li>Erstelle Code, welcher die Wurzel der Elemente eines Vektors <code>x</code> berechnet, falls <i>alle</i> Werte in  <code>x</code> nicht-negativ sind.</li>
     <ul>
-      <li><i>Hinweis:</i> nutze eine Funktion wie \(\text{min}()\) oder \(\text{sum}()\)</li>
+      <li><i>Hinweis:</i> nutze eine Funktion wie <code>min()</code> oder <code>sum()</code></li>
     </ul>
-    <li>Schreibe Code, der die Struktur (\( \text{str()}\)) eines Objekts \(\text{df}\) wiedergibt, sofern \(\text{df}\) zur Klasse \(\text{data.frame}\) gehört. Andernfalls soll die Länge des Objekts wiedergegeben werden.</li>
+    <li>Schreibe Code, der die Struktur (siehe <code>?str()</code>) eines Objekts <code>df</code> wiedergibt, sofern <code>df</code> zur Klasse <code>data.frame</code> gehört. Andernfalls soll die Länge des Objekts wiedergegeben werden.</li>
     <ul>
-      <li><i>Überprüft eure Codes in dem ihre verschiedene Werte für \(\text{x}\) bzw. \(\text{df}\) ausprobiert!</i></li>
+      <li><i>Überprüft eure Codes indem Ihr verschiedene Werte für <code>x</code> bzw. <code>df</code> ausprobiert!</i></li>
     </ul>
 </ol>
 
 ---
 ## Schleifen
-### for-Schleife
+### `for`-Schleife
 
-Es gibt drei Schleifentypen in R: `for`, `while` (und `repeat`)
+</br>
+
+Es gibt drei Schleifentypen in `r r_black`: `for()`, `while()` (und `repeat()`)
 
 Die `for`-Schleife hat folgenden Aufbau:
 ```{r, eval = F}
@@ -434,7 +460,7 @@ for(var in enumeration) {
   # Schleifenkörper
 }
 ```
-Für jeden Wert in .blue[<code>enumeration</code>] wird der Schleifenkörper einmal ausgeführt. Bei jedem Durchgang ist der aktuelle Wert aus .blue[<code>enumeration</code>] in .blue[<code>var</code>] zwischengespeichert.
+Für jeden Wert in <code>enumeration</code> wird der Schleifenkörper einmal ausgeführt. Bei jedem Durchgang ist der aktuelle Wert aus <code>enumeration</code> in <code>var</code> zwischengespeichert.
 
 
 ```{r, eval = F}
@@ -445,7 +471,9 @@ for(i in 1:5) {
 
 ---
 ## Schleifen
-### while-Schleife
+### `while`-Schleife
+
+</br>
 
 Die `while`-Schleife kann genutzt werden, wenn nicht klar ist, wie oft ein Codeabschnitt ausgeführt werden soll:
 
@@ -455,9 +483,9 @@ while(condition) {
 }
 ```
 
-Solange die .blue[<code>condition</code>] wahr ist, wird der Schleifenkörper immer wieder ausgeführt. Vor dem ersten und nach jedem weiteren Durchlauf wird die .blue[<code>condition</code>] erneut evaluiert.
+Solange <code>condition == TRUE</code> wird der Schleifenkörper immer wieder ausgeführt. Vor dem ersten und nach jedem weiteren Durchlauf wird  <code>condition</code> erneut evaluiert.
 
-```{r,  eval = F}
+```{r, eval = F}
 x <- 0
 while(x < 4) {
   x <- runif(n = 1, min = 1, max = 5)
@@ -469,55 +497,54 @@ while(x < 4) {
 ## Schleifen
 ### Übungsaufgaben
 
+</br>
+
 <ol start = "10">
-    <li>Schreiben Sie eine Schleife, welche die Zahlen von 1 bis 15 aufaddiert.</li>
-    <li>Erstellen Sie eine Matrix \(M\) mit folgender Gestalt:</li>
-    $$M=\begin{pmatrix}
+    <li>Schreibe eine Schleife, welche die Zahlen von 1 bis 15 aufaddiert.</li>
+    <li>Erstelle folgende Matrix \(M\):</li>
+    \[M=\begin{pmatrix}
         1 & 4 & 7 & 10 & 13\\
         2 & 5 & 8 & 11 & 14\\
         3 & 6 & 9 & 12 & 15\\
-      \end{pmatrix}$$
-    <ul>
-      <li>Schreiben Sie eine Schleife, welche für jede Spalte die Spaltensumme berechnet und ausgibt.</li>
-    </ul>
-    <li>Mit \(\text{rnorm}(1)\) ziehen wir eine Zufallszahl aus der Standardnormalverteilung (in der Konsole ausprobieren!). Schreiben Sie eine Schleife, welche solange ausgeführt wird, bis ein Wert gezogen wird, der größer als 1 ist. Geben Sie in jedem Durchlauf die gezogene Zahl mit \(cat(x, "\n")\) aus. (Hinweis: \(\text{\n}\) steht für einen Zeilenumbruch)</li>
+      \end{pmatrix}\]
+      Schreibe eine Schleife, welche für jede Spalte die Spaltensumme berechnet und ausgibt.
+    <li>Mit <code>rnorm(1)</code> ziehen wir eine Zufallszahl aus der Standardnormalverteilung (in der Konsole ausprobieren!). Schreibe eine Schleife, welche solange ausgeführt wird, bis ein Wert größer als 1 gezogen wird. Gib in jedem Durchlauf die gezogene Zahl mit <code>cat(x, "\n")</code> aus. (Hinweis: <code>\n</code> steht für einen Zeilenumbruch)</li>
 </ol>
 
 ---
 ## Funktionen
 ### Funktionen definieren
 
-Viele Funktionen habt ihr schon kennengelernt: `length()`, `sum()`, `min()`, `data.frame()`
+Viele Funktionen habt ihr schon kennengelernt: `length()`, `sum()`, `min()`, `data.frame()`, ...
 
-Eigene Funktionen werden wie folgt geschrieben:
+Eigene Funktionen werden wiefolgt definiert:
 
 .font80[
 ```{r, eval = F}
-name.der.funktion <- function(arg1, arg2, ...) {
+name_der_funktion <- function(arg1, arg2, ...) {
   # Funktionskörper
   return(obj)
 }
 ```
 ]
-Beispiel: Summe zweier Objekte 
+<b>Beispiel: Summe zweier Objekte</b>
 
 .font80[
 ```{r, eval = T}
 summe <- function(x, y) {
   return(x + y)
 } 
-# Nachdem die Funktion definiert (und entsprechend ausgeführt) wurde, kann man die Funktion direkt nutzen:
+# Nachdem die Funktion definiert wurde, kann man die Funktion aufrufen:
 summe(x = 1, y = 3)
 ```
 ]
 
 ---
 ## Funktionen
-###  Standardwerte der Argumente
+### Standardwerte der Argumente
 
 .font80[
-In der Definition einer Funktion können auch Standardwerte der Argumente festgelegt werden. Dadurch kommt es zu keiner Fehlermeldung wegen fehlender Argumente.
-
+In der Definition einer Funktion können auch Standardwerte der Argumente festgelegt werden. 
 
 ```{r}
 summe <- function(x = 1, y = 3) {
@@ -530,16 +557,16 @@ summe()
 #### Environments
 
 .font80[
-Beachtet, dass alle Objekte, welche innerhalb einer Funktion definiert wurden, außerhalb dieser Funktion nicht verfügbar sind! Außer man gibt deren Inhalt zurück:
+Beachtet, dass alle Objekte, welche innerhalb einer Funktion definiert wurden, außerhalb dieser Funktion nicht verfügbar sind!
 
 ```{r, eval = FALSE}
-internal.ops <- function() {
-  int.x <- 5
-  int.y <- 10
+internal_ops <- function() {
+  int_x <- 5
+  int_y <- 10
 } 
 
-internal.ops() # int.x un int.y sind nicht in Environment Fenster zu sehen
-int.x          # Fehler!
+internal_ops() # int.x un int.y sind nicht i, Environment-Tab zu sehen.
+int_x          # Fehler: int_x existiert nur innerhalb der Funktion
 ```
 ]
 
@@ -547,12 +574,13 @@ int.x          # Fehler!
 ## Funktionen
 ### Übungsaufgaben
 
+</br>
 
 <ol start = "13">
     <li>Die Dichte der Standardnormalverteilung lautet</li>
-   $$\frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}}$$
+   \[f(x) = \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}}\]
      <ul>
-      <li>Schreiben Sie eine Funktion <code>stdnv</code>, welche die Dichte von <code>x</code> berechnet und zurückgibt.</li>
+      <li>Schreibe eine Funktion <code>stdnv</code>, welche die Dichte von <code>x</code> berechnet und zurückgibt.</li>
       <ul>
         <li><b>Hinweis:</b> <code>?exp</code>, <code>?pi</code></li>
         <li><b>Hinweis:</b> Wenn die Funktion korrekt ist, sollten <code>stdnv(x)</code> und <code>dnorm(x)</code> die gleichen Ergebnisse liefern.</li>
@@ -566,42 +594,42 @@ int.x          # Fehler!
 ### Übungsaufgaben
 
 <ol start = "14">
-    <li>Schreiben Sie eine Funktion, welche die Argumente <code>z</code> sowie <code>opt</code> erwartet. Im Funktionskörper soll mit einer If-Anweisung gesteuert werden, welche Operation auf <code>z</code> ausgeführt werden soll:</li>
+    <li>Schreibe eine Funktion, welche die Argumente <code>z</code> und <code>opt</code> erwartet. Im Funktionskörper soll mit einer <code>if</code>-Anweisung gesteuert werden, welche Operation auf <code>z</code> ausgeführt werden soll:</li>
     <ul>
-    <li>
-    <i>WENN opt gleich "add" ist, DANN addiere die Elemente von <code>z</code>, WENN <code>opt</code> gleich "mult" ist, dann multipliziere die Elemente von <code>z</code>, andernfalls führe keine Operation aus.</i></li>
+      <li>
+      Falls <code>opt</code> gleich <code>add</code> ist, DANN addiere die Elemente von <code>z</code>, WENN <code>opt</code> gleich <code>mult</code> ist, dann multipliziere die Elemente von <code>z</code>, andernfalls führe keine Operation aus.
+      </li>
     <li>Am Ende soll die Funktion das jeweilige Ergebnis wiedergeben.</li>
     </ul>
-    <li>Schreiben Sie eine Funktion, die den MSE (mean squared error) von zwei Vektoren <code>y</code> und <code>yhat</code> (die Argumente) berechnet. Der MSE is definiert als \(\displaystyle \frac{1}{n}\sum_{i=1}^n (\hat{Y}_i - Y_i)^2\). Testen Sie Ihre Funktion anhand der beiden Vektoren \(y = {2, 4, 2, 5, 7}\) und \(\hat{y}= {2.3, 3.5, 2.1, 5.5, 7.6}\) (das Ergebnis sollte 0.192 lauten).</li>
+    <li>Schreibe eine Funktion, die den MSE (mean squared error) von zwei Vektoren <code>y</code> und <code>yhat</code> (die Argumente) berechnet. Es ist  \[MSE = \frac{1}{n}\sum_{i=1}^n (\widehat{Y}_i - Y_i)^2.\] Teste die Funktion anhand der beiden Vektoren \(Y = {2, 4, 2, 5, 7}\) und \(\widehat{Y}= {2.3, 3.5, 2.1, 5.5, 7.6}\) (das Ergebnis sollte .192 lauten).</li>
 </ol>
 
 ---
-## R Pakete
+## `r r_blue`-Pakete
 ### Pakete allgemein
 
-<br></br>
-Die Erweiterbarkeit von R ist eine seiner Stärken. Jeder kann eigene Pakete entwickeln und sie den anderen Usern zur Verfügung stellen.
+</br>
 
-[CRAN](https://cran.r-project.org/) (Comprehensive R Archive Network) ist ein verteiltes Archiv, in dem Pakete gesammelt und der breiten Öffentlichkeit zugängig gemacht werden. 
+Die Erweiterbarkeit von `r r_black` ist eine große Stärke: Jeder kann eigene Pakete entwickeln und diese weltweit anderen User*innen zur Verfügung stellen.
 
-Wer sich schon etwas mit R auskennt und sich für die Entwicklung von Paketen interessiert, dem ist das Buch  [R Packages](http://r-pkgs.had.co.nz/) von Hadley Wickham zu empfehlen.
+[CRAN](https://cran.r-project.org/) (Comprehensive R Archive Network) ist ein Online-Archiv, in dem Pakete gesammelt und der breiten Öffentlichkeit zugängig gemacht werden. 
 
 ---
-## R Pakete
-### Pakete installieren updaten und entfernen
+## `r r_blue`-Pakete
+### Pakete installieren, updaten und entfernen
 
 .font90[
-Das wichtigste (und standardmäßige) *Repository* ist der CRAN Server von RStudio.
+Das standardmäßig eingestellte *Repository* ist das CRAN des [r-project](https://cran.r-project.org/).
 
 Weitere CRAN Server: 
 - https://cloud.r-project.org/ 
 - https://cran.uni-muenster.de/ 
 
-Dort findet man die neuesten, stabilen Versionen von Paketen. Pakete auf CRAN müssen zudem bestimmte Anforderungen erfüllen.
+Dort findet Ihr die neusten, stabilen Versionen vieler Pakete. Pakete auf CRAN müssen zudem bestimmte Anforderungen erfüllen.
 
-RStudio stellt alles zur Verfügung um die eigene Paket-Bibliothek zu verwalten.
+*RStudio* stellt ein Interface für die Verwaltung eigener Paket-Bibliotheken zur Verfügung.
 
-Sollte man Pakete doch "per Hand" managen gibt es die Funktionen `install.packages()`, `update.packages()` und `remove.packages()`.
+Solltet Ihr Pakete doch "per Hand managen" wollen, gibt es die Funktionen `install.packages()`, `update.packages()` und `remove.packages()`.
 
 ```{r, eval = FALSE}
 install.packages("quantmod")        # ein Paket mit Methoden zur Analyse von Finanzdaten
@@ -609,18 +637,3 @@ update.packages()
 remove.packages(pkgs = "quantmod")
 ```
 ]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

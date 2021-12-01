@@ -1,8 +1,8 @@
 ---
-title: "R Vorkurs"
+title: "R-Vorkurs"
 subtitle: "Teil 1"
-author: "Martin Arnold & Jens Klenke"
-date: "01.04.2021"
+author: "Martin Arnold & Janine Langerbein"
+date: "04.10.2021"
 output:
   xaringan::moon_reader:
     css: ["default", "assets/sydney-fonts.css", "assets/sydney.css"]
@@ -19,8 +19,9 @@ output:
       navigation:
         scroll: true #disable slide transitions by scrolling
 ---
-class: inverse
+
 ```{r setup, include=FALSE}
+options(repos = list(CRAN = "http://cran.rstudio.com/"))
 options(htmltools.dir.version = FALSE)
 options(servr.daemon = TRUE)
 options(servr.interval = 0.5)
@@ -30,45 +31,54 @@ options(servr.interval = 0.5)
 #### required packages ####
 # packages
 suppressWarnings(source(here::here('00_packages/packages.R')))
-# icon package form Github devtools::install_github("ropenscilabs/icon")
+
+# remotes::install_github("mitchelloharawild/icons")
+library(icons)
+
+# download required icon libraries
+#icons::download_fontawesome()
+
+r_white <- icon_style(fontawesome$brands$'r-project', fill = "white")
+r_black <- icon_style(fontawesome$brands$'r-project', fill = "black")
+r_blue <- icon_style(fontawesome$brands$'r-project', fill = "#004c93")
+smiley <- icon_style(fontawesome("smile", style = "solid"), scale = 2, fill = "#004c93")
+grin_wink <- icon_style(fontawesome("grin-wink", style = "solid"), scale = 2, fill = "#004c93")
 ```
 
 
-# Übersicht 
+## Übersicht 
+
 <br> 
-1.  *R* und *RStudio*
+1. `r r_black` und *RStudio*
 1. Grundlagen 
 1. Vektoren
 1. Matrizen
+
 ---
+## `r r_blue` und *RStudio*
 
-## *R* und *RStudio*
-
-<code>R</code> ist eine freie Programmiersprache für statistische Berechnungen und Grafiken. 
-Sie wurde von Statistikern für Anwender mit statistischen Aufgaben entwickelt.
-
-<br>
 </br>
 
-## Was ist RStudio?
+R / `r r_black` ist eine freie Programmiersprache für statistische Berechnungen/Grafiken und wurde von Statistikern für Anwender mit statistischen Aufgaben entwickelt.
 
-*RStudio* ist eine integrierte Entwicklungsumgebung und grafische Benutzeroberfläche für <code>R</code>.
+</br>
 
-*RStudio* bietet eine Menge an Komfortfunktionen, die das Arbeiten mit <code>R</code> vereinfachen.  
+### Was ist *RStudio*? Brauche ich das?
 
-$\Rightarrow$ **Wir arbeiten daher mit RStudio** `r icon::fa_smile(color = '#004c93', size = 2)` 
+*RStudio* ist eine integrierte Entwicklungsumgebung und grafische Benutzeroberfläche für `r r_black`.
 
-**Wichtig: *RStudio* ist nicht gleich <code>R</code>! Ohne eine <code>R</code>-Installation bringt *RStudio* nichts.** 
+*RStudio* bietet eine Menge an Komfortfunktionen, die das Arbeiten mit `r r_black` vereinfachen.  
 
+$\Rightarrow$ **Wir arbeiten daher mit RStudio** `r smiley`  
 
-
+**Wichtig: *RStudio* ist nicht gleich `r r_black`! Ohne eine `r r_black`-Installation bringt *RStudio* nichts.** 
   
 ---
 ## Grundlagen
   
 ### Grundrechenarten
 
-<code>R</code> kann als einfacher Taschenrechner benutzt werden. 
+`r r_black` kann als einfacher Taschenrechner benutzt werden. 
 
 ```{r, results='hold'}
 5 + 7
@@ -102,16 +112,14 @@ sin(2 * pi)
 ## Grundlagen
 ### Wissenschaftliche Notation
 
+</br>
+
+`r r_black` stellt besonders große bzw. besonders kleine Zahlen mit Hilfe der [wissensschaftlichen Notation](https://de.wikipedia.org/wiki/Wissenschaftliche_Notation) dar. Die Zahl -2.449294e-16 aus dem `r r_black`-Output ist
+
 <br>
 </br>
 
-<code>R</code> stellt besonders große bzw. besonders kleine Zahlen mit Hilfe der [wissensschaftlichen Notation](https://de.wikipedia.org/wiki/Wissenschaftliche_Notation) dar. Die Zahl -2.449294e-16 aus dem
-<code>R</code>-Output ist entsprechend als
-
-<br>
-</br>
-
-$$-2.449294 \times 10^{-16} = \dfrac{-2.449294}{10.000.000.000.000.000} \approx 0$$
+$$-2.449294 \times 10^{-16} = \dfrac{-2.449294}{10.000.000.000.000.000} \approx 0.$$
 
 <br>
 </br>
@@ -121,6 +129,8 @@ $$-2.449294 \times 10^{-16} = \dfrac{-2.449294}{10.000.000.000.000.000} \approx 
 ---
 ## Grundlagen
 ### Variablen 
+
+</br>
 
 Variablen werden mit dem Zuweisungsoperator `<-` ("Kleinerzeichen" gefolgt von "Minuszeichen") erzeugt bzw. überschrieben.
 
@@ -137,9 +147,9 @@ x - y
 
 ---
 ## Grundlagen
-### Achtung!
+### Achtung &mdash; Häufiger Fehler:
 
-**Häufiger Fehler:** 
+</br>
 
 Vergessen von `*`, wenn eine Variable mit einem Skalar multipliziert werden soll. 
 
@@ -155,21 +165,25 @@ Vergessen von `*`, wenn eine Variable mit einem Skalar multipliziert werden soll
 
 **Problem:**
 
-`R` interpretiert `3x` als Variable, jedoch dürfen Variablennamen nicht mit Ziffern beginnen! Wir erhalten eine Fehlermeldung!
+`r r_black` interpretiert `3x` als Variable, jedoch dürfen Variablennamen nicht mit Ziffern beginnen! Wir erhalten eine Fehlermeldung!
 
 ---
 ## Grundlagen
 ### Kommentare 
-<br></br>
-Auf der vorherigen Folie steht im letzten Codesnippet eine kurze Erklärung angeführt von einem `#`. Dies kennzeichnet einen [Kommentar](https://de.wikipedia.org/wiki/Kommentar_(Programmierung)): 
-<br></br>
-Kommentare werden beim Ausführen des Codes nicht berücksichtigt. Wir nutzen Sie, um unseren Code (für uns und andere) verständlicher zu machen.
+
+</br>
+
+Auf der vorherigen Folie steht im letzten Codesnippet eine kurze Erklärung angeführt von einem <code>#</code>. Dies kennzeichnet einen <a href='https://de.wikipedia.org/wiki/Kommentar_(Programmierung)'>Kommentar</a>: 
+
+*Kommentare werden beim Ausführen des Codes nicht berücksichtigt. Wir nutzen Kommentare, um unseren Code (für uns und andere) verständlicher zu machen.*
 
 ---
 ## Grundlagen
 ### Datentypen
 
-Neben den Zahlen gibt es in `R` noch weitere Datentypen. Die für uns wichtigsten (Zahlen eingeschlossen) sind:  
+</br>
+
+Neben den Zahlen gibt es in `r r_black` noch weitere Datentypen. Die für uns Wichtigsten (Zahlen eingeschlossen) sind:  
 
 ```{r}
 a <- 5               # numeric (Zahlen)
@@ -183,6 +197,7 @@ class(b)
 ## Grundlagen
 ### Datentypen
 
+</br>
 
 ```{r}
 d <- TRUE            # logical (TRUE / FALSE)
@@ -199,14 +214,14 @@ Vergessen von Anführungszeichen bei Schriftzeichen und Kleinschreiben von `TRUE
 ### Erzeugen eines Vektors
 
 Bisher haben wir nur Variablen betrachtet, die einen einzigen Wert enthalten. 
-Die große Stärke von `R` sind vektor- und matrixbasierte Funktionen. 
+Die große Stärke von `r r_black` sind vektor- und matrixbasierte Funktionen. 
 
 Ein Vektor wird gewöhnlich mit der Funktion `c()` (für **c**ombine) erzeugt und besteht aus einem oder mehreren Elementen **eines** Datentyps. 
 
 ```{r}
 numeric_v   <- c(1, 4, 8)
 
-character_v <- c("Pommes", "Falaffel", "Ketchup")
+character_v <- c("Pommes", "Falafel", "Ketchup")
 
 logical_v   <- c(TRUE, FALSE, FALSE)
 
@@ -214,18 +229,18 @@ logical_v   <- c(TRUE, FALSE, FALSE)
 logical_v   <- c(T, F, F)
 ```
 
-**Achtung:** `T` und `F`sollten nicht als Varibalen verwendet werden. Die lange Version ist weniger fehleranfällig. 
+**Achtung:** `T` und `F` sollten nicht als Variablen verwendet werden (warum?). Die lange Version ist außerdem weniger fehleranfällig. 
 
 ---
 ## Vektoren 
 ### Erzeugen eines Vektors
 
-<br></br>
+</br>
 
 Insbesondere für numerische Vektoren gibt es ein paar hilfreiche Shortcuts:
-Jede der folgenden Zeilen liefert den selben Output. 
+Jede der folgenden Zeilen liefert denselben Output. 
 
-```{r, eval=3, results='hold'}
+```{r, eval = 3}
 c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 1:10
 seq(from = 1, to = 10, by = 1)
@@ -233,27 +248,30 @@ seq(from = 1, to = 10, by = 1)
 
 ---
 ## Vektoren 
-### Missing Values
+### *Missing Values*
 
-Bei echten Daten kommt es häufig vor, dass es zu einigen Beobachtungen keine Daten für manche Variablen gibt. 
+</br>
+
+Bei "echten" Daten kommt es häufig vor, dass es zu einigen Beobachtungen keine Daten für manche Variablen gibt. 
 
 **Praxisbeispiel**
 
-Angenommen in einer Umfrage wird das Alter, Geschlecht und die Körpergröße erhoben. 
+Angenommen in einer Umfrage werden die Variablen *Alter*, *Geschlecht* und *Körpergröße* erhoben. 
 
-Problem: Einer der Teilnehmer hat keine Angabe zur Körpergröße gemacht.
+Problem: Eine Person hat keine Angabe zur Körpergröße gemacht.
 
-- In `R` kann der fehlende Wert speziell codiert werden: Anstelle von einer $-99$ oder $0$ (sieht man oft in echten Datensätzen) wird für den fehlenden Wert ein `NA` eingesetzt. 
+- In `r r_black` kann der fehlende Wert speziell codiert werden: Anstelle von einer $-99$ oder $0$ (sieht man oft in echten Datensätzen) wird für den fehlenden Wert ein `NA` eingesetzt. 
 
 - Für viele Funktionen kann das Vorgehen bei *Missing Values* festlegt werden (siehe auch Übungsaufgabe 5).   
 
 ---
 ## Vektoren 
-### Missing Values
+### *Missing Values*
+
+</br>
 
 Beim Programmieren werden i.d.R. englische Namen verwendet. Meist sind diese kürzer und man vermeidet Probleme aufgrund von Umlauten. 
 
-<br> </br>
 ```{r}
 age    <- c(25, 28, 29)    
 
@@ -266,7 +284,9 @@ height <- c(184, 165, NA)
 ## Vektoren
 ### Subsetting von Vektoren 
 
-Um eine Untermenge der Elemente eines Vektors anzusprechen (auch *Subsetting* genannt), nutzen wir in eckigen Klammern eingeschlossene Indizes.
+</br>
+
+Um eine Untermenge der Elemente eines Vektors anzusprechen (*Subsetting* genannt), nutzen wir in eckigen Klammern eingeschlossene *Indizes*.
 
 ```{r}
 numeric_v[2]         # Gibt das 2. Element von numeric_v aus
@@ -280,7 +300,7 @@ logical_v[1:2]       # Gibt das 1. und 2. Element von logical_v aus
 
 **Häufiger Fehler:** Vergessen von `c()` im 2. Fall. Mehrere Indizes müssen als *Vektor* übergeben werden. 
 
-Wir können auch logische Vektoren für das Subsetting nutzen. Diese müssen dieselbe Länge haben wie der Vektor der "gesubsetted" werden soll. Es werden die Elemente herausgezogen, an deren Stellen der logische Vektor den Wert <code>TRUE</code> hat. 
+Wir können auch logische Vektoren für das Subsetting nutzen. Diese müssen dieselbe Länge haben wie der Vektor der "gesubsetted" werden soll. Es werden die Elemente ausgegeben, an deren Stellen der logische Vektor den Wert <code>TRUE</code> hat. 
 
 ```{r}
 x  <- c(7, 2, 5, 3, 9)
@@ -291,7 +311,7 @@ hv <- c(F, T, F, F, T)
 x[hv]
 ```
 
-Das ist hilfreich, da viele Funktionen einen logischen Vektor zurückgeben (z.B. `is.na()` und logische Operatoren, später mehr dazu). 
+Das ist hilfreich, da viele Funktionen einen logischen Vektor zurückgeben (z. B. `is.na()` und logische Operatoren, später mehr dazu). 
 
 ---
 ## Vektoren
@@ -299,7 +319,7 @@ Das ist hilfreich, da viele Funktionen einen logischen Vektor zurückgeben (z.B.
 
 Manchmal müssen Elemente eines Vektors *geändert* werden. Dazu nutzen wir Subsetting zusammen mit dem Zuweisungsoperator. 
 
-Beispiel: Ändere das dritte Element des Vektors `x`
+**Beispiel**: Ändere das dritte Element des Vektors `x`
 
 ```{r}
 x    <- c(7, 2, 5, 3, 9)
@@ -319,6 +339,8 @@ Wie sieht der erzeugte Vektor aus?
 ## Vektoren
 ### Vektorbasierte Funktionen 
 
+</br>
+
 Wir betrachten nun den Vektor `age`. Dieser enthält das Alter von 5 Studierenden in diesem Kurs.
 
 ```{r}
@@ -331,7 +353,9 @@ Wie können wir das Durchschnittsalter berechnen?
 ---
 ## Vektoren
 ### Vektorbasierte Funktionen 
-<br></br>
+
+</br>
+
 **Antwort:**
 
 ```{r}
@@ -339,13 +363,15 @@ age_sum <- age[1] + age[2] + age[3] + age[4] + age[5]
 age_sum / 5
 ```
 
-Dieses Vorgehen ist für kleine Vektoren noch machbar aber umständlich. Für große Vektoren ist das quasi unmöglich! 
+Dieses Vorgehen ist für kleine Vektoren machbar, aber umständlich. Für große Vektoren ist es sehr nervig und nicht mit zeitlichen Restriktionen vereinbar! 
 
 ---
 ## Vektoren
 ### Vektorbasierte Funktionen 
-<br></br>
-Bessere Alternative: *Vordefinierte Funktionen*
+
+</br>
+
+Bessere Alternative: *Vordefinierte Funktionen nutzen*:
 
 ```{r}
 # Mittelwert berechnen
@@ -362,29 +388,30 @@ mean(age)
 ---
 ## Vektoren
 ### I Need Help
-Damit haben wir schon einige `R`-Funktionen kennengelernt. Oft ist unklar, wie diese Funktionen funktionieren.
 
-$\Rightarrow$ `R`-Hilfe nutzen: 
+Damit haben wir schon einige `r r_black`-Funktionen kennengelernt. Oft ist unklar, wie diese Funktionen funktionieren.
 
-Angenommen wir sind nicht sicher, was `mean()` genau berechnet. 
+$\Rightarrow$ `r r_black`-Hilfe nutzen: 
+
+Angenommen wir sind nicht sicher, was `mean()` genau berechnet oder wie die Funktion aufgerufen werden muss. 
 
 ```{r, eval = FALSE}
 ?mean
 ```
 
-Die `R`-Hilfe ist insbesondere für Anfänger manchmal schwer zu verstehen... 
+Die `r r_black`-Hilfe ist insb. für Anfänger manchmal schwer zu verstehen... 
 
 Nicht verzweifeln, sondern einfach ein bisschen rumprobieren oder eine Suchmaschine bemühen! 
 
 
 
-**Zwei extrem wichtige Fähigkeiten beim Programmieren, die gleich schon mal geübt werden können** `r icon::fa('grin-wink', color = '#004c93', size = 2)`
+**Zwei extrem wichtige Fähigkeiten beim Programmieren, die gleich schon mal geübt werden können!** `r grin_wink`
 
 ---
 ## Vektoren
 ### Vektorbasierte Funktionen &mdash; Eine kleine Übersicht
 
-```{r, results= 'hide'}
+```{r, results = 'hide'}
 x <- c(5, 2, 1055, 101:200)
 
 length(x)       # Länge von x
@@ -410,52 +437,58 @@ seq_along(x)    # Vektor mit Indizes der Elemente von x
 ## Vektoren
 ### Übungsaufgaben zu Vektoren 
 
-1. Erzeugen Sie einen Vektor `numbers` mit den Elementen $$\{4 , 6, -3, 2.5, 18, \pi, 85\}$$
+1. Erzeuge einen Vektor `numbers` mit den Elementen $$\{4 , 6, -3, 2.5, 18, \pi, 85\}$$
 
-    *Hinweis:* Die Zahl $\pi$ ist in `R` bereits bereits als `pi` vordefiniert.
+    *Hinweis:* Die Zahl $\pi$ ist in `r r_black` bereits als `pi` vordefiniert.
 
-2. Berechnen Sie das arithmetische und das harmonische Mittel von `numbers`. 
+2. Berechne das arithmetische und das harmonische Mittel von `numbers`. 
 
-    *Hinweis:* Für einen numerischen Vektor $X$ der länge $n$ ist das arithmetische Mittel ist $\overline{X} = \frac{1}{n} \sum_{i=1}^n X_i$ und das harmonische Mittel $\overline{X}_{harm} = \frac{n}{\sum_{i=1}^n 1/X_i}$.
+    *Hinweis:* Für einen numerischen Vektor $X$ der Länge $n$ ist das arithmetische Mittel $\overline{X} = \frac{1}{n} \sum_{i=1}^n X_i$ und das harmonische Mittel $\overline{X}_{harm} = \frac{n}{\sum_{i=1}^n 1/X_i}$.
 
-3. Sie kommen zu dem Schluss, dass die höchste und die niedrigste Zahl zu verzerrten Ergebnissen führen und entscheiden darum, diese Werte zu ignorieren. Ersetzen Sie beide Werte durch `NA` und berechnen Sie die Mittelwerte aus Aufgabe 2 erneut.
+3. Wir vermuten, dass die höchste und die niedrigste Zahl zu verzerrten Ergebnissen führen und entscheiden darum, diese Werte zu ignorieren. Ersetze beide Werte durch `NA` und berechne die Mittelwerte aus Aufgabe 2 erneut.
 
 ---
 ## Vektoren
 ### Übungsaufgaben zu Vektoren 
+
+</br>
 
 <ol start="4">
-    <li>Nutzen Sie die Funktion <code>seq()</code> um die Folge $\begin{pmatrix} 0, 0.5, 1, 1.5, \ldots, 99, 99.5, 100 \end{pmatrix}$ zu erzeugen. Wie viele Elemente besitzt dieser Vektor? Überprüfen Sie Ihre Vermutung mit <code>length()</code></li>
-    <li>Erzeugen Sie einen neuen Vektor <code>characters</code> mit den Elementen $\begin{pmatrix} a & a & a  & b & b & b & b & c & c \\ \end{pmatrix}$. Finden Sie heraus, wie die Funktion <code>rep()</code> funktioniert und nutzen Sie diese.</li>
-    <li>Überschreiben Sie nun den Vektor <code>characters</code> mit $\begin{pmatrix} x & y & z & x & y & z & x & y & z \\ \end{pmatrix}$. Nutzen Sie wieder die Funktion <code>rep()</code>.</li>
-    <li>Ersetzen Sie nun alle Einträge mit dem Inhalt <code>"z"</code> durch ein <code>"v"</code>.</li>
+    <li>Nutze die Funktion <code>seq()</code> um die Folge \(\begin{pmatrix} 0, 0.5, 1, 1.5, \ldots, 99, 99.5, 100 \end{pmatrix}\) zu erzeugen. Wie viele Elemente besitzt dieser Vektor? Überprüfe Deine Vermutung mit <code>length()</code></li>
+    <li>Erzeuge einen neuen Vektor <code>characters</code> mit den Elementen \(\begin{pmatrix} a & a & a  & b & b & b & b & c & c \\ \end{pmatrix}\). Finde heraus, wie die Funktion <code>rep()</code> funktioniert und nutze diese.</li>
+    <li>Überschreibe nun den Vektor <code>characters</code> mit \(\begin{pmatrix} x & y & z & x & y & z & x & y & z \\ \end{pmatrix}\). Nutze wieder die Funktion <code>rep()</code>.</li>
+    <li>Ersetze nun alle Einträge mit dem Inhalt \(z\) durch ein \(v\).</li>
 </ol>
 
 ---
 ## Vektoren
 ### Übungsaufgaben zu Vektoren 
+
+</br>
+
 <ol start="8">
-    <li> Kopieren Sie folgenden Code in Ihr <code>R</code>-Skript und berechen Sie \(a + b\),  \(a + x\),  \(a + y\)  und \(a + z\). Finden Sie heraus, wie <code>R</code> jeweils vorgeht.</li>
+    <li> Übernehme folgenden Code und berechne \(a + b\),  \(a + x\),  \(a + y\) und \(a + z\). Finde heraus, wie `r r_black` jeweils vorgeht.</li>
 </ol>
 
 
-```{r}
-a <- c(2, 5, 7, 5, 12, 6)
-b <- c(1, 2, 3, 4, 5, 6)
-x <- c(1:2)
-y <- 3
-z <- c(1, 2, 3, 4)
-```   
+  ```{r}
+  a <- c(2, 5, 7, 5, 12, 6)
+  b <- c(1, 2, 3, 4, 5, 6)
+  x <- c(1:2)
+  y <- 3
+  z <- c(1, 2, 3, 4)
+  ```   
 
 <ol start="9">
-    <li>Erzeugen Sie einen Vektor mit den Elementen \(\begin{pmatrix} 1 & 2 & 3 & a & b \\ \end{pmatrix}\) (Also eine Mischung aus numeric und character). Was passiert? Schreiben Sie einen Kommentar.</li>
+    <li>Erzeuge einen Vektor mit den Elementen \(\begin{pmatrix} 1 & 2 & 3 & a & b \\ \end{pmatrix}\) (d.h. eine Mischung aus <code>numeric</code> und <code>character</code>). Was passiert? Schreibe einen Kommentar.</li>
 </ol>
 
 ---
 ## Matrizen
 ### Matrizen erzeugen
 
-<br></br>
+</br>
+
 Wir können mehrere Vektoren des gleichen Datentyps und gleicher Länge zu einer Matrix zusammenfassen. 
 
 ```{r}
@@ -470,7 +503,8 @@ xy
 ## Matrizen
 ### Matrizen erzeugen
 
-<br></br>
+</br>
+
 Außerdem können wir auch einen einzelnen Vektor in Matrixform bringen. 
 
 
@@ -482,9 +516,10 @@ matrix(1:6, ncol = 2)
 ## Matrizen
 ### Matrixsubsetting 
 
-Um ein Element einer Matrix anzusprechen, müssen wir **zwei** Indizes verwenden: Einen für die *Zeile* und einen für die *Spalte* des gewünschten Elements. 
+</br>
 
-<br> </br>
+Um ein einzelnes Element einer Matrix anzusprechen, müssen wir **zwei** Indizes verwenden: einen für die *Zeile* und einen für die *Spalte* des gewünschten Elements. 
+
 Das folgende Beispiel zeigt, wie man das Element in der 3. Zeile und der 2. Spalte erhält. 
 
 ```{r}
@@ -496,7 +531,8 @@ X[3, 2]
 ## Matrizen
 ### Matrixsubsetting 
 
-<br></br>
+</br>
+
 Um dieses Element zu ändern, nutzen wir wieder den Zuweisungsoperator `<-`.
 
 ```{r}
@@ -508,7 +544,9 @@ X
 ## Matrizen
 ### Matrixsubsetting 
 
-Um ganze Spalten der Matrix zu erhalten, wird der Index für die *Zeile* freigelassen.  
+<br>
+
+Um ganze Spalten einer Matrix zu erhalten, wird der Index für die *Zeile* freigelassen.  
 ```{r}
 X[, 1] # gibt die 1. Spalte zurück
 ```
@@ -523,7 +561,9 @@ X[2:3, ] # gibt die 2. und 3. Zeile zurück
 ## Matrizen
 ### Matrixalgebra &mdash; Übersicht 
 
-```{r, results='hide'}
+</br>
+
+```{r, results = 'hide'}
 A <- cbind(c(13, 4, 8), c(2, 8.2, 1))
 B <- cbind(c(9, 2.3, -1), c(12, 53, -3))
 
@@ -544,7 +584,8 @@ eigen(C)          # Eigenwerte und Eigenvektoren
 ## Matrizen
 ### Matrixbasierte Funktionen 
 
-<br></br>
+</br>
+
 Wie bei Vektoren gibt es auch eine Reihe von Funktionen für Matrizen. 
 
 ```{r, results='hide'}
@@ -561,9 +602,11 @@ rowMeans(X)  # Zeilenmittelwerte
 
 ---
 ## Matrizen
-### Übungsaufgaben zu Matriten 
+### Übungsaufgaben zu Matrizen 
 
-1. Erzeugen Sie mit dem Inputvektor `1:12` und <code>matrix()</code> folgende Matrix `X`. 
+</br>
+
+1. Erzeuge mit dem Inputvektor `1:12` und <code>matrix()</code> folgende Matrix <code>X</code>. 
 
 $$X =\begin{pmatrix} 
     1 & 2 \\ 
@@ -575,60 +618,25 @@ $$X =\begin{pmatrix}
   \end{pmatrix}$$
 
 <ol start="2">
-    <li>Nehmen Sie die Matrix aus 1. und vertauschen Sie die Spalten. Das Ergebnis soll an die Variable `Y` übergeben werden.</li>
-    <li>Berechnen Sie $XY^{T}$.</li>
+    <li>Nimm die Matrix aus 1. und vertausche die Spalten. Das Ergebnis soll an die Variable <code>Y</code> übergeben werden.</li>
+    <li>Berechne \(XY^{T}\).</li>
 </ol>
  
 
 ---
 ## Matrizen
 ### Übungsaufgaben zu Matrizen 
-<br></br>
+
+</br>
 
 <ol start="4">
-    <li>Erzeugen Sie eine \(2 \times 2\) Matrix aus der 2. und 5. Zeile der Matrix `X`.</li>
-    <li>Erzeugen Sie die Matrix `X` mit \(X <- \text{matrix}(8:-7, \text{nrow} = 4)\).</li>
+    <li>Erzeuge eine \(2 \times 2\) Matrix aus der 2. und 5. Zeile der Matrix <code>X</code>.</li>
+    <li>Erzeuge die Matrix <code>X</code> mit <code>X <- matrix(8:-7, nrow = 4)</code>.</li>
     <ul>
-    <li>Ersetzen Sie die Elemente auf der Hauptdiagonalen durch `NA`s.</li>
-    <li>Ersetzen Sie jetzt alle `NA`s in der Matrix mit dem Wert \(1\). Nutzen Sie dazu die Funktion `is.na()`.</li>
+    <li>Ersetze die Elemente auf der Hauptdiagonalen durch <code>NA</code>s.</li>
+    <li>Ersetze jetzt alle <code>NA</code>s in der Matrix durch <code>1</code>. Nutze dazu die Funktion <code>is.na()</code>.</li>
     </ul>
 </ol>
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!--
 .blue[color]

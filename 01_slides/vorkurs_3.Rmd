@@ -1,8 +1,8 @@
 ---
 title: "R-Vorkurs"
 subtitle: "Teil 3"
-author: "Martin Arnold & Jens Klenke"
-date: "15.04.2021"
+author: "Martin Arnold, Janine Langerbein, Marco Schwarzbach"
+date: "7.10.2021"
 output:
   xaringan::moon_reader:
     css: ["default", "assets/sydney-fonts.css", "assets/sydney.css"]
@@ -27,11 +27,15 @@ options(htmltools.dir.version = FALSE)
 options(servr.daemon = TRUE)
 options(servr.interval = 0.5)
 
-#xaringan::inf_mr()
+library(icons)
+
+r_white <- icon_style(fontawesome$brands$'r-project', fill = "white")
+r_black <- icon_style(fontawesome$brands$'r-project', fill = "black")
+r_blue <- icon_style(fontawesome$brands$'r-project', fill = "#004c93")
 
 #### required packages ####
 # packages
-suppressWarnings(source(here::here('neu/00_packages/packages.R')))
+suppressWarnings(source(here::here('00_packages/packages.R')))
 ```
 
 # Übersicht 
@@ -65,10 +69,10 @@ R kennt standardmäßig viele diskrete Verteilungen, z.B.
 ]
 ---
 ## Verteilungen 
-### Verteilungen - Funktionen
+### `r r_blue`-Funktionen
 
 .font90[
-Für jede Verteilung stehen hierbei vier klassische Funktionen zur Verfügung:
+Für jede Verteilung stehen vier Funktionen zur Verfügung:
 
 - Berechnung von Punktwahrscheinlichkeiten/-dichten $\Rightarrow$ Präfix .blue[d] (.blue[d]ensity)
 - Werte der Verteilungsfunktion $\Rightarrow$ Präfix .green[p] (.green[p]robability)
@@ -77,7 +81,7 @@ Für jede Verteilung stehen hierbei vier klassische Funktionen zur Verfügung:
 
 $\Longrightarrow$ Name der Funktion = Präfix + Verteilungskürzel (siehe vorherige Folie)
 
-Beispiel: 
+<b>Beispiel:</b> 
 
 - Quantil der Normalverteilung: .red[q] + norm = `qnorm()`
 - Verteilungsfunktion der Binomialverteilung: .green[p] + binom = `pbinom()`
@@ -86,7 +90,7 @@ Beispiel:
 
 ---
 ## Verteilungen 
-### Beispiel - Chi-Quadrat-Verteilung
+### Beispiel &mdash; Chi-Quadrat-Verteilung
 
 ```{r, echo = F,fig.align='center', dpi=200, out.width=500, fig.asp=2/3}
 par(mar=c(5.1, 4.1, 0, 2.1))
@@ -101,10 +105,10 @@ dchisq(12, df = 10)  # Dichte an der Stelle x=12
 
 ---
 ## Verteilungen 
-### Beispiel - Chi-Quadrat-Verteilung - Fortsetzung
+### Beispiel &mdash; Chi-Quadrat-Verteilung
 
 .font90[
-Analog erhalten wir für die gleiche Verteilung einen bestimmten Wert der Verteilungsfunktion...
+Analog erhalten wir für die gleiche Verteilung Werte der Verteilungsfunktion:
 
 ```{r}
 pchisq(8, df = 10)  # Wert der Verteilungsfunktion an der Stelle x=8
@@ -128,25 +132,24 @@ rchisq(5, df = 10)  # 5 chi^2-verteilte Zufallszahlen
 ### Seeds
 
 .font80[
-Wiederholen wir den Code von gerade, bekommen wir (wie erwartet) andere Zahlen.
+Wiederholen wir den Code von Slide 7, erhalten wir andere zufällige Zahlen.
 
 ```{r}
 rchisq(5, df = 10)
 ```
 
-Manchmal erscheint es aber sinnvoll, Ergebnisse reproduzierbar zu machen. Dann bietet es sich an, einen sog. *seed* zu benutzen. Damit können an mehreren Rechnern die selben Zufallszahlen erzeugt werden.
+Manchmal wollen wir Ergebnisse reproduzierbar machen. Dann muss ein sog. *seed* gesetzt werden. Damit können an jedem Computer die selben Zufallszahlen erzeugt werden.
+
+```{r}
+set.seed(385)      # 385 ist ein Beispiel -- probiert andere seeds aus!
+rchisq(5, df = 10)
+```
 
 ```{r}
 set.seed(385)
 rchisq(5, df = 10)
 ```
 
-```{r}
-set.seed(385)
-rchisq(5, df = 10)
-```
-
-Welchen seed man benutzt ist unerheblich, Hauptsache man benutzt denselben.
 ]
 
 ---
@@ -161,10 +164,11 @@ Neben der Erzeugung von Zufallszahlen aus vordefinierten Verteilungen, kann man 
 # Mögliche Ergebnisse definieren
 K_Z <- c('Kopf', 'Zahl')
 
-# Fünfmaliger Wurf einer fairen Münze
-sample(K_Z, size = 5, replace = TRUE)
+# Fünfmaliges Werfen einer *fairen* Münze
+# ( standardwert prob = 1/length(K_Z) )
+sample(K_Z, size = 5, replace = TRUE, prob = c(0.5, 0.5)) 
 
-# Fünfmaliger Wurf einer unfairen Münze
+# Fünfmaliges Werfen einer *unfairen* Münze
 sample(K_Z, size = 5, replace = TRUE, prob = c(0.8, 0.2))
 ```
 
@@ -173,20 +177,20 @@ sample(K_Z, size = 5, replace = TRUE, prob = c(0.8, 0.2))
 ### Übungsaufgaben
 
 .font90[
-1. Sei $X\sim t(5)$. Berechnen Sie $P(X<6)$, $P(3<X\leq7)$ und $P(X>4)$.
-2. Berechnen Sie das 0.95-Quantil einer $F(4,5)$-verteilten Zufallsvariable.
-3. Berechnen Sie die Wahrscheinlichkeit dafür, den Jackpot im Lotto zu gewinnen (d.h. 6 Richtige aus 49). Vernachlässigen Sie bei Ihrer Berechnung Zusatz- oder Superzahlen (*Hinweis*: Benutzen Sie die hypergeometrische Verteilung).
-4. Erzeugen Sie 20 $\chi^2(5)$ -verteilte Zufallszahlen ohne (!) dabei die `rchisq()`-Funktion zu benutzen 
+1. Sei $X\sim t(5)$. Berechne $P(X<6)$, $P(3<X\leq7)$ und $P(X>4)$.
+2. Berechne das 0.95-Quantil einer $F(4,5)$-verteilten Zufallsvariable.
+3. Berechne die Wahrscheinlichkeit dafür, den Jackpot im Lotto zu gewinnen (d.h. 6 Richtige aus 49). Vernachlässige Zusatz- und Superzahlen (*Hinweis*: Benutze die hypergeometrische Verteilung).
+4. Erzeuge 20 $\chi^2(5)$-verteilte Zufallszahlen ohne (!) dabei die `rchisq()`-Funktion zu benutzen 
 (*Hinweis*: $\chi^2(n)=\sum_{i=1}^n Z_i^2$ mit $Z_i\sim\mathcal{N}(0,1)$ für alle $i=1,...,n$).
-5. Ziehen Sie 10-mal standardnormalverteilte Zufallszahlen vom Umfang $n = 10000$ und berechnen Sie für jeden Durchlauf das arithmetische Mittel. Schauen Sie sich danach alle 10 Mittelwerte an. Was fällt Ihnen auf? Zusatz: Führen Sie dieselbe Aufgabe mit $X \sim t(1)$-verteilten Zufallszahlen (sog. Cauchy-Verteilung) durch. Was fällt Ihnen nun auf? Können Sie sich das Ergebnis erklären? Schauen Sie sich ggf. den Wikipedia-Eintrag zur [Cauchy-Verteilung](https://en.wikipedia.org/wiki/Cauchy_distribution) an.
-6. Zusatz: Verifizieren Sie, dass das Integral über die Dichtefunktion einer $\chi^2(15)$-verteilten Zufallsvariable 1 ist. (Zum Integrieren in R können Sie `integrate()` benutzen.)
+5. Ziehe 10 mal $n = 10000$ standardnormalverteilte Zufallszahlen und berechne für jede Ziehung das arithmetische Mittel. Betrachte alle 10 Mittelwerte. Was fällt auf? Zusatz: Wiederhole die Simulation mit $X \sim t(1)$-verteilten Zufallszahlen (Cauchy-Verteilung) Was fällt nun auf? Erkläre! (*Hinweis*: Wikipedia-Eintrag zur [Cauchy-Verteilung](https://en.wikipedia.org/wiki/Cauchy_distribution)).
+6. Zusatz: Prüfe, dass das Integral über die Dichtefunktion einer $\chi^2(15)$-verteilten Zufallsvariable 1 ist. (*Hinweis*: Nutze `integrate()` zum Integrieren einer `r r_black`-Funktion)
 ]
 
 ---
 ## Grafiken
 ### Basic Plot
 
-Mit R ist es sehr leicht Grafiken zu erstellen, z.B. einen einfachen *Scatterplot* ...
+Mit `r r_black` ist es einfach Grafiken zu erstellen, z. B. einen *Scatterplot*...
 
 ```{r, echo = -1,fig.align='center', dpi=200, out.width=600, fig.asp=2/3}
 set.seed(385)
@@ -208,12 +212,12 @@ plot(rnorm(10), type = 'l', col = 'red')
 ## Grafiken
 ### Cosmetics
 
-Neben Parametern wie `col` können auch noch viele weitere kosmetische Dinge im Plot angepasst werden, z.B.:
+Neben Argumenten wie `col` können weitere Eigenschaften des Plots angepasst werden, z.B.:
 
-- `xlab`/`ylab`: Beschriftung x- bzw y-Achse
-- `xlim`/`ylim`: Darzustellender Bereich von x- bzw. y-Achse
+- `xlab`/`ylab`: Beschriftung von x-/y-Achse
+- `xlim`/`ylim`: Darzustellender Bereich von x-/y-Achse
 - `main`/`sub`: Titel/Untertitel der Grafik
-- `pch`: Darstellung von Punkten in einer Grafik (Kreis, Quadrat, etc.)
+- `pch`: Symbol für Datenpunkte in einer Grafik (Kreis, Quadrat, Dreieck etc.)
 - `lty`/`lwd`: Darstellung (durchgezogen, gestrichelt, etc.) und Breite von Linien in einer Grafik
 - uvm. (siehe `?par`)
 
@@ -221,16 +225,16 @@ Neben Parametern wie `col` können auch noch viele weitere kosmetische Dinge im 
 ## Grafiken
 ### Mehrere Grafiken
 
-Will man mehrere Grafiken in einem Fenster darstellen, kann man dies über den Parameter `mfrow` machen
+Für mehrere Grafiken in einem plot muss der Parameter `mfrow` genutzt werden:
 
 ```{r, echo = -1, fig.align='center', dpi=200, out.width=600, fig.asp=0.3}
 par(mar = c(2.1, 4.1, 0, 2.1))
-par(mfrow = c(1, 2))  # Zwei Plots in einer Zeile (bzw. über zwei Spalten)
+par(mfrow = c(1, 2))  # Zwei Plots in einer Zeile (bzw. in zwei Spalten)
 plot(1:10, xlab = 'x', ylab = 'y')
 plot(1:10, xlab = 'x', ylab = 'y', type = 'l')
 ```
 
-Man beachte, dass dies eine globale Einstellung ist. Will man also wieder zum ursprünglichen Set-Up zurück, sollte man es über `dev.off()` zurücksetzen.
+Man beachte, dass dies eine *globale* Einstellung ist. Will man also wieder zum ursprünglichen Set-Up zurück, muss man mit `dev.off()` zurücksetzen.
 
 ---
 ## Grafiken
@@ -238,15 +242,15 @@ Man beachte, dass dies eine globale Einstellung ist. Will man also wieder zum ur
 
 `hist()`, `boxplot()`, `barplot()` und `pie()`.
 
-Beispiel:
+<b>Beispiel:</b>
 
-```{r, echo = -1, fig.align='center', dpi=200, out.width=600, fig.asp=0.6}
+```{r, fig.align='center', dpi=200, out.width=600, fig.asp=0.6}
 hist(mtcars$mpg, breaks = 5, freq = F, main = '', xlab = 'Miles per gallon')
 ```
 
 ---
 ## Grafiken
-### Funktionen die grafische Elemente hinzufügen
+### Funktionen, die grafische Elemente hinzufügen
 
 Es gibt auch Funktionen, die eine bestehende Grafik voraussetzen, bspw.
 
@@ -261,7 +265,7 @@ Bis auf `abline()` erwarten alle Funktionen X- und Y-Koordinaten.
 
 ---
 ## Grafiken
-### Funktionen die grafische Elemente hinzufügen - Beispiel
+### Funktionen, die grafische Elemente hinzufügen &mdash; Beispiel
 
 ```{r, echo=-1, fig.align='center', fig.align='center', dpi=200, out.width=650, fig.asp=0.5}
 par(mar = c(4.1, 4.1, 2, 2.1))
@@ -281,13 +285,13 @@ results <- rnorm(1000, mean = 100, sd = 15)
 ```
 
 .font90[
-1. Kopieren Sie obigen Code und nehmen Sie an, dass dieser eine IQ-Testreihe mit 1000 Probanden simuliert. Zeichnen Sie ein Histogram der Ergebnisse. Geben Sie Ihrem Plot anschließend eine passende Überschrift sowie passende Achsenbeschriftungen. Spezifieren Sie darüber hinaus den Bereich von X- und Y-Achse auf $[40,160]$ bzw. $[0,0.03]$.
+1. Kopiere obigen Code und nimm an, dass dieser eine IQ-Testreihe mit 1000 Probanden simuliert. Zeichne ein Histogram der Ergebnisse. Beschrifte den plot und setze die Bereiche von X- und Y-Achse auf $[40,160]$ und $[0,0.03]$.
 
-2. Hinterlegen Sie dem Plot die, dem IQ zugrundeliegende, theoretische Dichtefunktion, d.h. eine Normalverteilung mit $\mu=100$ und $\sigma=15$. Wählen Sie als Zeichenfarbe rot und machen Sie die einzuzeichnende Linie etwas breiter.
+2. Zeichne die zugrundeliegende theoretische Dichtefunktion, d.h. eine Normalverteilung mit $\mu=100$ und $\sigma=15$, in den Plot.
 
-3. Zeichnen Sie einen Punkt in Form eines Dreiecks an das Maximum der theoretischen Dichte. Wählen Sie als Farbe blau.
+3. Zeichne ein blaues Dreieck an das Maximum der theoretischen Dichte.
 
-4. Kennzeichnen Sie sowohl das 0.025- als auch das 0.975-Quantil der theoretischen Dichte, in dem Sie Vertikalen an diesen Punkten einzeichnen. Wählen Sie als Farbe grün.
+4. Markiere sowohl das 0.025- als auch das 0.975-Quantil der theoretischen Dichte mit vertikalen grünen Linien.
 ]
 
 ---
@@ -299,29 +303,30 @@ results <- rnorm(1000, mean = 100, sd = 15)
 .font80[
 Einfaches (univariates) lineares Regressionsmodell:
 
-$$Y_t=\beta_0+\beta_1 X_t+u_t,\quad t=1,\ldots,T$$
+$$Y_t=\beta_0+\beta_1 X_t+u_t,\quad t=1,\ldots,T,$$
   
-mit 
+wobei
 
 + $Y_t$ - Regressand (zu erklärende Variable),
 + $X_t$ - Regressor (erklärende Variable),
 + $u_t$ - Fehlerterm.
 
-über z.B. OLS können wir dann die geschätzten Koeffizienten $\widehat{\beta_0}$ und $\widehat{\beta_1}$ erhalten.
+Mit KQ-Methode können wir die Koeffizientenschätzer $\widehat{\beta_0}$ und $\widehat{\beta_1}$ erhalten.
   
-Beispiel:
+<b>Beispiel</b>:
 
-Im Datensatz **mtcars** sind etliche Informationen zu verschiedenen Automodellen hinterlegt. Wir vermuten nun, dass die Reichweite eines Autos (*mpg*) davon abhängt, wie schwer es ist (*wt*). D.h. wir haben folgendes geschätztes Modell:
+Im Datensatz **mtcars** sind reichlich Informationen zu verschiedenen Automodellen hinterlegt. Wir vermuten, dass die Reichweite eines Autos (*mpg*) davon abhängt, wie schwer es ist (*wt*). D.h. wir hätten folgendes Modell:
 
-$$\widehat{mpg_t}=\widehat{\beta_0}+\widehat{\beta_1}wt_t$$ 
+$$mpg_t=\beta_0 + \beta_1 wt_t + u_t$$ 
 
-(Welche Richtung des Zusammenhangs vermuten Sie?)
+(Welche Richtung hat dieser Zusammenhangs vermutlich?)
 ]
 
 ---
 ## Lineare Regression
 ### Parameterschätzung
-<br></br>
+
+</br>
 
 Einfache lineare Regression über `lm()` (= linear model)
 
@@ -339,7 +344,7 @@ names(model)
 ## Lineare Regression
 ### Regressionsoutput
 
-Einen kompakten Überblick über die wichtigsten Informationen erhält man auch mit `summary()`
+Einen kompakten Überblick über die wichtigsten Informationen erhält man mit `summary()`
 
 .font80[
 ```{r}
@@ -349,9 +354,8 @@ summary(model)
 
 ---
 ## Lineare Regression
-### Punktewolke und Regressionslinie
+### Punktewolke und Regressionsgerade
 
-Grafisch sieht das Ganze dann so aus:
 ```{r, fig.align='center', dpi=200, out.width=600, fig.asp=0.7}
 plot(mtcars$wt, mtcars$mpg, xlab = 'Weight', ylab = 'Miles per gallon')
 abline(model, col = 'red')
@@ -361,9 +365,9 @@ abline(model, col = 'red')
 ## Lineare Regression
 ### Vorhersage
 
-<br></br>
+</br>
 
-Haben wir das Regressionsmodell geschätzt, können wir Vorhersagen treffen. Nehmen wir an, dass ein neues Auto mit einem Gewicht von $X_{new}=3$ (in 1000 lbs) auf den Markt kommt. Was für eine Reichweite wird dieses dann in etwa haben?
+Mit dem geschätzten Modell können wir Vorhersagen machen. Angenommen ein neues Auto mit einem Gewicht von $X_{new}=3$ (in 1000 lbs) kommt auf den Markt. Was für eine Reichweite schätzen wir für dieses Auto?
 
 ```{r}
 new_weight <- data.frame(wt = 3)
@@ -375,15 +379,13 @@ predict(model, newdata = new_weight)
 ### Dummy-Variablen/Regression ohne Achsenabschnitt
 
 .font80[
-Dummyvariablen (hier Getriebeart *am* mit Automatik = 0, Manuell = 1) können über die Funktion `factor()` als zusätzlicher Regressor mitaufgenommen werden.
+Kategorische Variablen (hier Getriebeart *am* mit Automatik = 0, manuell = 1) können über die Funktion `factor()` als  Regressor mitaufgenommen werden.
 
 ```{r}
 model_wd <- lm(mpg ~ wt + factor(am), data = mtcars)
 model_wd$coefficients
 ```
    
-(Wie sind die Koeffizienten zu interpretieren?)
-
 Will man eine Regression ohne Achsenabschnitt ( $\beta_0$ ) durchführen, bedarf es einer `-1` (oder alternativ <code>+0</code> ) am Ende der Regressionsformel.
 
 ```{r}
@@ -391,7 +393,6 @@ model_wd_no_int <- lm(mpg ~ wt + factor(am) - 1, data = mtcars)
 model_wd_no_int$coefficients
 ```
    
-(Was hat sich an der Interpretation der Koeffizienten geändert?)
 ]
 
 ---
@@ -399,10 +400,11 @@ model_wd_no_int$coefficients
 ### Übungsaufgaben
 
 .font90[
-1. Betrachten Sie im Folgenden den Datensatz **faithful**, der Daten zum Old Faithful Geysir im Yellowstone Nationalpark enthält. Sowohl die Dauer einer Eruption in Min. (`eruptions`) als auch die Wartezeit bis zur nächsten Eruption in Min. (`waiting`) sind als Variable im Datensatz verfügbar. Unterstellen Sie folgendes Regressionsmodell $$\text{waiting}_t=\beta_0+\beta_1 \text{eruptions}_t + u_t$$ und schätzen Sie die entsprechenden Parameter $\widehat{\beta_0}$, $\widehat{\beta_1}$. Zeichnen Sie anschließend eine geeignete Grafik und interpretieren Sie diese.
+1. Betrachte im Folgenden den Datensatz `faithful`, der Daten zum [Old Faithful Geysir](https://de.wikipedia.org/wiki/Old_Faithful) im Yellowstone Nationalpark enthält. Sowohl die Dauer einer Eruption in Min. (`eruptions`) als auch die Wartezeit bis zur nächsten Eruption in Min. (`waiting`) sind als Variablen im Datensatz verfügbar. Unterstelle das Regressionsmodell $$\text{waiting}_t=\beta_0+\beta_1 \text{eruptions}_t + u_t$$ und schätze die Parameter $\beta_0$, $\beta_1$. Zeichne anschließend eine geeignete Grafik und interpretiere.
 
-2. Verschaffen Sie sich mit `summary()` einen Überblick über ihr in 1.) erhaltenes Ergebnis. Interpretieren Sie die geschätzten Koeffizienten und speichern Sie anschließend das $R^2$ (*Multiple R-squared*) in der Variablen `R2` ab. (Hinweis: Schauen Sie sich die, beim Ausführen von `summary()`, ausgegebene Datenstruktur genauer an.)
-3. Sie beobachten einen zusätzlichen Datenpunkt für die Dauer einer Eruption von $X_{new}=4$. Sagen Sie die entsprechende Wartezeit bis zur nächsten Eruption vorher.
+2. Erhalte mit `summary()` einen Überblick über die Regression aus 1. Interpretiere die geschätzten Koeffizienten und speichere anschließend das $R^2$ (*Multiple R-squared*) in `R2`.
+
+3. Angenommen wir beobachten einen weiteren Datenpunkt für die Dauer einer Eruption $X_{new}=4$. Triff eine Vorhersage für die Wartezeit bis zur nächsten Eruption!
 <!-- 4. Betrachten Sie nun den aus den Folien bekannten Datensatz **mtcars**. Regressieren Sie die Reichweite (*mpg*) auf die Getriebeart (*am* mit Automatik = 0, Manuell = 1) und lassen Sie den Achsenabschnitt weg. Interpretieren Sie ihr Ergebnis. -->
 ]
 
