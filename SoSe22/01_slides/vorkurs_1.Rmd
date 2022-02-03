@@ -1,7 +1,8 @@
 ---
 title: "R-Vorkurs"
 subtitle: "Teil 1"
-author: "Martin Arnold & Janine Langerbein"
+author: 
+  - "Jens Klenke"
 date: "04.10.2021"
 output:
   xaringan::moon_reader:
@@ -31,12 +32,6 @@ options(servr.interval = 0.5)
 #### required packages ####
 # packages
 suppressWarnings(source(here::here('00_packages/packages.R')))
-
-# remotes::install_github("mitchelloharawild/icons")
-library(icons)
-
-# download required icon libraries
-#icons::download_fontawesome()
 
 r_white <- icon_style(fontawesome$brands$'r-project', fill = "white")
 r_black <- icon_style(fontawesome$brands$'r-project', fill = "black")
@@ -434,6 +429,7 @@ seq_along(x)    # Vektor mit Indizes der Elemente von x
 ```
 
 ---
+class: exercise_slide
 ## Vektoren
 ### Übungsaufgaben zu Vektoren 
 
@@ -448,6 +444,7 @@ seq_along(x)    # Vektor mit Indizes der Elemente von x
 3. Wir vermuten, dass die höchste und die niedrigste Zahl zu verzerrten Ergebnissen führen und entscheiden darum, diese Werte zu ignorieren. Ersetze beide Werte durch `NA` und berechne die Mittelwerte aus Aufgabe 2 erneut.
 
 ---
+class: exercise_slide
 ## Vektoren
 ### Übungsaufgaben zu Vektoren 
 
@@ -461,6 +458,7 @@ seq_along(x)    # Vektor mit Indizes der Elemente von x
 </ol>
 
 ---
+class: exercise_slide
 ## Vektoren
 ### Übungsaufgaben zu Vektoren 
 
@@ -601,6 +599,7 @@ rowMeans(X)  # Zeilenmittelwerte
 ```
 
 ---
+class: exercise_slide
 ## Matrizen
 ### Übungsaufgaben zu Matrizen 
 
@@ -624,6 +623,7 @@ $$X =\begin{pmatrix}
  
 
 ---
+class: exercise_slide
 ## Matrizen
 ### Übungsaufgaben zu Matrizen 
 

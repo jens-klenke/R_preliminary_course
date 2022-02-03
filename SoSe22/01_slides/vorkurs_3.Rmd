@@ -1,11 +1,12 @@
 ---
 title: "R-Vorkurs"
 subtitle: "Teil 3"
-author: "Martin Arnold, Janine Langerbein, Marco Schwarzbach"
+author: 
+  - "Jens Klenke"
 date: "7.10.2021"
 output:
   xaringan::moon_reader:
-    css: ["default", "assets/sydney-fonts.css", "assets/sydney.css"]
+    css: ["default", "assets/ude-fonts.css", "assets/ude.css"]
     self_contained: true # if true, fonts will be stored locally
     seal: true # show a title slide with YAML information
     includes:
@@ -173,6 +174,7 @@ sample(K_Z, size = 5, replace = TRUE, prob = c(0.8, 0.2))
 ```
 
 ---
+class: exercise_slide
 ## Verteilungen 
 ### Übungsaufgaben
 
@@ -276,6 +278,7 @@ lines(x, y, col = 'red')
 ```
 
 ---
+class: exercise_slide
 ## Grafiken
 ### Übungsaufgaben
 
@@ -396,6 +399,7 @@ model_wd_no_int$coefficients
 ]
 
 ---
+class: exercise_slide
 ## Lineare Regression
 ### Übungsaufgaben
 

@@ -1,11 +1,12 @@
 ---
 title: "R-Vorkurs"
 subtitle: "Teil 2"
-author: "Martin Arnold & Janine Langerbein"
+author: 
+  - "Jens Klenke"
 date: "05.10.2021"
 output:
   xaringan::moon_reader:
-    css: ["default", "assets/sydney-fonts.css", "assets/sydney.css"]
+    css: ["default", "assets/ude-fonts.css", "assets/ude.css"]
     self_contained: true # if true, fonts will be stored locally
     seal: true # show a title slide with YAML information
     includes:
@@ -26,19 +27,15 @@ options(repos = list(CRAN = "http://cran.rstudio.com/"))
 options(htmltools.dir.version = FALSE)
 options(servr.daemon = TRUE)
 options(servr.interval = 0.5)
-
 #xaringan::inf_mr()
-
-library(icons)
-
-r_white <- icon_style(fontawesome$brands$'r-project', fill = "white")
-r_black <- icon_style(fontawesome$brands$'r-project', fill = "black")
-r_blue <- icon_style(fontawesome$brands$'r-project', fill = "#004c93")
-
 
 #### required packages ####
 # packages
 suppressWarnings(source(here::here('00_packages/packages.R')))
+
+r_white <- icons::icon_style(fontawesome$brands$'r-project', fill = "white")
+r_black <- icons::icon_style(fontawesome$brands$'r-project', fill = "black")
+r_blue <- icons::icon_style(fontawesome$brands$'r-project', fill = "#004c93")
 ```
 
 
@@ -105,6 +102,7 @@ x > y | x == 10
 ```
 
 ---
+class: exercise_slide
 ## Logische Operatoren
 ### Übungsaufgaben 
 
@@ -122,6 +120,7 @@ x > y | x == 10
 </ol>
 
 ---
+class: exercise_slide
 ## Logische Operatoren
 ### Übungsaufgaben 
 
@@ -138,6 +137,7 @@ x > y | x == 10
 </ol>
 
 ---
+class: exercise_slide
 ## Logische Operatoren
 ### Übungsaufgaben  
 
@@ -251,6 +251,7 @@ df
 ```
 
 ---
+class: exercise_slide
 ## Dataframes 
 ### Übungsaufgaben
 
@@ -273,6 +274,7 @@ df
 
 
 ---
+class: exercise_slide
 ## Dataframes 
 ### Übungsaufgaben
 
@@ -429,6 +431,7 @@ if (expression) {
 ```
 
 ---
+class: exercise_slide
 ## Bedingte Anweisungen
 ### Übungsaufgaben
 
@@ -494,6 +497,7 @@ while(x < 4) {
 ```
 
 ---
+class: exercise_slide
 ## Schleifen
 ### Übungsaufgaben
 
@@ -571,6 +575,7 @@ int_x          # Fehler: int_x existiert nur innerhalb der Funktion
 ]
 
 ---
+class: exercise_slide
 ## Funktionen
 ### Übungsaufgaben
 
@@ -590,6 +595,7 @@ int_x          # Fehler: int_x existiert nur innerhalb der Funktion
 
 
 ---
+class: exercise_slide
 ## Funktionen
 ### Übungsaufgaben
 
