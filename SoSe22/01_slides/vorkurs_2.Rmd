@@ -3,7 +3,7 @@ title: "R-Vorkurs"
 subtitle: "Teil 2"
 author: 
   - "Jens Klenke"
-date: "05.10.2021"
+date: "29.03.2022"
 output:
   xaringan::moon_reader:
     css: ["default", "assets/ude-fonts.css", "assets/ude.css"]
@@ -61,6 +61,8 @@ Logische Vergleiche werden für das Programmieren bedingter Anweisungen benötig
 
 Das Ergebnis logischer Vergleiche ist **immer** ein *boolscher Wert*, also `TRUE` / `FALSE` bzw. `T ` / `F `.
 
+--
+
 Die wichtigsten Operatoren im Überblick:
 ```{r, eval = FALSE}
   ==  # "ist gleich"
@@ -85,6 +87,8 @@ Hier ein paar Beispiele:
 # y <- 10
 ```
 
+--
+
 ```{r, eval = FALSE}
 x <- 5
 y <- 10
@@ -101,6 +105,9 @@ x > y | x == 10
    knitr::include_graphics('./Untitled.png', auto_pdf = FALSE)
 ```
 
+???
+
+alles logische Operatoren, die mehr oder weniger Sinn ergeben
 ---
 class: exercise_slide
 ## Logische Operatoren
@@ -119,8 +126,16 @@ class: exercise_slide
   </ul>
 </ol>
 
+???
+
+- logisches und \( \land\)
+- logisches oder \(\lor\)
+
+
+
 ---
 class: exercise_slide
+
 ## Logische Operatoren
 ### Übungsaufgaben 
 
@@ -156,6 +171,8 @@ class: exercise_slide
 
 Ein Dataframe ist eine Sammlung von Variablen, ähnlich einer Matrix. 
 
+--
+
 Am Beispiel des Datensatzes `iris`:
 
 ```{r, eval = T}
@@ -168,9 +185,13 @@ iris[1:10, ]
 
 Die Funktion `str()` liefert Informationen über die Struktur eines Objekts.
 
+--
+
 ```{r, eval = T}
 str(iris)
 ```
+
+--
 
 Wir sehen:
 
@@ -182,9 +203,15 @@ Wir sehen:
 ## Dataframes 
 ### Erstellen von Dataframes
 
+.font90[
 Ein dataframe wird mit der Funktion `data.frame()` erstellt. Hierzu übergeben wir einfach Vektoren, welche als Spalten gruppiert werden sollen. Die Spalten können benannt werden.
 
 Anders als bei Matrizen müssen die einzelnen Spalten (wie oben gesehen) nicht derselben Klasse angehören!
+]
+
+--
+
+.code90[
 
 ```{r include = FALSE}
 z <- c(1, 2, NA, 4)
@@ -199,15 +226,18 @@ df <- data.frame(
 )
 df
 ```
-
+]
 ---
 ## Dataframes 
 ### Zugriff auf Spalten und Elemente
 
-.font80[
+.font70[
 Auf die einzelnen "Zellen" eines Dataframes kann man wie bei Matrizen durch Subsetting mit `[ ]` zugreifen. Zugriff auf einzelne "Variablen/Spalten" erhält man mit `$`:
+]
 
+--
 
+.font70[
 ```{r}
 df[, 1]       # Spalte 1
 df[1, ]       # Zeile 1
@@ -223,10 +253,13 @@ df[, 1:2]     # Spalten 1 und 2
 .font80[
 ```{r}
 df$Numbers     # Spalte/Variable "Numbers"
+df$Numbers[1]  # Erster Wert in "Numbers"
 ```
 ]
 
-Subsetting:
+--
+
+#### Subsetting:
 
 .font80[
 ```{r}
@@ -243,6 +276,8 @@ df[df$Numbers > 2, ]
 
 Ein Dataframe ist nach seiner Erstellung veränderbar. Man kann Spalten und Zeilen hinzufügen oder entfernen. Das gilt auch für einzelne Zellen.
 
+--
+
 ```{r, eval = T}
 df$Greeks <- c("alpha", "beta", "gamma", "delta")   # Hinzufügen der Spalte "Greeks"
 df        <- df[-2, ]                               # Entfernen der zweiten Zeile
@@ -258,7 +293,7 @@ class: exercise_slide
 </br>
 
 <ol start = "4">
-    <li>Verschaffe Dir einen Überblick über den Datensatz <code>mtcars</code> (dieser ist bereits geladen)</li>
+    <li>Verschaffe dir einen Überblick über den Datensatz <code>mtcars</code> (dieser ist bereits geladen)</li>
     <ul>
       <li>Wie vielen Variablen hat <code>mtcars</code>? Welche Klasse haben die einzelnen Variablen?</li>
     </ul>
@@ -297,11 +332,14 @@ Listen werden mit der Funktion `list()` erzeugt. Ein **Vorteil** von Listen ist,
 
 Der Zugriff auf Listenelemente erfolgt ebenfalls mit `$`.
 
+
 ```{r, eval = FALSE}
 my.list <- list(A = 1:5, B = mtcars, C = list(letters, LETTERS))
 ```
 
 Viele Funktionen in `r r_black` geben Ergebnisse als Listen zurück.
+
+--
 
 ```{r, eval = FALSE}
 # Regressionsmodell
@@ -310,6 +348,8 @@ str(model)
 model$coefficients
 model$residuals
 ```
+
+--
 
 (Mehr dazu in Teil 3 der Veranstaltung)
 
@@ -323,9 +363,13 @@ Bedingte Anweisungen helfen uns den Programmablauf zu steuern. Die einfachste An
 if (x == 5) print("Hallo Welt!")
 ```
 
+--
+
 Dies kann man lesen wie eine natürliche Sprache:
 
-.center[ .blue[<em>FALLS</em>] `x` gleich 5 ist, .blue[<em>DANN</em>] gebe "Hallo Welt!" aus.]
+.center[ .blue[***FALLS***] `x` gleich 5 ist, .blue[***DANN***] gebe "Hallo Welt!" aus.]
+
+--
 
 Die Bedingung muss immer zu `TRUE` oder `FALSE` evaluieren. Nur falls der Ausdruck in den Klammern nach <b><code>if</code></b> wahr (<code>TRUE</code>) ist, wird der nachfolgende Code ausgeführt.
 
@@ -334,7 +378,7 @@ Die Bedingung muss immer zu `TRUE` oder `FALSE` evaluieren. Nur falls der Ausdru
 
 Wenn der auszuführende Code länger als eine Zeile ist, nutzt man *geschweifte Klammern* um einen Code-Block zu erzeugen:
 
-.font80[
+.font70[
 ```{r, eval = FALSE}
 if (x > 0) {
   # Code
@@ -343,9 +387,11 @@ if (x > 0) {
 ```
 ]
 
+--
+
 Ein paar Beispiele:
 
-.font80[
+.font70[
 ```{r, eval = FALSE}
 if ( class(x) == "numeric" ) print("x ist eine Zahl!")
 # FALLS die Klasse von x "numeric" ist, DANN gebe "x ist eine Zahl!" aus.
@@ -374,7 +420,9 @@ Falls der Ausdruck innerhalb der Klammern nicht `TRUE` ist, wird der Codeblock n
 
 Und falls wir in diesem Fall einen anderen Code ausführen wollen?
 
-.blue[<b>Lösung</b>]: Die `if`-`else`-Anweisung
+--
+
+**Lösung:** Die `if`-`else`-Anweisung
 
 ```{r, eval = F}
 if (expr) {    # Falls "expr" TRUE ist, ...
@@ -388,9 +436,9 @@ if (expr) {    # Falls "expr" TRUE ist, ...
 ## Bedingte Anweisungen
 ### `if`-`else`-Anweisung
 
-</br>
-
 Auch hierzu Beispiele:
+
+#### 1. Beispiel
 
 .font80[
 ```{r , eval = FALSE}
@@ -399,7 +447,14 @@ if (is.numeric(x) & x >= 0) {
 } else {
   print("x ist keine Zahl oder negativ!")
 }
+```
+]
 
+--
+
+#### 2. Beispiel
+.font80[
+```{r , eval = FALSE}
 if(length(z) > 0 & op == "add") {
   sum(z)
 } else if(length(z) > 0 & op == "mult") {
@@ -457,20 +512,30 @@ class: exercise_slide
 
 Es gibt drei Schleifentypen in `r r_black`: `for()`, `while()` (und `repeat()`)
 
+--
+
+.code90[
 Die `for`-Schleife hat folgenden Aufbau:
 ```{r, eval = F}
 for(var in enumeration) {
   # Schleifenkörper
 }
 ```
+]
+
+--
+
 Für jeden Wert in <code>enumeration</code> wird der Schleifenkörper einmal ausgeführt. Bei jedem Durchgang ist der aktuelle Wert aus <code>enumeration</code> in <code>var</code> zwischengespeichert.
 
+--
 
+.code90[
 ```{r, eval = F}
 for(i in 1:5) {
   cat("Number: ", i, " ", "\n")
 }
 ```
+]
 
 ---
 ## Schleifen
@@ -480,14 +545,19 @@ for(i in 1:5) {
 
 Die `while`-Schleife kann genutzt werden, wenn nicht klar ist, wie oft ein Codeabschnitt ausgeführt werden soll:
 
+.code90[
 ```{r, eval = F}
 while(condition) {
   # Schleifenkörper
 }
 ```
+]
+
+--
 
 Solange <code>condition == TRUE</code> wird der Schleifenkörper immer wieder ausgeführt. Vor dem ersten und nach jedem weiteren Durchlauf wird  <code>condition</code> erneut evaluiert.
 
+.code90[
 ```{r, eval = F}
 x <- 0
 while(x < 4) {
@@ -495,9 +565,11 @@ while(x < 4) {
   cat(x, " ", "\n")
 }
 ```
+]
 
 ---
 class: exercise_slide
+
 ## Schleifen
 ### Übungsaufgaben
 
@@ -521,6 +593,8 @@ class: exercise_slide
 
 Viele Funktionen habt ihr schon kennengelernt: `length()`, `sum()`, `min()`, `data.frame()`, ...
 
+--
+
 Eigene Funktionen werden wiefolgt definiert:
 
 .font80[
@@ -531,7 +605,10 @@ name_der_funktion <- function(arg1, arg2, ...) {
 }
 ```
 ]
-<b>Beispiel: Summe zweier Objekte</b>
+
+--
+
+#### Beispiel: Summe zweier Objekte
 
 .font80[
 ```{r, eval = T}
@@ -542,6 +619,9 @@ summe <- function(x, y) {
 summe(x = 1, y = 3)
 ```
 ]
+
+???
+wieso ist summe ein mittel guter Name für die funktion?
 
 ---
 ## Funktionen
@@ -557,6 +637,8 @@ summe <- function(x = 1, y = 3) {
 summe()
 ```
 ]
+
+--
 
 #### Environments
 
@@ -618,6 +700,8 @@ class: exercise_slide
 
 Die Erweiterbarkeit von `r r_black` ist eine große Stärke: Jeder kann eigene Pakete entwickeln und diese weltweit anderen User*innen zur Verfügung stellen.
 
+--
+
 [CRAN](https://cran.r-project.org/) (Comprehensive R Archive Network) ist ein Online-Archiv, in dem Pakete gesammelt und der breiten Öffentlichkeit zugängig gemacht werden. 
 
 ---
@@ -630,11 +714,19 @@ Das standardmäßig eingestellte *Repository* ist das CRAN des [r-project](https
 Weitere CRAN Server: 
 - https://cloud.r-project.org/ 
 - https://cran.uni-muenster.de/ 
+]
 
+--
+
+.font90[
 Dort findet Ihr die neusten, stabilen Versionen vieler Pakete. Pakete auf CRAN müssen zudem bestimmte Anforderungen erfüllen.
 
 *RStudio* stellt ein Interface für die Verwaltung eigener Paket-Bibliotheken zur Verfügung.
+]
 
+--
+
+.font90[
 Solltet Ihr Pakete doch "per Hand managen" wollen, gibt es die Funktionen `install.packages()`, `update.packages()` und `remove.packages()`.
 
 ```{r, eval = FALSE}

@@ -3,7 +3,7 @@ title: "R-Vorkurs"
 subtitle: "Teil 3"
 author: 
   - "Jens Klenke"
-date: "7.10.2021"
+date: "31.03.2022"
 output:
   xaringan::moon_reader:
     css: ["default", "assets/ude-fonts.css", "assets/ude.css"]
@@ -58,7 +58,11 @@ R kennt standardmäßig viele diskrete Verteilungen, z.B.
 - Hypergeometrische Verteilung (`hyper`)
 - Poisson-Verteilung (`pois`)
 - ...
+]
 
+--
+
+.font80[
 ...sowie stetige Verteilungen:
 
 - Normalverteilung (`norm`)
@@ -79,10 +83,19 @@ Für jede Verteilung stehen vier Funktionen zur Verfügung:
 - Werte der Verteilungsfunktion $\Rightarrow$ Präfix .green[p] (.green[p]robability)
 - Berechnen von Quantilen $\Rightarrow$ Präfix .red[q] (.red[q]uantile)
 - Erzeugen von 'Zufallszahlen' $\Rightarrow$ Präfix .orange[r] (.orange[r]andom)
+]
+
+--
+
 
 $\Longrightarrow$ Name der Funktion = Präfix + Verteilungskürzel (siehe vorherige Folie)
 
-<b>Beispiel:</b> 
+
+--
+
+.font90[
+
+#### Beispiel:
 
 - Quantil der Normalverteilung: .red[q] + norm = `qnorm()`
 - Verteilungsfunktion der Binomialverteilung: .green[p] + binom = `pbinom()`
@@ -100,6 +113,8 @@ lines(c(12, 12),c(-2, dchisq(12, 10)), col = "red", lwd = 2)
 lines(c(-2, 12),rep(dchisq(12, 10), 2), col = "red", lwd = 2)
 ```
 
+--
+
 ```{r}
 dchisq(12, df = 10)  # Dichte an der Stelle x=12
 ```
@@ -114,13 +129,21 @@ Analog erhalten wir für die gleiche Verteilung Werte der Verteilungsfunktion:
 ```{r}
 pchisq(8, df = 10)  # Wert der Verteilungsfunktion an der Stelle x=8
 ```
+]
 
+--
+
+.font90[
 ...ein bestimmtes Quantil
 
 ```{r}
 qchisq(0.5, df = 10)  # 0.5-Quantil der Verteilung
 ```
+]
 
+--
+
+.font90[
 ...sowie Zufallszahlen
 
 ```{r}
@@ -138,9 +161,16 @@ Wiederholen wir den Code von Slide 7, erhalten wir andere zufällige Zahlen.
 ```{r}
 rchisq(5, df = 10)
 ```
+]
 
-Manchmal wollen wir Ergebnisse reproduzierbar machen. Dann muss ein sog. *seed* gesetzt werden. Damit können an jedem Computer die selben Zufallszahlen erzeugt werden.
+--
 
+.font80[
+Manchmal wollen wir Ergebnisse reproduzierbar machen. Dann muss ein sog. *seed* gesetzt werden. Damit können an jedem Computer die selben Zufallszahlen erzeugt werden.]
+
+--
+
+.font80[
 ```{r}
 set.seed(385)      # 385 ist ein Beispiel -- probiert andere seeds aus!
 rchisq(5, df = 10)
@@ -157,21 +187,41 @@ rchisq(5, df = 10)
 ## Verteilungen 
 ### <code>sample()</code>
 
+.font80[
 Neben der Erzeugung von Zufallszahlen aus vordefinierten Verteilungen, kann man auch 'eigene' Zufallsexperimente durchführen
+]
+
+--
+
+.font80[
+#### Beispiel Münzwurf:
+
 
 ```{r}
-# Beispiel Münzwurf:
-
 # Mögliche Ergebnisse definieren
 K_Z <- c('Kopf', 'Zahl')
+```
+]
 
-# Fünfmaliges Werfen einer *fairen* Münze
-# ( standardwert prob = 1/length(K_Z) )
+--
+
+.font80[
+Fünfmaliges Werfen einer *fairen* Münze:
+
+```{r}
+# (*standardwert* prob = 1/length(K_Z) )
 sample(K_Z, size = 5, replace = TRUE, prob = c(0.5, 0.5)) 
+```
+]
 
-# Fünfmaliges Werfen einer *unfairen* Münze
+--
+
+.font80[
+Fünfmaliges Werfen einer *unfairen* Münze:
+```{r}
 sample(K_Z, size = 5, replace = TRUE, prob = c(0.8, 0.2))
 ```
+]
 
 ---
 class: exercise_slide
@@ -194,6 +244,8 @@ class: exercise_slide
 
 Mit `r r_black` ist es einfach Grafiken zu erstellen, z. B. einen *Scatterplot*...
 
+--
+
 ```{r, echo = -1,fig.align='center', dpi=200, out.width=600, fig.asp=2/3}
 set.seed(385)
 plot(rnorm(10))
@@ -205,6 +257,8 @@ plot(rnorm(10))
 
 ...oder einen Linienplot in roter Farbe
 
+--
+
 ```{r, echo = -1,fig.align='center', dpi=200, out.width=600, fig.asp=2/3}
 set.seed(385)
 plot(rnorm(10), type = 'l', col = 'red')
@@ -215,6 +269,8 @@ plot(rnorm(10), type = 'l', col = 'red')
 ### Cosmetics
 
 Neben Argumenten wie `col` können weitere Eigenschaften des Plots angepasst werden, z.B.:
+
+--
 
 - `xlab`/`ylab`: Beschriftung von x-/y-Achse
 - `xlim`/`ylim`: Darzustellender Bereich von x-/y-Achse
@@ -229,12 +285,18 @@ Neben Argumenten wie `col` können weitere Eigenschaften des Plots angepasst wer
 
 Für mehrere Grafiken in einem plot muss der Parameter `mfrow` genutzt werden:
 
+--
+
 ```{r, echo = -1, fig.align='center', dpi=200, out.width=600, fig.asp=0.3}
 par(mar = c(2.1, 4.1, 0, 2.1))
 par(mfrow = c(1, 2))  # Zwei Plots in einer Zeile (bzw. in zwei Spalten)
 plot(1:10, xlab = 'x', ylab = 'y')
 plot(1:10, xlab = 'x', ylab = 'y', type = 'l')
 ```
+
+--
+
+<br>
 
 Man beachte, dass dies eine *globale* Einstellung ist. Will man also wieder zum ursprünglichen Set-Up zurück, muss man mit `dev.off()` zurücksetzen.
 
@@ -244,7 +306,9 @@ Man beachte, dass dies eine *globale* Einstellung ist. Will man also wieder zum 
 
 `hist()`, `boxplot()`, `barplot()` und `pie()`.
 
-<b>Beispiel:</b>
+--
+
+#### Beispiel: 
 
 ```{r, fig.align='center', dpi=200, out.width=600, fig.asp=0.6}
 hist(mtcars$mpg, breaks = 5, freq = F, main = '', xlab = 'Miles per gallon')
@@ -256,12 +320,16 @@ hist(mtcars$mpg, breaks = 5, freq = F, main = '', xlab = 'Miles per gallon')
 
 Es gibt auch Funktionen, die eine bestehende Grafik voraussetzen, bspw.
 
+--
+
 - `lines()`
 - `points()`
 - `abline()`
 - `legend()`
 - `text()`
 - `arrows()`
+
+--
 
 Bis auf `abline()` erwarten alle Funktionen X- und Y-Koordinaten.
 
@@ -303,6 +371,7 @@ results <- rnorm(1000, mean = 100, sd = 15)
 ### Modell
 
 <!--Hauptaufgabe der Ökonometrie ist es, ?konomische Zusammenh?nge zu quantifizieren. Das Herzstück dabei bildet die Regressionsanalyse.-->
+
 .font80[
 Einfaches (univariates) lineares Regressionsmodell:
 
@@ -315,14 +384,20 @@ wobei
 + $u_t$ - Fehlerterm.
 
 Mit KQ-Methode können wir die Koeffizientenschätzer $\widehat{\beta_0}$ und $\widehat{\beta_1}$ erhalten.
-  
-<b>Beispiel</b>:
+]
+
+--
+
+.font80[
+
+#### Beispiel:
 
 Im Datensatz **mtcars** sind reichlich Informationen zu verschiedenen Automodellen hinterlegt. Wir vermuten, dass die Reichweite eines Autos (*mpg*) davon abhängt, wie schwer es ist (*wt*). D.h. wir hätten folgendes Modell:
 
 $$mpg_t=\beta_0 + \beta_1 wt_t + u_t$$ 
 
 (Welche Richtung hat dieser Zusammenhangs vermutlich?)
+
 ]
 
 ---
@@ -337,6 +412,8 @@ Einfache lineare Regression über `lm()` (= linear model)
 model <- lm(mpg ~ wt, data = mtcars)
 ```
 
+--
+
 Die Ergebnisse werden in einer Liste gespeichert
 
 ```{r}
@@ -349,7 +426,9 @@ names(model)
 
 Einen kompakten Überblick über die wichtigsten Informationen erhält man mit `summary()`
 
-.font80[
+--
+
+.font75[
 ```{r}
 summary(model)
 ```
@@ -372,10 +451,15 @@ abline(model, col = 'red')
 
 Mit dem geschätzten Modell können wir Vorhersagen machen. Angenommen ein neues Auto mit einem Gewicht von $X_{new}=3$ (in 1000 lbs) kommt auf den Markt. Was für eine Reichweite schätzen wir für dieses Auto?
 
+--
+
 ```{r}
 new_weight <- data.frame(wt = 3)
 predict(model, newdata = new_weight)
 ```
+
+???
+was erwartet predict
 
 ---
 ## Lineare Regression
@@ -383,14 +467,24 @@ predict(model, newdata = new_weight)
 
 .font80[
 Kategorische Variablen (hier Getriebeart *am* mit Automatik = 0, manuell = 1) können über die Funktion `factor()` als  Regressor mitaufgenommen werden.
+]
 
+--
+
+.font80[
 ```{r}
 model_wd <- lm(mpg ~ wt + factor(am), data = mtcars)
 model_wd$coefficients
 ```
-   
-Will man eine Regression ohne Achsenabschnitt ( $\beta_0$ ) durchführen, bedarf es einer `-1` (oder alternativ <code>+0</code> ) am Ende der Regressionsformel.
+]
 
+--
+.font80[
+Will man eine Regression ohne Achsenabschnitt ( $\beta_0$ ) durchführen, bedarf es einer `-1` (oder alternativ <code>+0</code> ) am Ende der Regressionsformel.
+]
+
+--
+.font80[
 ```{r}
 model_wd_no_int <- lm(mpg ~ wt + factor(am) - 1, data = mtcars)
 model_wd_no_int$coefficients
@@ -411,14 +505,3 @@ class: exercise_slide
 3. Angenommen wir beobachten einen weiteren Datenpunkt für die Dauer einer Eruption $X_{new}=4$. Triff eine Vorhersage für die Wartezeit bis zur nächsten Eruption!
 <!-- 4. Betrachten Sie nun den aus den Folien bekannten Datensatz **mtcars**. Regressieren Sie die Reichweite (*mpg*) auf die Getriebeart (*am* mit Automatik = 0, Manuell = 1) und lassen Sie den Achsenabschnitt weg. Interpretieren Sie ihr Ergebnis. -->
 ]
-
-
-
-
-
-
-
-
-
-
-
