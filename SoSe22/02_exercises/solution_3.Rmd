@@ -1,13 +1,13 @@
 ---
 title: 'R Propädeutikum'
-author: 'Martin Arnold'
-author2: 'Janine Langerbein und Marco Schwarzbach'
+author: 'Jens Klenke'
+author2: ''
 subtitle: 'Lösung Übungsaufgaben 3'
-semester: 'Wintersemester 2020/2021'
+semester: 'Wintersemester 2022'
 output:
   pdf_document:
     keep_tex: yes
-    template: ../template.tex
+    template: template.tex
     fig_caption: yes
     citation_package: biblatex
     number_sections: true
@@ -33,7 +33,7 @@ options(width = 70)
 
 #options(kableExtra.latex.load_packages = FALSE)
 #### required packages ####
-source(here::here("packages/packages.R"))
+source(here::here("00_packages/packages.R"))
 ```
 
 # Verteilungen und Zufallszahlen
@@ -83,12 +83,12 @@ source(here::here("packages/packages.R"))
 *Hinweis*: $\chi^2(n)=\sum_{i=1}^n Z_i^2$ mit $Z_i\sim\mathcal{N}(0,1)$ für alle $i=1,...,n$.
 
 ```{r}
-    # seed damit bei beiden Befehlen die Ergenisse gleich sind
+    # seed damit bei beiden Befehlen die Ergebnisse gleich sind
     set.seed(1549) 
     # schnell: 
     replicate(20, sum(rnorm(5)^2))
     
-    # seed damit bei beiden Befehlen die Ergenisse gleich sind
+    # seed damit bei beiden Befehlen die Ergebnisse gleich sind
     set.seed(1549)
     # mit schleife:
     rn <- numeric()
@@ -111,7 +111,7 @@ source(here::here("packages/packages.R"))
 
 Alle 10 Mittelwerte liegen sehr nahe bei 0. Nicht überraschend, da wir Zufallszahlen mit Erwartungswert 0 ziehen.
 
-**Zusatzaufgabe**: Wdh. mit Chauchy-Verteilung
+**Zusatzaufgabe**: Wdh. mit Cauchy-Verteilung
 
 ```{r}    
     cauchy <- numeric()
@@ -138,7 +138,7 @@ set.seed(385)
 results <- rnorm(1000, mean = 100, sd = 15)
 ```
 
-## Kopiere obigen Code und nimm an, dass dieser eine IQ-Testreihe mit 1000 Probanden simuliert. Zeichne ein Histogram der Ergebnisse. Beschrifte den Plot und setze die Bereich von x- und y-Achse auf $[40,160]$ bzw. $[0,0.03]$.
+## Kopieren Sie obigen Code und nehmen Sie an, dass dieser eine IQ-Testreihe mit 1000 Probanden simuliert. Zeichnen Sie ein Histogramm der Ergebnisse. Geben Sie Ihrem Plot anschließend eine passende Überschrift sowie passende Achsenbeschriftungen. Spezifizieren Sie darüber hinaus den Bereich von x- und y-Achse auf $[40,160]$ bzw. $[0,0.03]$.
 
 ```{r}
     set.seed(385)
@@ -154,7 +154,7 @@ results <- rnorm(1000, mean = 100, sd = 15)
 
 
 
-## Zeichne die zugrundeliegende, theoretische Dichtefunktion, d.h. eine Normalverteilung mit $\mu=100$ und $\sigma=15$, in den plot.
+## Hinterlegen Sie dem Plot die dem IQ zugrundeliegende, theoretische Dichtefunktion, d.h. eine Normalverteilung mit $\mu=100$ und $\sigma=15$. Wählen Sie als Zeichenfarbe Rot und machen Sie die einzuzeichnende Linie etwas breiter.
 
 ```{r}
     set.seed(385)
@@ -168,7 +168,7 @@ results <- rnorm(1000, mean = 100, sd = 15)
 ```
 
 
-## Zeichne ein blaues Dreieck an das Maximum der theoretischen Dichte.
+## Zeichnen Sie einen Punkt in Form eines Dreiecks an das Maximum der theoretischen Dichte. Wählen Sie als Farbe Blau.
 
 ```{r}
     hist(results, 
@@ -194,7 +194,7 @@ results <- rnorm(1000, mean = 100, sd = 15)
 ```
 
 
-## Markiere sowohl das 0.025- als auch das 0.975-Quantil der theoretischen Dichte mit vertikalen grünen Linien.
+## Kennzeichnen Sie sowohl das 0.025- als auch das 0.975-Quantil der theoretischen Dichte, in dem Sie Vertikalen an diesen Punkten einzeichnen. Wählen Sie als Farbe Grün.
 
 ```{r}
 
@@ -222,7 +222,7 @@ results <- rnorm(1000, mean = 100, sd = 15)
 
 # Lineare Regression
 
-## Betrachte im Folgenden den Datensatz `faithful`, der Daten zum Old Faithful Geysir im Yellowstone Nationalpark enthält. Sowohl die Dauer einer Eruption in Min. (`eruptions`) als auch die Wartezeit bis zur nächsten Eruption in Min. (`waiting`) sind als Variablen im Datensatz verfügbar. Unterstelle das untenstehende Regressionsmodell und schätze die Parameter $\beta_0$, $\beta_1$. Zeichne anschließend eine geeignete Grafik und interpretiere.
+## Betrachten Sie im Folgenden den Datensatz `faithful`, der Daten zum Old Faithful Geysir im Yellowstone Nationalpark enthält. Sowohl die Dauer einer Eruption in Min. (`eruptions`) als auch die Wartezeit bis zur nächsten Eruption in Min. (`waiting`) sind als Variable im Datensatz verfügbar. Unterstellen Sie nachfolgendes Regressionsmodell und schätzen Sie die entsprechenden Parameter $\widehat{\beta_0}$, $\widehat{\beta_1}$. Zeichnen Sie anschließend eine geeignete Grafik und interpretieren Sie diese.
 
 \begin{align*}
   \text{waiting}_t = \beta_0+\beta_1 \text{eruptions}_t + u_t 
@@ -241,7 +241,7 @@ results <- rnorm(1000, mean = 100, sd = 15)
 
 Grundsätzlich: Je länger die Dauer einer Eruption ist, desto länger ist die Wartezeit bis zur nächsten Eruption.
     
-## Erhalte mit `summary()` einen Überblick über die Regression aus 3.1. Interpretiere die geschätzten Koeffizienten und speichere anschließend das $R^2$ (*Multiple R-squared*) in `R2`.
+## Verschaffen Sie sich mit `summary()` einen Überblick über ihr in 3.1) erhaltenes Ergebnis. Interpretieren Sie die geschätzten Koeffizienten und speichern Sie anschließend das $R^2$ (*Multiple R-squared*) in der Variablen `R2` ab. (Hinweis: Schauen Sie sich die, beim Ausführen von `summary()`, ausgegebene Datenstruktur genauer an.)
 
 ```{r}
     summary(model_ff)
@@ -265,7 +265,7 @@ Grundsätzlich: Je länger die Dauer einer Eruption ist, desto länger ist die W
 
 Summary erstellt ebenfalls eine Liste, in der u. a. auch das $R^2$ enthalten ist.
 
-## Amgemommen wir beobachten einen weiteren Datenpunkt für die Dauer einer Eruption von $X_{new}=4$. Triff eine Vorhersage für die Wartezeit bis zur nächsten Eruption!
+## Angenommen Sie beobachten einen zusätzlichen Datenpunkt für die Dauer einer Eruption von $X_{new}=4$. Sagen Sie die entsprechende Wartezeit bis zur nächsten Eruption vorher.
 
 ```{r}
     new_value <- data.frame(eruptions = 4)

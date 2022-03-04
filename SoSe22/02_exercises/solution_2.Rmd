@@ -1,13 +1,13 @@
 ---
 title: 'R Propädeutikum'
-author: 'Martin Arnold'
-author2: 'Jens Klenke'
-subtitle: 'Lösung Arbeitsblatt 2'
-semester: "Sommersemester 2020/2021"
+author: 'Jens Klenke'
+author2: ''
+subtitle: 'Lösung Übungsaufgaben 2'
+semester: "Sommersemester 2022"
 output:
   pdf_document:
     keep_tex: yes
-    template: ../template.tex
+    template: template.tex
     fig_caption: yes
     citation_package: biblatex
     number_sections: true
@@ -33,7 +33,7 @@ options(width = 70)
 
 #options(kableExtra.latex.load_packages = FALSE)
 #### required packages ####
-source(here::here("packages/packages.R"))
+source(here::here("00_packages/packages.R"))
 ```
 
 # Sind die folgenden Ausdrücke `TRUE` oder `FALSE`?

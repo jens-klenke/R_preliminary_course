@@ -1,13 +1,13 @@
 ---
 title: 'R-Propädeutikum'
-author: 'Martin Arnold'
-author2: 'Janine Langerbein'
-subtitle: 'Lösung Arbeitsblatt 1'
-semester: "Wintersemester 2021"
+author: 'Jens Klenke'
+author2: ''
+subtitle: 'Lösung Übungsaufgaben 1'
+semester: "Sommersemester 2022"
 output:
   pdf_document:
     keep_tex: yes
-    template: ../template.tex
+    template: template.tex
     fig_caption: yes
     citation_package: biblatex
     number_sections: true
@@ -33,7 +33,7 @@ options(width = 70)
 
 #options(kableExtra.latex.load_packages = FALSE)
 #### required packages ####
-source(here::here("packages/packages.R"))
+source(here::here("00_packages/packages.R"))
 ```
 
 # Übungsaufgaben zu Vektoren 
@@ -168,7 +168,7 @@ Achtung: $a$ und $z$ haben nicht die gleiche Länge und $a$ ist kein vielfaches 
     class(v)
 ```
 
-`R` nimmt immer die best mögliche Klasse (die Klasse, welche die meisten "Berechnungen" zulässt, vgl. Skalenniveau), in der die Elemente vereint werden können. In diesem Fall ist es die Klasse `character`. 
+`R` nimmt immer die bestmöglichste Klasse (die Klasse, welche die meisten "Berechnungen" zulässt, vgl. Skalenniveau), in der die Elemente vereint werden können. In diesem Fall ist es die Klasse `character`. 
   
 
 \vspace{0.5cm}
@@ -222,13 +222,17 @@ $$ X = \begin{pmatrix} 1 & 2 \\ 3 & 4\\ 5 & 6 \\ 7 & 8 \\
 
 Es wird jetzt `nrow` und nicht `ncol` benutzt. Außerdem wurde eine abfallende Folge von natürlichen Zahlen mithilfe von `:` erzeugt.
 
-Ersetze die Elemente auf der Hauptdiagonalen durch `NA`s.
+\begin{enumerate} 
+  \item Ersetze die Elemente auf der Hauptdiagonalen durch `NA`s.
+\end{enumerate}
 
 ```{r}
     diag(X) <- NA
 ```
 
-Ersetze jetzt alle `NA`s in der Matrix mit dem Wert $1$. Nutze dazu die Funktion `is.na()`.
+\begin{enumerate} \setcounter{enumi}{1}
+  \item Ersetze jetzt alle `NA`s in der Matrix mit dem Wert $1$. Nutze dazu die Funktion `is.na()`.
+\end{enumerate}
 
 ```{r}
     X[is.na(X)] <- 1

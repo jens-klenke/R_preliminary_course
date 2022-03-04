@@ -1,9 +1,9 @@
 ---
 title: 'R Propädeutikum'
-author: 'Martin Arnold'
-author2: 'Jens Klenke'
-subtitle: 'Arbeitsblatt 1'
-semester: "Sommersemester 2021"
+author: 'Jens Klenke'
+author2: ''
+subtitle: 'Übungsaufgaben 1'
+semester: "Sommersemester 2022"
 output:
   pdf_document:
     keep_tex: yes
@@ -95,7 +95,7 @@ $$X = \begin{pmatrix} 1 & 2 \\ 3 & 4\\ 5 & 6 \\ 7 & 8 \\
 
 ##  Erzeugen Sie die Matrix $X$ mit `X <- matrix(8:-7, nrow = 4)`.
 
-Ersetzen Sie die Elemente auf der Hauptdiagonalen durch `NA`s. 
+1. Ersetzen Sie die Elemente auf der Hauptdiagonalen durch `NA`s. 
 
-Ersetzen Sie jetzt alle `NA`s in der Matrix mit dem Wert $1$. Nutzen Sie dazu die Funktion `is.na()`.
+1. Ersetzen Sie jetzt alle `NA`s in der Matrix mit dem Wert $1$. Nutzen Sie dazu die Funktion `is.na()`.
 
