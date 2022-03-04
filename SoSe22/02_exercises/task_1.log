@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.3.4)  4 MAR 2022 11:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.3.4)  4 MAR 2022 13:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1148,19 +1148,19 @@ LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.95> not available
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10.95> on input line 274.
 
-Underfull \hbox (badness 10000) in paragraph at lines 294--294
+Underfull \hbox (badness 10000) in paragraph at lines 302--302
 |[]\T1/lmss/bx/n/10.95 (+20) Nutzen Sie die Funk-tion \T1/lmtt/b/n/10.95 seq() 
 \T1/lmss/bx/n/10.95 (+20) um die Folge
  []
 
 
-Overfull \hbox (13.28896pt too wide) in paragraph at lines 302--302
+Overfull \hbox (13.28896pt too wide) in paragraph at lines 310--310
 |[]\T1/lmss/bx/n/10.95 (-20) Erzeugen Sie einen neuen Vek-tor \T1/lmtt/b/n/10.9
 5 characters \T1/lmss/bx/n/10.95 (-20) mit den El-e-menten $[]$.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 309--309
+Underfull \hbox (badness 10000) in paragraph at lines 317--317
 |[]\T1/lmss/bx/n/10.95 (+20) Überschreiben Sie jetzt den Vek-tor \T1/lmtt/b/n/1
 0.95 characters \T1/lmss/bx/n/10.95 (+20) mit
  []
@@ -1177,30 +1177,33 @@ Package logreq Info: Writing requests to 'task_1.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 25614 strings out of 478276
- 444419 string characters out of 5850490
- 1347213 words of memory out of 5000000
- 43295 multiletter control sequences out of 15000+600000
- 512669 words of font info for 87 fonts, out of 8000000 for 9000
+ 25622 strings out of 478276
+ 444532 string characters out of 5850490
+ 1344219 words of memory out of 5000000
+ 43298 multiletter control sequences out of 15000+600000
+ 517189 words of font info for 90 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  60i,9n,78p,1364b,7157s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/texlive/2021
-/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/texlive/2021/texmf-dist/fonts/enc/
+{c:/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/texlive/2021/tex
+mf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/texlive/2021/texmf-dist/fonts/enc/
 dvips/lm/lm-ec.enc}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc
 }{c:/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}<c:/texlive/2021/
 texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/texlive/2021/texmf-dist/fonts/t
 ype1/public/lm/lmex10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmm
 i10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmmi12.pfb><c:/texliv
-e/2021/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/texlive/2021/texmf-dist/f
-onts/type1/public/lm/lmr10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/l
-m/lmr12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb><c:/
-texlive/2021/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/texlive/2021/texmf
--dist/fonts/type1/public/lm/lmtk10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/
-public/lm/lmtt12.pfb>
-Output written on task_1.pdf (2 pages, 202498 bytes).
+e/2021/texmf-dist/fonts/type1/public/lm/lmmi6.pfb><c:/texlive/2021/texmf-dist/f
+onts/type1/public/lm/lmmi8.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/l
+m/lmr10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/tex
+live/2021/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/texlive/2021/texmf-dist
+/fonts/type1/public/lm/lmr8.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/
+lm/lmri12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb><c
+:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/texlive/2021/tex
+mf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/texlive/2021/texmf-dist/fonts/type
+1/public/lm/lmtt12.pfb>
+Output written on task_1.pdf (2 pages, 258106 bytes).
 PDF statistics:
- 178 PDF objects out of 1000 (max. 8388607)
- 146 compressed objects within 2 object streams
+ 198 PDF objects out of 1000 (max. 8388607)
+ 158 compressed objects within 2 object streams
  37 named destinations out of 1000 (max. 500000)
- 24716 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 26764 words of extra memory for PDF output out of 29859 (max. 10000000)
 

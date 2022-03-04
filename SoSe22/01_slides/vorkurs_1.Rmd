@@ -510,15 +510,15 @@ class: exercise_slide
 ## Vektoren
 ### Übungsaufgaben zu Vektoren 
 
-1. Erzeuge einen Vektor `numbers` mit den Elementen $$\{4 , 6, -3, 2.5, 18, \pi, 85\}$$
+1. Erzeugen Sie einen Vektor \texttt{numbers} mit den Elementen $\begin{pmatrix} 4 & 6 & -3 & 2.5 & 18 & \pi &  85 \end{pmatrix}$.
 
     *Hinweis:* Die Zahl $\pi$ ist in `r r_black` bereits als `pi` vordefiniert.
 
-2. Berechne das arithmetische und das harmonische Mittel von `numbers`. 
+2. Berechnen Sie das arithmetische und das harmonische Mittel von \texttt{numbers}. 
 
     *Hinweis:* Für einen numerischen Vektor $X$ der Länge $n$ ist das arithmetische Mittel $\overline{X} = \frac{1}{n} \sum_{i=1}^n X_i$ und das harmonische Mittel $\overline{X}_{harm} = \frac{n}{\sum_{i=1}^n 1/X_i}$.
 
-3. Wir vermuten, dass die höchste und die niedrigste Zahl zu verzerrten Ergebnissen führen und entscheiden darum, diese Werte zu ignorieren. Ersetze beide Werte durch `NA` und berechne die Mittelwerte aus Aufgabe 2 erneut.
+3. Sie kommen zu dem Schluss, dass die höchste und die niedrigste Zahl die Schätzung verzerren und entscheiden darum, diese Werte zu ignorieren. Ersetzen Sie beide Werte durch `NA` und berechnen Sie die Mittelwerte aus Aufgabe 2 erneut.
 
 ---
 class: exercise_slide
@@ -528,10 +528,10 @@ class: exercise_slide
 </br>
 
 <ol start="4">
-    <li>Nutze die Funktion <code>seq()</code> um die Folge \(\begin{pmatrix} 0, 0.5, 1, 1.5, \ldots, 99, 99.5, 100 \end{pmatrix}\) zu erzeugen. Wie viele Elemente besitzt dieser Vektor? Überprüfe Deine Vermutung mit <code>length()</code></li>
-    <li>Erzeuge einen neuen Vektor <code>characters</code> mit den Elementen \(\begin{pmatrix} a & a & a  & b & b & b & b & c & c \\ \end{pmatrix}\). Finde heraus, wie die Funktion <code>rep()</code> funktioniert und nutze diese.</li>
-    <li>Überschreibe nun den Vektor <code>characters</code> mit \(\begin{pmatrix} x & y & z & x & y & z & x & y & z \\ \end{pmatrix}\). Nutze wieder die Funktion <code>rep()</code>.</li>
-    <li>Ersetze nun alle Einträge mit dem Inhalt \(z\) durch ein \(v\).</li>
+    <li>Nutzen Sie die Funktion <code>seq()</code> um die Folge \(\begin{pmatrix} 0, 0.5, 1, 1.5, \ldots, 99, 99.5, 100 \end{pmatrix}\) zu erzeugen. Wie viele Elemente besitzt dieser Vektor? Überprüfen Sie Ihre Vermutung mit <code>length()</code></li>
+    <liErzeugen Sie einen neuen Vektor <code>characters</code> mit den Elementen \(\begin{pmatrix} a & a & a  & b & b & b & b & c & c \\ \end{pmatrix}\).  Finden Sie dazu heraus wie die Funktion <code>rep()</code> funktioniert und nutzen Sie diese.</li>
+    <li>Überschreiben Sie jetzt den Vektor <code>characters</code> mit \(\begin{pmatrix} x & y & z & x & y & z & x & y & z \\ \end{pmatrix}\). Nutzen Sie wieder die Funktion <code>rep()</code>.</li>
+    <li>Ersetzen Sie nun alle Elemente mit dem Inhalt  \(z\) durch \(v\).</li>
 </ol>
 
 ---
@@ -542,7 +542,7 @@ class: exercise_slide
 </br>
 
 <ol start="8">
-    <li> Übernehme folgenden Code und berechne \(a + b\),  \( \; a + x\),  \( \;a + y \;\) und \(a + z\). Finde heraus, wie `r r_black` jeweils vorgeht.</li>
+    <li> Kopieren Sie folgenden Code in Ihr <code>R</code>-Skript</li>
 </ol>
 
 
@@ -553,9 +553,11 @@ class: exercise_slide
   y <- 3
   z <- c(1, 2, 3, 4)
   ```   
+Berechnen Sie nun \(a + b\),  \( a + x\),  \( a + y \) und \(a + z\). Finden Sie heraus, wie `r r_black` jeweils vorgeht und schreiben Sie einen kurzen Kommentar.
+
 
 <ol start="9">
-    <li>Erzeuge einen Vektor mit den Elementen \(\begin{pmatrix} 1 & 2 & 3 & a & b \\ \end{pmatrix}\) (d.h. eine Mischung aus <code>numeric</code> und <code>character</code>). Was passiert? Schreibe einen Kommentar.</li>
+    <li>Erzeugen Sie einen Vektor mit den Elementen \(\begin{pmatrix} 1 & 2 & 3 & a & b \\ \end{pmatrix}\)(Also eine Mischung aus <code>numeric</code> und <code>character</code>). Was passiert? Schreiben Sie einen Kommentar.</li>
 </ol>
 
 ---
@@ -691,7 +693,7 @@ class: exercise_slide
 
 </br>
 
-1. Erzeuge mit dem Inputvektor `1:12` und <code>matrix()</code> folgende Matrix <code>X</code>. 
+1. Erzeugen Sie mit dem Inputvektor `1:12` und <code>matrix()</code> folgende Matrix <code>X</code>. 
 
 $$X =\begin{pmatrix} 
     1 & 2 \\ 
@@ -703,8 +705,8 @@ $$X =\begin{pmatrix}
   \end{pmatrix}$$
 
 <ol start="2">
-    <li>Nimm die Matrix aus 1. und vertausche die Spalten. Das Ergebnis soll an die Variable <code>Y</code> übergeben werden.</li>
-    <li>Berechne \(XY^{T}\).</li>
+    <li>Nehmen Sie die Matrix aus 2.1 und vertauschen Sie die Spalten. Das Ergebnis soll an die Variable $Y$ übergeben werden. </li>
+    <li>Berechnen Sie \(XY^{T}\).</li>
 </ol>
  
 
@@ -716,11 +718,11 @@ class: exercise_slide
 </br>
 
 <ol start="4">
-    <li>Erzeuge eine \(2 \times 2\) Matrix aus der 2. und 5. Zeile der Matrix <code>X</code>.</li>
-    <li>Erzeuge die Matrix <code>X</code> mit <code>X <- matrix(8:-7, nrow = 4)</code>.</li>
+    <li>Erzeugen Sie eine \(2 \times 2\) Matrix aus der 2. und 5. Zeile der Matrix <code>X</code>.</li>
+    <li>Erzeugen Sie die Matrix <code>X</code> mit <code>X <- matrix(8:-7, nrow = 4)</code>.</li>
     <ul>
-    <li>Ersetze die Elemente auf der Hauptdiagonalen durch <code>NA</code>s.</li>
-    <li>Ersetze jetzt alle <code>NA</code>s in der Matrix durch <code>1</code>. Nutze dazu die Funktion <code>is.na()</code>.</li>
+    <li>Ersetzen Sie die Elemente auf der Hauptdiagonalen durch <code>NA</code>s.</li>
+    <li>Ersetzen Sie jetzt alle <code>NA</code>s in der Matrix durch <code>1</code>.  Nutzen Sie dazu die Funktion <code>is.na()</code>.</li>
     </ul>
 </ol>
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.3.4)  4 MAR 2022 11:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.3.4)  4 MAR 2022 14:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1113,40 +1113,41 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (c:/texlive/2021/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-<includes/duelogo_en.png, id=64, 230.8625pt x 89.33376pt>
+<includes/duelogo_en.png, id=84, 230.8625pt x 89.33376pt>
 File: includes/duelogo_en.png Graphic file (type png)
 <use includes/duelogo_en.png>
 Package pdftex.def Info: includes/duelogo_en.png  used on input line 203.
 (pdftex.def)             Requested size: 142.26315pt x 55.04965pt.
+LaTeX Font Info:    Trying to load font information for T1+lmss on input line 2
+33.
+(c:/texlive/2021/texmf-dist/tex/latex/lm/t1lmss.fd
+File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
-29.
+33.
 (c:/texlive/2021/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 229.
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 233.
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 2
-32.
+36.
 (c:/texlive/2021/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) [1
 
 
 {c:/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./includes/duel
-ogo_en.png>] [2]
+ogo_en.png>]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 327.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 327.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 327.
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 373--375
+(Font)              <10.95> on input line 340.
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 395--397
 
  []
 
-
-Underfull \hbox (badness 1062) in paragraph at lines 382--385
+[3]
+Underfull \hbox (badness 1062) in paragraph at lines 404--407
 \T1/lmr/m/n/12 (+20) Testen Sie Ihre Funk-tion an-hand der bei-den Vek-toren $\
 OML/lmm/m/it/12 y \OT1/lmr/m/n/12 (+20) = []$ \T1/lmr/m/n/12 (+20) und $[] \OT1
 /lmr/m/n/12 (+20) =
@@ -1154,38 +1155,41 @@ OML/lmm/m/it/12 y \OT1/lmr/m/n/12 (+20) = []$ \T1/lmr/m/n/12 (+20) und $[] \OT1
 
 [4] (./task_2.aux)
 Package rerunfilecheck Info: File `task_2.out' has not changed.
-(rerunfilecheck)             Checksum: AC1D43F942D7C9AF274DA8C36F762970;10409.
+(rerunfilecheck)             Checksum: 3C36BBE0E9ADCBE3923289BC5665CBD3;11851.
 Package logreq Info: Writing requests to 'task_2.run.xml'.
 \openout1 = `task_2.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 25173 strings out of 478276
- 437750 string characters out of 5850490
- 1327509 words of memory out of 5000000
- 42836 multiletter control sequences out of 15000+600000
- 518175 words of font info for 110 fonts, out of 8000000 for 9000
+ 25215 strings out of 478276
+ 438939 string characters out of 5850490
+ 1329026 words of memory out of 5000000
+ 42862 multiletter control sequences out of 15000+600000
+ 519043 words of font info for 104 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 60i,7n,78p,1219b,7157s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/texlive/2021
-/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/texlive/2021/texmf-dist/fonts/enc/
-dvips/lm/lm-ec.enc}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc
-}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/texlive/2021/
+ 60i,7n,78p,1262b,7157s stack positions out of 5000i,500n,10000p,200000b,80000s
+{c:/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/texlive/2021/tex
+mf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/texlive/2021/texmf-dist/fonts/enc/
+dvips/lm/lm-ec.enc}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc
+}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{c:/texlive/2021/
 texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}<c:/texlive/2021/texmf-dist/fonts/type
 1/public/lm/lmbx12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmex10
 .pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/texlive/2
 021/texmf-dist/fonts/type1/public/lm/lmmi12.pfb><c:/texlive/2021/texmf-dist/fon
-ts/type1/public/lm/lmmi7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/
-lmr10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/texli
-ve/2021/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/texlive/2021/texmf-dist/f
-onts/type1/public/lm/lmri12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/
-lm/lmsy10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/
-texlive/2021/texmf-dist/fonts/type1/public/lm/lmtt12.pfb><c:/texlive/2021/texmf
--dist/fonts/type1/public/lm/lmtti10.pfb>
-Output written on task_2.pdf (4 pages, 224866 bytes).
+ts/type1/public/lm/lmmi6.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/
+lmmi8.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/texli
+ve/2021/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/texlive/2021/texmf-dist/
+fonts/type1/public/lm/lmr6.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/l
+m/lmr8.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/tex
+live/2021/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb><c:/texlive/2021/texmf-
+dist/fonts/type1/public/lm/lmsy10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/p
+ublic/lm/lmsy8.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmtk10.pfb
+><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmtt12.pfb><c:/texlive/2021/
+texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
+Output written on task_2.pdf (4 pages, 287086 bytes).
 PDF statistics:
- 190 PDF objects out of 1000 (max. 8388607)
- 151 compressed objects within 2 object streams
- 35 named destinations out of 1000 (max. 500000)
- 26756 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 239 PDF objects out of 1000 (max. 8388607)
+ 192 compressed objects within 2 object streams
+ 45 named destinations out of 1000 (max. 500000)
+ 28844 words of extra memory for PDF output out of 29859 (max. 10000000)
 

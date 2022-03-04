@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.3.4)  4 MAR 2022 11:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.3.4)  4 MAR 2022 14:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1155,12 +1155,12 @@ File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 {c:/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./includes/duel
 ogo_en.png>]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 359.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 360.
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 386.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 387.
 [2] [3]
 LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
-485.
+489.
 (c:/texlive/2021/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -1170,7 +1170,7 @@ File: solution_3_files/figure-latex/unnamed-chunk-12-1.pdf Graphic file (type p
 df)
 <use solution_3_files/figure-latex/unnamed-chunk-12-1.pdf>
 Package pdftex.def Info: solution_3_files/figure-latex/unnamed-chunk-12-1.pdf  
-used on input line 493.
+used on input line 497.
 (pdftex.def)             Requested size: 301.12242pt x 208.46936pt.
 [4 <./solution_3_files/figure-latex/unnamed-chunk-12-1.pdf>]
 <solution_3_files/figure-latex/unnamed-chunk-13-1.pdf, id=124, 469.755pt x 325.
@@ -1179,7 +1179,7 @@ File: solution_3_files/figure-latex/unnamed-chunk-13-1.pdf Graphic file (type p
 df)
 <use solution_3_files/figure-latex/unnamed-chunk-13-1.pdf>
 Package pdftex.def Info: solution_3_files/figure-latex/unnamed-chunk-13-1.pdf  
-used on input line 515.
+used on input line 519.
 (pdftex.def)             Requested size: 301.12242pt x 208.46936pt.
 [5 <./solution_3_files/figure-latex/unnamed-chunk-13-1.pdf>]
 <solution_3_files/figure-latex/unnamed-chunk-14-1.pdf, id=136, 469.755pt x 325.
@@ -1188,7 +1188,7 @@ File: solution_3_files/figure-latex/unnamed-chunk-14-1.pdf Graphic file (type p
 df)
 <use solution_3_files/figure-latex/unnamed-chunk-14-1.pdf>
 Package pdftex.def Info: solution_3_files/figure-latex/unnamed-chunk-14-1.pdf  
-used on input line 547.
+used on input line 551.
 (pdftex.def)             Requested size: 301.12242pt x 208.46936pt.
 [6 <./solution_3_files/figure-latex/unnamed-chunk-14-1.pdf>]
 <solution_3_files/figure-latex/unnamed-chunk-15-1.pdf, id=148, 469.755pt x 325.
@@ -1197,7 +1197,7 @@ File: solution_3_files/figure-latex/unnamed-chunk-15-1.pdf Graphic file (type p
 df)
 <use solution_3_files/figure-latex/unnamed-chunk-15-1.pdf>
 Package pdftex.def Info: solution_3_files/figure-latex/unnamed-chunk-15-1.pdf  
-used on input line 580.
+used on input line 584.
 (pdftex.def)             Requested size: 301.12242pt x 208.46936pt.
 <solution_3_files/figure-latex/unnamed-chunk-16-1.pdf, id=149, 469.755pt x 325.
 215pt>
@@ -1205,26 +1205,26 @@ File: solution_3_files/figure-latex/unnamed-chunk-16-1.pdf Graphic file (type p
 df)
 <use solution_3_files/figure-latex/unnamed-chunk-16-1.pdf>
 Package pdftex.def Info: solution_3_files/figure-latex/unnamed-chunk-16-1.pdf  
-used on input line 613.
+used on input line 617.
 (pdftex.def)             Requested size: 301.12242pt x 208.46936pt.
 [7 <./solution_3_files/figure-latex/unnamed-chunk-15-1.pdf>]
 LaTeX Font Info:    Font shape `T1/lmss/bx/it' in size <10.95> not available
-(Font)              Font shape `T1/lmss/bx/sl' tried instead on input line 625.
+(Font)              Font shape `T1/lmss/bx/sl' tried instead on input line 629.
 
 [8 <./solution_3_files/figure-latex/unnamed-chunk-16-1.pdf>] [9] (./solution_3.
 aux)
 Package rerunfilecheck Info: File `solution_3.out' has not changed.
-(rerunfilecheck)             Checksum: A6BEA6E31F8457CE5B3AEE21A42CFD49;14910.
+(rerunfilecheck)             Checksum: DB80119EF01497119E41951743278581;15552.
 Package logreq Info: Writing requests to 'solution_3.run.xml'.
 \openout1 = `solution_3.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 25791 strings out of 478276
- 451409 string characters out of 5850490
- 1340628 words of memory out of 5000000
+ 25801 strings out of 478276
+ 451765 string characters out of 5850490
+ 1341004 words of memory out of 5000000
  43416 multiletter control sequences out of 15000+600000
- 528619 words of font info for 111 fonts, out of 8000000 for 9000
+ 529092 words of font info for 116 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  60i,10n,78p,2824b,7157s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/texlive/2021/tex
@@ -1244,7 +1244,7 @@ lm/lmssbo10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb>
 exmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/texlive/2021/texmf-dist/fonts/ty
 pe1/public/lm/lmtt12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmtt
 i10.pfb>
-Output written on solution_3.pdf (9 pages, 497620 bytes).
+Output written on solution_3.pdf (9 pages, 498489 bytes).
 PDF statistics:
  268 PDF objects out of 1000 (max. 8388607)
  208 compressed objects within 3 object streams

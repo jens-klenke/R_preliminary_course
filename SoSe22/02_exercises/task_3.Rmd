@@ -48,11 +48,11 @@ source(here::here("00_packages/packages.R"))
 
 ## Ziehen Sie 10-mal standardnormalverteilte Zufallszahlen vom Umfang $n = 10000$ und berechnen Sie für jeden Durchlauf das arithmetische Mittel. Schauen Sie sich danach alle 10 Mittelwerte an. Was fällt Ihnen auf? Sind Sie überrascht? 
 
-(Zusatzaufgabe: Führen Sie dieselbe Simulationsstudie mit Cauchy-verteilten Zufallszahlen (`rcauchy()`) durch. Was fällt Ihnen nun auf? Können Sie sich das Ergebnis erklären?)
+**Zusatzaufgabe**: Führen Sie dieselbe Simulationsstudie mit Cauchy-verteilten Zufallszahlen (`rcauchy()`) durch. Was fällt Ihnen nun auf? Können Sie sich das Ergebnis erklären?
 
-## Zusatz: Zeigen Sie, dass das Integral über die Dichtefunktion einer $\chi^2(15)$-verteilten Zufallsvariable 1 ist. 
+## Zeigen Sie, dass das Integral über die Dichtefunktion einer $\chi^2(15)$-verteilten Zufallsvariable 1 ist. 
 
-(Zum Integrieren in R können Sie `integrate()` benutzen.)
+*Hinweis:* Zum Integrieren in R können Sie `integrate()` benutzen.
 
 # Grafiken 
 
@@ -67,7 +67,7 @@ results <- rnorm(1000, mean = 100, sd = 15)
 
 ##  Zeichnen Sie einen Punkt in Form eines Dreiecks an das Maximum der theoretischen Dichte. Wählen Sie als Farbe Blau.
 
-##  Kennzeichnen Sie sowohl das 0.025- als auch das 0.975-Quantil der theoretischen Dichte, in dem Sie Vertikalen an diesen Punkten einzeichnen. Wählen Sie als Farbe Grün.
+##  Kennzeichnen Sie sowohl das $0.025$- als auch das $0.975$-Quantil der theoretischen Dichte, in dem Sie Vertikalen an diesen Punkten einzeichnen. Wählen Sie als Farbe Grün.
 
 # Lineare Regression
 
@@ -77,11 +77,10 @@ results <- rnorm(1000, mean = 100, sd = 15)
   \text{waiting}_t = \beta_0+\beta_1 \text{eruptions}_t + u_t 
 \end{align*}
 
-## Verschaffen Sie sich mit `summary()` einen Überblick über ihr in 3.1) erhaltenes Ergebnis. Interpretieren Sie die geschätzten Koeffizienten und speichern Sie anschließend das $R^2$ (*Multiple R-squared*) in der Variablen `R2` ab. (Hinweis: Schauen Sie sich die, beim Ausführen von `summary()`, ausgegebene Datenstruktur genauer an.)
+## Verschaffen Sie sich mit `summary()` einen Überblick über ihr in 3.1 erhaltenes Ergebnis. Interpretieren Sie die geschätzten Koeffizienten und speichern Sie anschließend das $R^2$ (*Multiple R-squared*) in der Variablen `R2` ab. *Hinweis:* Schauen Sie sich die, beim Ausführen von `summary()`, ausgegebene Datenstruktur genauer an.
 
 ## Angenommen Sie beobachten einen zusätzlichen Datenpunkt für die Dauer einer Eruption von $X_{new}=4$. Sagen Sie die entsprechende Wartezeit bis zur nächsten Eruption vorher.
 
-## Betrachten Sie nun den aus den Folien bekannten Datensatz **mtcars**. Regressieren Sie die Reichweite (*mpg*) auf die Getriebeart (*am* mit Automatik = 0, Manuell = 1) und lassen Sie den Achsenabschnitt weg. Interpretieren Sie ihr Ergebnis. 
 
 
 

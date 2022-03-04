@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.3.4)  4 MAR 2022 11:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.3.4)  4 MAR 2022 14:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1128,20 +1128,25 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (c:/texlive/2021/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-<includes/duelogo_en.png, id=64, 230.8625pt x 89.33376pt>
+<includes/duelogo_en.png, id=84, 230.8625pt x 89.33376pt>
 File: includes/duelogo_en.png Graphic file (type png)
 <use includes/duelogo_en.png>
 Package pdftex.def Info: includes/duelogo_en.png  used on input line 243.
 (pdftex.def)             Requested size: 142.26315pt x 55.04965pt.
+LaTeX Font Info:    Trying to load font information for T1+lmss on input line 2
+73.
+(c:/texlive/2021/texmf-dist/tex/latex/lm/t1lmss.fd
+File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
-69.
+73.
 (c:/texlive/2021/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 269.
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 273.
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 2
-72.
+76.
 (c:/texlive/2021/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) [1
@@ -1150,65 +1155,64 @@ File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 {c:/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./includes/duel
 ogo_en.png>] [2] [3]
 LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
-533.
+541.
 (c:/texlive/2021/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) [4] [5] [6]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 739.
-[7] [8]
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 751.
+[7]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 821.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 821.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 821.
-[9] [10]
-Underfull \hbox (badness 10000) in paragraph at lines 938--940
+(Font)              <10.95> on input line 820.
+[8] [9]
+Underfull \hbox (badness 10000) in paragraph at lines 960--962
 
  []
 
-[11]
-Underfull \hbox (badness 1062) in paragraph at lines 977--980
+[10]
+Underfull \hbox (badness 1062) in paragraph at lines 999--1002
 \T1/lmr/m/n/12 (+20) Testen Sie Ihre Funk-tion an-hand der bei-den Vek-toren $\
 OML/lmm/m/it/12 y \OT1/lmr/m/n/12 (+20) = []$ \T1/lmr/m/n/12 (+20) und $[] \OT1
 /lmr/m/n/12 (+20) =
  []
 
-[12] (./solution_2.aux)
+[11] (./solution_2.aux)
 Package rerunfilecheck Info: File `solution_2.out' has not changed.
-(rerunfilecheck)             Checksum: 687E19C1D720CC9023AA7C6A9F8C21D1;10898.
+(rerunfilecheck)             Checksum: 4641DDAD0715FBE97B7EB2237EE01E78;12340.
 Package logreq Info: Writing requests to 'solution_2.run.xml'.
 \openout1 = `solution_2.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 25704 strings out of 478276
- 446485 string characters out of 5850490
- 1341654 words of memory out of 5000000
- 43351 multiletter control sequences out of 15000+600000
- 518621 words of font info for 110 fonts, out of 8000000 for 9000
+ 25745 strings out of 478276
+ 447667 string characters out of 5850490
+ 1340173 words of memory out of 5000000
+ 43377 multiletter control sequences out of 15000+600000
+ 519489 words of font info for 104 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 60i,7n,78p,1223b,7157s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/texlive/2021
-/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/texlive/2021/texmf-dist/fonts/enc/
-dvips/lm/lm-mathex.enc}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc
-}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{c:/texlive/2021/tex
-mf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}<c:/texlive/2021/texmf-dist/fonts/type
+ 60i,7n,78p,1266b,7157s stack positions out of 5000i,500n,10000p,200000b,80000s
+{c:/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/texlive/2021/tex
+mf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/texlive/2021/texmf-dist/fonts/enc/
+dvips/lm/lm-mathsy.enc}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-mathex
+.enc}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/texlive/2021/
+texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}<c:/texlive/2021/texmf-dist/fonts/type
 1/public/lm/lmbx12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmex10
 .pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/texlive/2
 021/texmf-dist/fonts/type1/public/lm/lmmi12.pfb><c:/texlive/2021/texmf-dist/fon
-ts/type1/public/lm/lmmi7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/
-lmr10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/texli
-ve/2021/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/texlive/2021/texmf-dist/f
-onts/type1/public/lm/lmri12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/
-lm/lmsy10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/
-texlive/2021/texmf-dist/fonts/type1/public/lm/lmtt12.pfb><c:/texlive/2021/texmf
--dist/fonts/type1/public/lm/lmtti10.pfb>
-Output written on solution_2.pdf (12 pages, 250654 bytes).
+ts/type1/public/lm/lmmi6.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/
+lmmi8.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/texli
+ve/2021/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/texlive/2021/texmf-dist/
+fonts/type1/public/lm/lmr6.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/l
+m/lmr8.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/tex
+live/2021/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb><c:/texlive/2021/texmf-
+dist/fonts/type1/public/lm/lmsy10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/p
+ublic/lm/lmsy8.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmtk10.pfb
+><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmtt12.pfb><c:/texlive/2021/
+texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
+Output written on solution_2.pdf (11 pages, 313455 bytes).
 PDF statistics:
- 231 PDF objects out of 1000 (max. 8388607)
- 183 compressed objects within 2 object streams
- 43 named destinations out of 1000 (max. 500000)
- 26756 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 274 PDF objects out of 1000 (max. 8388607)
+ 218 compressed objects within 3 object streams
+ 52 named destinations out of 1000 (max. 500000)
+ 28844 words of extra memory for PDF output out of 29859 (max. 10000000)
 

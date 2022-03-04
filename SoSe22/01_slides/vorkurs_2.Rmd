@@ -114,7 +114,7 @@ class: exercise_slide
 ### Übungsaufgaben 
 
 <ol start = "1">
-  <li>Sind die folgenden Ausdrücke <code>TRUE</code> oder <code>FALSE</code>? Überprüfe mit `r r_black`-Code!</li>
+  <li>Überprüfen Sie in `r r_blue` ob die folgenden Ausdrücke `TRUE` oder `FALSE` sind?</li>
   <ul>
     <li>\(5 \geq 5\)</li>
     <li>\(5 > 5\)</li>
@@ -140,7 +140,7 @@ class: exercise_slide
 ### Übungsaufgaben 
 
 <ol start = "2">
-    <li>Es sei <code>z <- c(1, 2, NA, 4)</code>. Überprüf die folgenden Aussagen mittels einer Logikabfrage in `r r_black`.</li>
+    <li>Es sei <code>z <- c(1, 2, NA, 4)</code>. Überprüfen Sie die folgenden Aussagen mittels einer Logikabfrage in `r r_black`.</li>
     <ul>
       <li>Die Länge des Vektors <code>z</code> ist ungleich <code>2</code></li>
       <li>Die Länge der logischen Überprüfungen, ob die einzenlen Elementen gleich <code>2</code> sind, ist <code>4</code></li>
@@ -292,12 +292,9 @@ class: exercise_slide
 
 </br>
 
-<ol start = "4">
-    <li>Verschaffe dir einen Überblick über den Datensatz <code>mtcars</code> (dieser ist bereits geladen)</li>
-    <ul>
-      <li>Wie vielen Variablen hat <code>mtcars</code>? Welche Klasse haben die einzelnen Variablen?</li>
-    </ul>
-    <li>Lass folgende Subsets von <code>mtcars</code> ausgeben:</li>
+<ol start = "1">
+    <li>Verschaffen Sie sich einen Überblick über den Datensatz<code>mtcars</code> ((dieser ist in base R bereits geladen). Aus wie vielen Variablen besteht er? Welche Klasse haben die einzelnen Variablen?</li>
+    <li>Lassen Sie sich folgende Subsets von \texttt{mtcars} ausgeben:</li>
     <ul>
       <li>nur die Variable <code>mpg</code></li>
       <li>nur die ersten drei Zeilen</li>
@@ -315,12 +312,12 @@ class: exercise_slide
 
 </br>
 
-<ol start = "6">
-    <li>Erstelle einen Dataframe <code>persons</code> mit Beobachtungen der Variablen <code>Name</code> (<code>character</code>), <code>Height</code> (cm, <code>numeric</code>) und <code>Weight</code> (kg, <code>numeric</code>) für 5 fiktive Personen.</li>
+<ol start = "3">
+    <li>Erstellen Sie einen Dataframe <code>persons</code> mit Beobachtungen der Variablen <code>Name</code> (<code>character</code>), <code>Height</code> (cm, <code>numeric</code>) und <code>Weight</code> (kg, <code>numeric</code>) von 5 fiktive Personen.</li>
     <ul>
-      <li>Betrachte das Körpergewicht der 3. Person</li>
-      <li>Betrachte nun die Körpergröße aller Personen</li>
-      <li>Füge die Variable "Augenfarbe" hinzu. Die Ausprägungen sollten vom Typ <code>character</code> sein. Betrachte den veränderten dataframe.</li>
+      <li>Lassen Sie sich das Körpergewicht der 3. Person anzeigen.</li>
+      <li>Lassen Sie sich nun die Körpergröße aller Personen anzeigen.</li>
+      <li>Fügen Sie die Variable “Augenfarbe” hinzu. Die Ausprägungen sollten vom Typ <code>character</code> sein. Schauen Sie sich den veränderten dataframe an.</li>
     </ul>
 </ol>
 
@@ -492,16 +489,13 @@ class: exercise_slide
 
 </br>
 
-<ol start = "7">
-    <li>Schreibe Code, der die Wurzel <code>sqrt()</code> eines Vektors <code>x</code> der Länge 1 berechnet, falls der Wert in  <code>x</code> nicht-negativ ist.</li>
-    <li>Erstelle Code, welcher die Wurzel der Elemente eines Vektors <code>x</code> berechnet, falls <i>alle</i> Werte in  <code>x</code> nicht-negativ sind.</li>
+<ol start = "1">
+    <li> Schreiben Sie Code, der die Wurzel <code>sqrt()</code> eines Vektors <code>x</code> der Länge \(1\) berechnet, falls der Wert in  <code>x</code> nicht negativ ist.</li>
+    <li>Erstellen Sie Code, welcher die Wurzel der Elemente eines Vektors <code>x</code> berechnet, falls <i>alle</i> Werte in  <code>x</code> nicht negativ sind.</li>
     <ul>
-      <li><i>Hinweis:</i> nutze eine Funktion wie <code>min()</code> oder <code>sum()</code></li>
+      <li><i>Hinweis:</i> Nutzen Sie eine Funktion wie <code>min()</code> oder <code>sum()</code></li>
     </ul>
-    <li>Schreibe Code, der die Struktur (siehe <code>?str()</code>) eines Objekts <code>df</code> wiedergibt, sofern <code>df</code> zur Klasse <code>data.frame</code> gehört. Andernfalls soll die Länge des Objekts wiedergegeben werden.</li>
-    <ul>
-      <li><i>Überprüft eure Codes indem Ihr verschiedene Werte für <code>x</code> bzw. <code>df</code> ausprobiert!</i></li>
-    </ul>
+    <li>Schreiben Sie Cod, der die Struktur (siehe <code>?str()</code>) eines Objekts <code>df</code> wiedergibt, sofern <code>df</code> zur Klasse <code>data.frame</code> gehört. Andernfalls soll die Länge des Objekts wiedergegeben werden.</li>
 </ol>
 
 ---
@@ -575,18 +569,19 @@ class: exercise_slide
 
 </br>
 
-<ol start = "10">
-    <li>Schreibe eine Schleife, welche die Zahlen von 1 bis 15 aufaddiert.</li>
-    <li>Erstelle folgende Matrix \(M\):</li>
+<ol start = "1">
+    <li>Schreiben Sie eine Schleife, welche die Zahlen von \(1\) bis \(15\) aufaddiert.</li>
+    <li>Erstellen Sie eine Matrix \(M\) von folgender Gestalt:</li>
     \[M=\begin{pmatrix}
         1 & 4 & 7 & 10 & 13\\
         2 & 5 & 8 & 11 & 14\\
         3 & 6 & 9 & 12 & 15\\
       \end{pmatrix}\]
-      Schreibe eine Schleife, welche für jede Spalte die Spaltensumme berechnet und ausgibt.
-    <li>Mit <code>rnorm(1)</code> ziehen wir eine Zufallszahl aus der Standardnormalverteilung (in der Konsole ausprobieren!). Schreibe eine Schleife, welche solange ausgeführt wird, bis ein Wert größer als 1 gezogen wird. Gib in jedem Durchlauf die gezogene Zahl mit <code>cat(x, "\n")</code> aus. (Hinweis: <code>\n</code> steht für einen Zeilenumbruch)</li>
+      Schreiben Sie eine Schleife, welche für jede Spalte die Spaltensumme berechnet und ausgibt.
+    <li>Mit <code>rnorm(1)</code>ziehen Sie eine Zufallszahl aus der Standardnormalverteilung (in der Konsole ausprobieren!). Schreiben Sie eine Schleife, welche solange ausgeführt wird, bis ein Wert gezogen wird, der größer als \(1\) ist. Geben Sie in jedem Durchlauf die gezogene Zahl mit <code>cat(x, "\n")</code> aus. </li>
 </ol>
 
+*Hinweis:* <code>\n</code> steht für einen Zeilenumbruch
 ---
 ## Funktionen
 ### Funktionen definieren
@@ -663,11 +658,11 @@ class: exercise_slide
 
 </br>
 
-<ol start = "13">
+<ol start = "1">
     <li>Die Dichte der Standardnormalverteilung lautet</li>
    \[f(x) = \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}}\]
      <ul>
-      <li>Schreibe eine Funktion <code>stdnv</code>, welche die Dichte von <code>x</code> berechnet und zurückgibt.</li>
+      <li>Schreiben Sie eine Funktion <code>stdnv</code>, welche die Dichte von <code>x</code> berechnet und zurückgibt.</li>
       <ul>
         <li><b>Hinweis:</b> <code>?exp</code>, <code>?pi</code></li>
         <li><b>Hinweis:</b> Wenn die Funktion korrekt ist, sollten <code>stdnv(x)</code> und <code>dnorm(x)</code> die gleichen Ergebnisse liefern.</li>
@@ -681,15 +676,15 @@ class: exercise_slide
 ## Funktionen
 ### Übungsaufgaben
 
-<ol start = "14">
-    <li>Schreibe eine Funktion, welche die Argumente <code>z</code> und <code>opt</code> erwartet. Im Funktionskörper soll mit einer <code>if</code>-Anweisung gesteuert werden, welche Operation auf <code>z</code> ausgeführt werden soll:</li>
+<ol start = "2">
+    <li>Schreiben Sie eine Funktion, welche die Argumente <code>z</code> und <code>opt</code> erwartet. Im Funktionskörper soll mit einer <code>if</code>-Anweisung gesteuert werden, welche Operation auf <code>z</code> ausgeführt werden soll:</li>
     <ul>
       <li>
-      Falls <code>opt</code> gleich <code>add</code> ist, DANN addiere die Elemente von <code>z</code>, WENN <code>opt</code> gleich <code>mult</code> ist, dann multipliziere die Elemente von <code>z</code>, andernfalls führe keine Operation aus.
+      WENN <code>opt</code> gleich <code>add</code> ist, DANN addiere die Elemente von <code>z</code>, WENN <code>opt</code> gleich <code>mult</code> ist, dann multipliziere die Elemente von <code>z</code>, andernfalls führe keine Operation aus.
       </li>
     <li>Am Ende soll die Funktion das jeweilige Ergebnis wiedergeben.</li>
     </ul>
-    <li>Schreibe eine Funktion, die den MSE (mean squared error) von zwei Vektoren <code>y</code> und <code>yhat</code> (die Argumente) berechnet. Es ist  \[MSE = \frac{1}{n}\sum_{i=1}^n (\widehat{Y}_i - Y_i)^2.\] Teste die Funktion anhand der beiden Vektoren \(Y = {2, 4, 2, 5, 7}\) und \(\widehat{Y}= {2.3, 3.5, 2.1, 5.5, 7.6}\) (das Ergebnis sollte .192 lauten).</li>
+    <li>Schreiben Sie eine Funktion, die den MSE (mean squared error) von zwei Vektoren <code>y</code> und <code>yhat</code> (die Argumente) berechnet. Der MSE is definiert als  \[MSE = \frac{1}{n}\sum_{i=1}^n (\widehat{Y}_i - Y_i)^2.\] Testen Sie Ihre Funktion anhand der beiden Vektoren \(Y = {2, 4, 2, 5, 7}\) und \(\widehat{Y}= {2.3, 3.5, 2.1, 5.5, 7.6}\) (das Ergebnis sollte \(.192\) lauten).</li>
 </ol>
 
 ---

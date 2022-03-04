@@ -36,7 +36,8 @@ options(width = 70)
 source(here::here("00_packages/packages.R"))
 ```
 
-# Sind die folgenden Ausdrücke `TRUE` oder `FALSE`?
+# Übungsaufgaben zur Logik. 
+## Überprüfen Sie in `R` ob die folgenden Ausdrücke `TRUE` oder `FALSE` sind?
 
 \begin{itemize}
   \item $5 \geq 5$
@@ -92,7 +93,7 @@ source(here::here("00_packages/packages.R"))
     !(((T > F) > T) & !T)
 ```
 
-# Es sei `z <- c(1, 2, NA, 4)`. Überprüfen Sie die folgenden Aussagen mittels einer Logikabfrage in `R`.
+## Es sei `z <- c(1, 2, NA, 4)`. Überprüfen Sie die folgenden Aussagen mittels einer Logikabfrage in `R`.
 
 \begin{itemize}
   \item Die Länge des Vektors $z$ ist ungleich $2$.
@@ -136,7 +137,7 @@ source(here::here("00_packages/packages.R"))
     (min(z, na.rm = TRUE) != max(z, na.rm = TRUE))
 ```
 
-# Es sei `M <- matrix(1:9, ncol = 3)`. Was ergeben folgende Ausdrücke:
+## Es sei `M <- matrix(1:9, ncol = 3)`. Was ergeben folgende Ausdrücke:
 
 ```{r, eval = T}
     M <- matrix(1:9, ncol = 3)
@@ -146,7 +147,9 @@ source(here::here("00_packages/packages.R"))
     M[2, 2] != 4 & M[2, 2] > 6
 ```
 
-#  Verschaffen Sie sich einen Überblick über den Datensatz `mtcars` (dieser ist in base R bereits geladen). Aus wie vielen Variablen besteht er? Welche Klasse haben die einzelnen Variablen?
+# Übungsaufgaben zu Dataframes
+
+##  Verschaffen Sie sich einen Überblick über den Datensatz `mtcars` (dieser ist in base R bereits geladen). Aus wie vielen Variablen besteht er? Welche Klasse haben die einzelnen Variablen?
 
 ```{r, eval = T}
     str(mtcars)
@@ -154,7 +157,7 @@ source(here::here("00_packages/packages.R"))
 
 Der Datensatz besteht aus elf Variablen, die all der Klasse `numeric` angehören. 
 
-# Lassen Sie sich folgende Subsets von `mtcars` ausgeben:
+## Lassen Sie sich folgende Subsets von `mtcars` ausgeben:
 
 \begin{itemize}
   \item nur die Variable \texttt{mpg}
@@ -196,7 +199,7 @@ Der Datensatz besteht aus elf Variablen, die all der Klasse `numeric` angehören
     mtcars[mtcars$hp > 200,]
 ```
 
-#  Erstellen Sie einen dataframe `persons` mit den Variablen `Name` (`character`), `Height` (cm, `numeric`) und `Weight` (kg, `numeric`) von 5 fiktiven Personen.
+## Erstellen Sie einen Dataframe `persons` mit den Variablen `Name` (`character`), `Height` (cm, `numeric`) und `Weight` (kg, `numeric`) von 5 fiktiven Personen.
 
 ```{r, eval = T}
     persons <- data.frame(Name   = c("Jerry", "Beth", "Summer", "Morty", "Rick"),
@@ -229,15 +232,16 @@ Der Datensatz besteht aus elf Variablen, die all der Klasse `numeric` angehören
     persons
 ```
 
+# Übungsaufgaben zu bedingte Anweisungen
 
-# Schreiben Sie Code, der die Wurzel (\texttt{sqrt()}) eines Vektors \texttt{x} der Länge 1 berechnet, wenn der Wert in \texttt{x} nicht negativ ist.
+## Schreiben Sie Code, der die Wurzel (\texttt{sqrt()}) eines Vektors \texttt{x} der Länge 1 berechnet, wenn der Wert in \texttt{x} nicht negativ ist.
 
 ```{r, eval = T}
     x <- 2 # - 2, testen!
     if(x >= 0) sqrt(x)
 ```
 
-# Erstellen Sie Code, welcher die Wurzel der Elemente eines Vektors \texttt{x} berechnet, wenn alle Werte in \texttt{x} nicht negativ sind.
+## Erstellen Sie Code, welcher die Wurzel der Elemente eines Vektors \texttt{x} berechnet, wenn alle Werte in \texttt{x} nicht negativ sind.
 
   *Hinweis:* Nutzen Sie eine Funktion wie `min()` oder `sum()`.
 
@@ -250,7 +254,7 @@ Der Datensatz besteht aus elf Variablen, die all der Klasse `numeric` angehören
 ```
 
 
-# Schreibe Code, der die Struktur (\texttt{str()}) eines Objekts \texttt{df} wiedergibt, sofern \texttt{df} zur Klasse \texttt{data.frame} gehört. Andernfalls soll die Länge des Objekts wiedergegeben werden.
+## Schreiben Sie Code, der die Struktur (\texttt{str()}) eines Objekts \texttt{df} wiedergibt, sofern \texttt{df} zur Klasse \texttt{data.frame} gehört. Andernfalls soll die Länge des Objekts wiedergegeben werden.
 
 ```{r, eval = T}
     df <- data.frame(A = 1:3)
@@ -261,7 +265,8 @@ Der Datensatz besteht aus elf Variablen, die all der Klasse `numeric` angehören
     }
 ```
 
-# Schreiben Sie eine Schleife, welche die Zahlen von 1 bis 15 aufaddiert.
+# Übungsaufgaben zu Schleifen
+## Schreiben Sie eine Schleife, welche die Zahlen von $1$ bis $15$ aufaddiert.
 
 ```{r, eval=T}
     x <- 0
@@ -271,7 +276,7 @@ Der Datensatz besteht aus elf Variablen, die all der Klasse `numeric` angehören
     x
 ```
 
-# Erstellen Sie eine Matrix $M$ mit folgender Gestalt:
+## Erstellen Sie eine Matrix $M$ von folgender Gestalt:
 
 $$
 M=\begin{pmatrix}
@@ -294,7 +299,7 @@ $$
     }
 ```
 
-# Mit \texttt{rnorm(1)} ziehen Sie eine Zufallszahl aus der Standardnormalverteilung (in der Konsole ausprobieren!). Schreiben Sie eine Schleife, welche solange ausgeführt wird, bis ein Wert gezogen wird, der größer als 1 ist. 
+## Mit \texttt{rnorm(1)} ziehen Sie eine Zufallszahl aus der Standardnormalverteilung (in der Konsole ausprobieren!). Schreiben Sie eine Schleife, welche solange ausgeführt wird, bis ein Wert gezogen wird, der größer als $1$ ist. 
 
 Geben Sie in jedem Durchlauf die gezogene Zahl mit ` cat(x, "\n")` aus. (Hinweis: `\n` steht für einen Zeilenumbruch)
 
@@ -308,7 +313,9 @@ Geben Sie in jedem Durchlauf die gezogene Zahl mit ` cat(x, "\n")` aus. (Hinweis
     }
 ```
 
-# Die Dichte der Standardnormalverteilung lautet $\displaystyle \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}}$. Schreiben Sie eine Funktion `stdnv`, welche die Dichte von `x` berechnet und zurückgibt.
+# Übungsaufgaben zu Funktionen
+
+## Die Dichte der Standardnormalverteilung lautet $$\displaystyle \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}}$$. Schreiben Sie eine Funktion `stdnv`, welche die Dichte von `x` berechnet und zurückgibt.
 
 \begin{itemize}
   \item \textit{Hinweis:} `?exp`, `?pi`
@@ -324,7 +331,7 @@ Geben Sie in jedem Durchlauf die gezogene Zahl mit ` cat(x, "\n")` aus. (Hinweis
     dnorm(0.1337)
 ```
 
-# Schreiben Sie eine Funktion, welche die Argumente `z` sowie `opt` erwartet. Im Funktionskörper soll mit einer If-Anweisung gesteuert werden, welche Operation auf `z` ausgeführt werden soll:
+## Schreiben Sie eine Funktion, welche die Argumente `z` sowie `opt` erwartet. Im Funktionskörper soll mit einer If-Anweisung gesteuert werden, welche Operation auf `z` ausgeführt werden soll:
 
 *WENN opt gleich "add" ist, DANN addiere die Elemente von `z`, WENN `opt` gleich "mult" ist, dann multipliziere die Elemente von `z`, andernfalls führe keine Operation aus.*\newline\newline
 Am Ende soll die Funktion das jeweilige Ergebnis wiedergeben.
@@ -344,7 +351,7 @@ Am Ende soll die Funktion das jeweilige Ergebnis wiedergeben.
     myFun(z = x, opt = "add")
 ```
 
-# Schreiben Sie eine Funktion, die den MSE (mean squared error) von zwei Vektoren `y` und `yhat` (die Argumente) berechnet. Der MSE is definiert als $\frac{1}{n}\sum_{i=1}^n (\hat{Y}_i - Y_i)^2$. 
+## Schreiben Sie eine Funktion, die den MSE (mean squared error) von zwei Vektoren `y` und `yhat` (die Argumente) berechnet. Der MSE is definiert als $$\displaystyle \frac{1}{n}\sum_{i=1}^n (\hat{Y}_i - Y_i)^2$$. 
 
 Testen Sie Ihre Funktion anhand der beiden Vektoren $y = {2, 4, 2, 5, 7}$ und $\hat{y}= {2.3, 3.5, 2.1, 5.5, 7.6}$ (das Ergebnis sollte 0.192 lauten).
 

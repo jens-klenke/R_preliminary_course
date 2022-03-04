@@ -38,7 +38,7 @@ source(here::here("00_packages/packages.R"))
 
 # Verteilungen und Zufallszahlen
 
-## Sei $X\sim t(5)$. Berechne $P(X<6)$, $P(3<X\leq7)$ und $P(X>4)$.
+## Sei $X\sim t(5)$. Berechnen Sie $P(X<6)$, $P(3<X\leq7)$ und $P(X>4)$.
 
 \begin{itemize}
   \item  $P(X<6)$
@@ -64,13 +64,13 @@ source(here::here("00_packages/packages.R"))
     1 - pt(4, df = 5)
 ```
 
-## Berechne das $0.95$-Quantil einer $F(4, 5)$-verteilten Zufallsvariable.
+## Berechnen Sie das $0.95$-Quantil einer $F(4, 5)$-verteilten Zufallsvariable.
 
 ```{r}
     qf(0.95, df1 = 4, df2 = 5)
 ```
 
-## Berechne die Wahrscheinlichkeit dafür, den Jackpot im Lotto zu gewinnen (d.h. 6 Richtige aus 49). Vernachlässige Zusatz- und Superzahlen. (Hinweis: Benutze die hypergeometrische Verteilung.)
+## Berechnen Sie die Wahrscheinlichkeit dafür, den Jackpot im Lotto zu gewinnen (d.h. 6 Richtige aus 49). Vernachlässigen Sie bei Ihrer Berechnung Zusatz- oder Superzahlen. (Hinweis: Benutzen Sie die hypergeometrische Verteilung.)
 
 ```{r}
     dhyper(6, m = 6, n = 43, k = 6)
@@ -78,7 +78,7 @@ source(here::here("00_packages/packages.R"))
     # 1/choose(49, 6)
 ```
 
-## Erzeuge 20 $\chi^2(5)$-verteilte Zufallszahlen ohne (!) dabei die `rchisq()`-Funktion zu benutzen. 
+## Erzeugen Sie 20 $\chi^2(5)$-verteilte Zufallszahlen ohne (!) dabei die `rchisq()`-Funktion zu benutzen. 
 
 *Hinweis*: $\chi^2(n)=\sum_{i=1}^n Z_i^2$ mit $Z_i\sim\mathcal{N}(0,1)$ für alle $i=1,...,n$.
 
@@ -99,7 +99,7 @@ source(here::here("00_packages/packages.R"))
 ```
 
 
-## Ziehe 10 mal $n = 10000$ standardnormalverteilte Zufallszahlen und berechne für jede Ziehung das arithmetische Mittel. Betrachte die 10 Mittelwerte. Was fällt auf?
+## Ziehen Sie 10-mal standardnormalverteilte Zufallszahlen vom Umfang $n = 10000$ und berechnen Sie für jeden Durchlauf das arithmetische Mittel. Schauen Sie sich danach alle 10 Mittelwerte an. Was fällt Ihnen auf? Sind Sie überrascht? 
 
 ```{r}
     norm <- numeric()
@@ -111,7 +111,7 @@ source(here::here("00_packages/packages.R"))
 
 Alle 10 Mittelwerte liegen sehr nahe bei 0. Nicht überraschend, da wir Zufallszahlen mit Erwartungswert 0 ziehen.
 
-**Zusatzaufgabe**: Wdh. mit Cauchy-Verteilung
+**Zusatzaufgabe:** Führen Sie dieselbe Simulationsstudie mit Cauchy-verteilten Zufallszahlen (`rcauchy()`) durch. Was fällt Ihnen nun auf? Können Sie sich das Ergebnis erklären?
 
 ```{r}    
     cauchy <- numeric()
@@ -123,7 +123,7 @@ Alle 10 Mittelwerte liegen sehr nahe bei 0. Nicht überraschend, da wir Zufallsz
 
 Nun liegen die Mittelwerte nicht wirklich nahe beieinander. Erklärung: die Cauchy-Verteilung hat keinen Erwartungswert.
 
-## Zusatz: Prüfe, dass das Integral über die Dichtefunktion einer $\chi^2(15)$-verteilten Zufallsvariable 1 ist. 
+## Zeigen Sie, dass das Integral über die Dichtefunktion einer $\chi^2(15)$-verteilten Zufallsvariable 1 ist. 
 
 ```{r}
     integrate(dchisq, lower = 0, upper = Inf, df = 15)
@@ -194,7 +194,7 @@ results <- rnorm(1000, mean = 100, sd = 15)
 ```
 
 
-## Kennzeichnen Sie sowohl das 0.025- als auch das 0.975-Quantil der theoretischen Dichte, in dem Sie Vertikalen an diesen Punkten einzeichnen. Wählen Sie als Farbe Grün.
+## Kennzeichnen Sie sowohl das $0.025$- als auch das $0.975$-Quantil der theoretischen Dichte, in dem Sie Vertikalen an diesen Punkten einzeichnen. Wählen Sie als Farbe Grün.
 
 ```{r}
 
@@ -241,7 +241,7 @@ results <- rnorm(1000, mean = 100, sd = 15)
 
 Grundsätzlich: Je länger die Dauer einer Eruption ist, desto länger ist die Wartezeit bis zur nächsten Eruption.
     
-## Verschaffen Sie sich mit `summary()` einen Überblick über ihr in 3.1) erhaltenes Ergebnis. Interpretieren Sie die geschätzten Koeffizienten und speichern Sie anschließend das $R^2$ (*Multiple R-squared*) in der Variablen `R2` ab. (Hinweis: Schauen Sie sich die, beim Ausführen von `summary()`, ausgegebene Datenstruktur genauer an.)
+## Verschaffen Sie sich mit `summary()` einen Überblick über ihr in 3.1 erhaltenes Ergebnis. Interpretieren Sie die geschätzten Koeffizienten und speichern Sie anschließend das $R^2$ (*Multiple R-squared*) in der Variablen `R2` ab. (Hinweis: Schauen Sie sich die, beim Ausführen von `summary()`, ausgegebene Datenstruktur genauer an.)
 
 ```{r}
     summary(model_ff)
@@ -274,3 +274,4 @@ Summary erstellt ebenfalls eine Liste, in der u. a. auch das $R^2$ enthalten ist
 
 
 Bei einer Eruptionsdauer von 4 Min. beträgt die mit unserem Modell geschätzte Wartezeit etwa. 76.4 Min.
+

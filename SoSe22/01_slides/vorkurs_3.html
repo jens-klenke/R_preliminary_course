@@ -158,8 +158,7 @@ rchisq(5, df = 10)  # 5 chi^2-verteilte Zufallszahlen
 ```
 
 ```
-## [1]  7.693207  6.297943 14.408096  8.605373
-## [5]  7.412510
+## [1]  6.702629 10.123596 13.837133 13.460589 10.351926
 ```
 ]
 
@@ -176,8 +175,7 @@ rchisq(5, df = 10)
 ```
 
 ```
-## [1]  9.605476  5.556216 10.051123 13.515931
-## [5] 10.579882
+## [1] 24.276419 17.316527  3.844875  7.319479 13.156695
 ```
 ]
 
@@ -196,8 +194,7 @@ rchisq(5, df = 10)
 ```
 
 ```
-## [1] 13.158928 14.475007  7.448275 18.419976
-## [5]  8.822344
+## [1] 13.158928 14.475007  7.448275 18.419976  8.822344
 ```
 
 
@@ -207,8 +204,7 @@ rchisq(5, df = 10)
 ```
 
 ```
-## [1] 13.158928 14.475007  7.448275 18.419976
-## [5]  8.822344
+## [1] 13.158928 14.475007  7.448275 18.419976  8.822344
 ```
 
 ]
@@ -270,13 +266,17 @@ class: exercise_slide
 ### Übungsaufgaben
 
 .font90[
-1. Sei `\(X\sim t(5)\)`. Berechne `\(P(X&lt;6)\)`, `\(P(3&lt;X\leq7)\)` und `\(P(X&gt;4)\)`.
-2. Berechne das 0.95-Quantil einer `\(F(4,5)\)`-verteilten Zufallsvariable.
-3. Berechne die Wahrscheinlichkeit dafür, den Jackpot im Lotto zu gewinnen (d.h. 6 Richtige aus 49). Vernachlässige Zusatz- und Superzahlen (*Hinweis*: Benutze die hypergeometrische Verteilung).
-4. Erzeuge 20 `\(\chi^2(5)\)`-verteilte Zufallszahlen ohne (!) dabei die `rchisq()`-Funktion zu benutzen 
-(*Hinweis*: `\(\chi^2(n)=\sum_{i=1}^n Z_i^2\)` mit `\(Z_i\sim\mathcal{N}(0,1)\)` für alle `\(i=1,...,n\)`).
-5. Ziehe 10 mal `\(n = 10000\)` standardnormalverteilte Zufallszahlen und berechne für jede Ziehung das arithmetische Mittel. Betrachte alle 10 Mittelwerte. Was fällt auf? Zusatz: Wiederhole die Simulation mit `\(X \sim t(1)\)`-verteilten Zufallszahlen (Cauchy-Verteilung) Was fällt nun auf? Erkläre! (*Hinweis*: Wikipedia-Eintrag zur [Cauchy-Verteilung](https://en.wikipedia.org/wiki/Cauchy_distribution)).
-6. Zusatz: Prüfe, dass das Integral über die Dichtefunktion einer `\(\chi^2(15)\)`-verteilten Zufallsvariable 1 ist. (*Hinweis*: Nutze `integrate()` zum Integrieren einer &lt;svg viewBox=&quot;0 0 581 512&quot; style=&quot;height:1em;position:relative;display:inline-block;top:.1em;fill:black;&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;  &lt;path d=&quot;M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;-Funktion)
+1. Sei `\(X\sim t(5)\)`. Berechnen Sie `\(P(X&lt;6)\)`, `\(P(3&lt;X\leq7)\)` und `\(P(X&gt;4)\)`.
+2. Berechnen Sie das 0.95-Quantil einer `\(F(4,5)\)`-verteilten Zufallsvariable.
+3. Berechnen Sie die Wahrscheinlichkeit dafür, den Jackpot im Lotto zu gewinnen (d.h. 6 Richtige aus 49). Sie bei Ihrer Berechnung Zusatz- oder Superzahlen. 
+  *Hinweis*: Benutze die hypergeometrische Verteilung.
+4. Erzeugen Sie 20 `\(\chi^2(5)\)`-verteilte Zufallszahlen ohne (!) dabei die `rchisq()`-Funktion zu benutzen. 
+*Hinweis*: `\(\chi^2(n)=\sum_{i=1}^n Z_i^2\)` mit `\(Z_i\sim\mathcal{N}(0,1)\)` für alle `\(i=1,...,n\)`.
+5. Ziehen Sie 10 mal `\(n = 10000\)` standardnormalverteilte Zufallszahlen und erechnen Sie für jeden Durchlauf das arithmetische Mittel. Schauen Sie sich danach alle 10 Mittelwerte an. Was fällt Ihnen auf? Sind Sie überrascht? 
+**Zusatzaufgabe:**  Führen Sie dieselbe Simulationsstudie mit Cauchy-verteilten Zufallszahlen (`rcauchy()`) durch. Was fällt Ihnen nun auf? Können Sie sich das Ergebnis erklären?
+
+6. Zeigen Sie, dass das Integral über die Dichtefunktion einer `\(\chi^2(15)\)`-verteilten Zufallsvariable 1 ist. 
+*Hinweis:* Nutze `integrate()` zum Integrieren einer &lt;svg viewBox=&quot;0 0 581 512&quot; style=&quot;height:1em;position:relative;display:inline-block;top:.1em;fill:black;&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;  &lt;path d=&quot;M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;-Funktion
 ]
 
 ---
@@ -409,13 +409,13 @@ results &lt;- rnorm(1000, mean = 100, sd = 15)
 ```
 
 .font90[
-1. Kopiere obigen Code und nimm an, dass dieser eine IQ-Testreihe mit 1000 Probanden simuliert. Zeichne ein Histogram der Ergebnisse. Beschrifte den plot und setze die Bereiche von X- und Y-Achse auf `\([40,160]\)` und `\([0,0.03]\)`.
+1. Kopieren Sie obigen Code und nehmen Sie an, dass dieser eine IQ-Testreihe mit 1000 Probanden simuliert. Zeichnen Sie ein Histogramm der Ergebnisse. Geben Sie Ihrem Plot anschließend eine passende Überschrift sowie passende Achsenbeschriftungen. Spezifizieren Sie darüber hinaus den Bereich von `x`- und `y`-Achse auf `\([40,160]\)` und `\([0,0.03]\)`.
 
-2. Zeichne die zugrundeliegende theoretische Dichtefunktion, d.h. eine Normalverteilung mit `\(\mu=100\)` und `\(\sigma=15\)`, in den Plot.
+2. Hinterlegen Sie dem Plot die dem IQ zugrundeliegende, theoretische Dichtefunktion, d.h. eine Normalverteilung mit `\(\mu=100\)` und `\(\sigma=15\)`. Wählen Sie als Zeichenfarbe Rot und machen Sie die einzuzeichnende Linie etwas breiter.
 
-3. Zeichne ein blaues Dreieck an das Maximum der theoretischen Dichte.
+3. Zeichnen Sie einen Punkt in Form eines Dreiecks an das Maximum der theoretischen Dichte. Wählen Sie als Farbe Blau.
 
-4. Markiere sowohl das 0.025- als auch das 0.975-Quantil der theoretischen Dichte mit vertikalen grünen Linien.
+4. Kennzeichnen Sie sowohl das `\(0.025\)`- als auch das `\(0.975\)`-Quantil der theoretischen Dichte, in dem Sie Vertikalen an diesen Punkten einzeichnen. Wählen Sie als Farbe Grün.
 ]
 
 ---
@@ -476,12 +476,9 @@ names(model)
 ```
 
 ```
-##  [1] &quot;coefficients&quot;  &quot;residuals&quot;    
-##  [3] &quot;effects&quot;       &quot;rank&quot;         
-##  [5] &quot;fitted.values&quot; &quot;assign&quot;       
-##  [7] &quot;qr&quot;            &quot;df.residual&quot;  
-##  [9] &quot;xlevels&quot;       &quot;call&quot;         
-## [11] &quot;terms&quot;         &quot;model&quot;
+##  [1] &quot;coefficients&quot;  &quot;residuals&quot;     &quot;effects&quot;       &quot;rank&quot;         
+##  [5] &quot;fitted.values&quot; &quot;assign&quot;        &quot;qr&quot;            &quot;df.residual&quot;  
+##  [9] &quot;xlevels&quot;       &quot;call&quot;          &quot;terms&quot;         &quot;model&quot;
 ```
 
 ---
@@ -508,15 +505,11 @@ summary(model)
 ## -4.5432 -2.3647 -0.1252  1.4096  6.8727 
 ## 
 ## Coefficients:
-##             Estimate Std. Error t value
-## (Intercept)  37.2851     1.8776  19.858
-## wt           -5.3445     0.5591  -9.559
-##             Pr(&gt;|t|)    
-## (Intercept)  &lt; 2e-16 ***
-## wt          1.29e-10 ***
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  37.2851     1.8776  19.858  &lt; 2e-16 ***
+## wt           -5.3445     0.5591  -9.559 1.29e-10 ***
 ## ---
-## Signif. codes:  
-## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## Residual standard error: 3.046 on 30 degrees of freedom
 ## Multiple R-squared:  0.7528,	Adjusted R-squared:  0.7446 
@@ -609,11 +602,14 @@ class: exercise_slide
 ### Übungsaufgaben
 
 .font90[
-1. Betrachte im Folgenden den Datensatz `faithful`, der Daten zum [Old Faithful Geysir](https://de.wikipedia.org/wiki/Old_Faithful) im Yellowstone Nationalpark enthält. Sowohl die Dauer einer Eruption in Min. (`eruptions`) als auch die Wartezeit bis zur nächsten Eruption in Min. (`waiting`) sind als Variablen im Datensatz verfügbar. Unterstelle das Regressionsmodell `$$\text{waiting}_t=\beta_0+\beta_1 \text{eruptions}_t + u_t$$` und schätze die Parameter `\(\beta_0\)`, `\(\beta_1\)`. Zeichne anschließend eine geeignete Grafik und interpretiere.
+1. Betrachten Sie im Folgenden den Datensatz `faithful`, der Daten zum [Old Faithful Geysir](https://de.wikipedia.org/wiki/Old_Faithful) im Yellowstone Nationalpark enthält. Sowohl die Dauer einer Eruption in Min. (`eruptions`) als auch die Wartezeit bis zur nächsten Eruption in Min. (`waiting`) sind als Variablen im Datensatz verfügbar. Unterstellen Sie nachfolgendes Regressionsmodell und schätzen Sie die entsprechenden Parameter und schätze die Parameter `\(\beta_0\)`, `\(\beta_1\)`. Zeichnen Sie anschließend eine geeignete Grafik und interpretieren Sie diese. `$$\text{waiting}_t=\beta_0+\beta_1 \text{eruptions}_t + u_t$$`
 
-2. Erhalte mit `summary()` einen Überblick über die Regression aus 1. Interpretiere die geschätzten Koeffizienten und speichere anschließend das `\(R^2\)` (*Multiple R-squared*) in `R2`.
+2. Verschaffen Sie sich mit  `summary()` einen Überblick über ihr in 1 erhaltenes Ergebnis. Interpretieren Sie die geschätzten Koeffizienten und speichern Sie anschließend das `\(R^2\)` (*Multiple R-squared*) in `R2` ab. *Hinweise:* Schauen Sie sich die, beim Ausführen von `summary()`, ausgegebene Datenstruktur genauer an.
 
-3. Angenommen wir beobachten einen weiteren Datenpunkt für die Dauer einer Eruption `\(X_{new}=4\)`. Triff eine Vorhersage für die Wartezeit bis zur nächsten Eruption!
+3. Angenommen Sie beobachten einen zusätzlichen Datenpunkt für die Dauer einer Eruption von `\(X_{new}=4\)`. Sagen Sie die entsprechende Wartezeit bis zur nächsten Eruption vorher.
+
+
+
 &lt;!-- 4. Betrachten Sie nun den aus den Folien bekannten Datensatz **mtcars**. Regressieren Sie die Reichweite (*mpg*) auf die Getriebeart (*am* mit Automatik = 0, Manuell = 1) und lassen Sie den Achsenabschnitt weg. Interpretieren Sie ihr Ergebnis. --&gt;
 ]
     </textarea>

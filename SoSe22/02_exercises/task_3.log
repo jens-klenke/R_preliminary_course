@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.3.4)  4 MAR 2022 11:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.3.4)  4 MAR 2022 14:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1128,7 +1128,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (c:/texlive/2021/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-<includes/duelogo_en.png, id=72, 230.8625pt x 89.33376pt>
+<includes/duelogo_en.png, id=68, 230.8625pt x 89.33376pt>
 File: includes/duelogo_en.png Graphic file (type png)
 <use includes/duelogo_en.png>
 Package pdftex.def Info: includes/duelogo_en.png  used on input line 243.
@@ -1153,21 +1153,21 @@ LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.95> not available
 {c:/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./includes/duel
 ogo_en.png>]
 LaTeX Font Info:    Font shape `T1/lmss/bx/it' in size <10.95> not available
-(Font)              Font shape `T1/lmss/bx/sl' tried instead on input line 375.
+(Font)              Font shape `T1/lmss/bx/sl' tried instead on input line 376.
 
-[2] [3] (./task_3.aux)
+[2] (./task_3.aux)
 Package rerunfilecheck Info: File `task_3.out' has not changed.
-(rerunfilecheck)             Checksum: 1EF6F6295BD4EE76B7D77B4EA0A214DE;16938.
+(rerunfilecheck)             Checksum: CAD0DA4747E71652D9793B17B08193F6;15536.
 Package logreq Info: Writing requests to 'task_3.run.xml'.
 \openout1 = `task_3.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 25666 strings out of 478276
- 447901 string characters out of 5850490
- 1338327 words of memory out of 5000000
- 43308 multiletter control sequences out of 15000+600000
- 527500 words of font info for 108 fonts, out of 8000000 for 9000
+ 25660 strings out of 478276
+ 447385 string characters out of 5850490
+ 1337979 words of memory out of 5000000
+ 43305 multiletter control sequences out of 15000+600000
+ 527444 words of font info for 108 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  60i,10n,78p,2820b,7157s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/texlive/2021/tex
@@ -1185,10 +1185,10 @@ t/fonts/type1/public/lm/lmssbo10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/pu
 blic/lm/lmssbx10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmsy10.p
 fb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/texlive/202
 1/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
-Output written on task_3.pdf (3 pages, 275417 bytes).
+Output written on task_3.pdf (2 pages, 274912 bytes).
 PDF statistics:
- 200 PDF objects out of 1000 (max. 8388607)
- 161 compressed objects within 2 object streams
- 38 named destinations out of 1000 (max. 500000)
- 32916 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 188 PDF objects out of 1000 (max. 8388607)
+ 150 compressed objects within 2 object streams
+ 35 named destinations out of 1000 (max. 500000)
+ 32908 words of extra memory for PDF output out of 35830 (max. 10000000)
 

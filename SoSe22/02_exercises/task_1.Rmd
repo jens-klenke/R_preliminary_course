@@ -38,7 +38,11 @@ source(here::here("00_packages/packages.R"))
 
 ## Erzeugen Sie einen Vektor \texttt{numbers} mit den Elementen $\begin{pmatrix} 4 & 6 & -3 & 2.5 & 18 & \pi &  85 \end{pmatrix}$.
 
-##  Berechnen Sie das arithmetische und das harmonische Mittel von \texttt{numbers}.
+*Hinweis:* Die Zahl $\pi$ ist in `R` bereits als `pi` vordefiniert.
+
+## Berechnen Sie das arithmetische und das harmonische Mittel von \texttt{numbers}.
+
+*Hinweis:* Für einen numerischen Vektor $X$ der Länge $n$ ist das arithmetische Mittel $\overline{X} = \frac{1}{n} \sum_{i=1}^n X_i$ und das harmonische Mittel $\overline{X}_{harm} = \frac{n}{\sum_{i=1}^n 1/X_i}$.
 
 ## Sie kommen zu dem Schluss, dass die höchste und die niedrigste Zahl die Schätzung verzerren und entscheiden darum, diese Werte zu ignorieren. Ersetzen Sie beide Werte durch \texttt{NA} und berechnen Sie die Mittelwerte aus Aufgabe 1.2 erneut.
 
@@ -68,7 +72,7 @@ Berechnen Sie nun $a+b$, $a+x$, $a+y$ und $a+z$. Finden Sie heraus, wie \texttt{
 
 
 
-## Erzeugen Sie einen Vektor mit den Elementen $\begin{pmatrix} 1 & 2 & 3 & a & b \\ \end{pmatrix}$ (Also eine Mischung aus numeric und character). Was passiert? Schreiben Sie einen Kommentar.
+## Erzeugen Sie einen Vektor mit den Elementen $\begin{pmatrix} 1 & 2 & 3 & a & b \\ \end{pmatrix}$ (Also eine Mischung aus `numeric` und `character`). Was passiert? Schreiben Sie einen Kommentar.
 
 \vspace{1cm}
 

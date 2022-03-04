@@ -59,7 +59,7 @@ source(here::here("00_packages/packages.R"))
 
 \vspace{0.5cm}
 
-## Wir kommen zu dem Schluss, dass die höchste und die niedrigste Zahl die Schätzung verzerren und entscheiden darum, diese Werte zu ignorieren. Ersetze beide Werte durch \texttt{NA} und berechne die Mittelwerte aus Aufgabe 1.2 erneut.
+## Sie kommen zu dem Schluss, dass die höchste und die niedrigste Zahl die Schätzung verzerren und entscheiden darum, diese Werte zu ignorieren. Ersetzen Sie beide Werte durch \texttt{NA} und berechnen Sie die Mittelwerte aus Aufgabe 1.2 erneut.
 
 ```{r}
     numbers[which.min(numbers)] <- NA     # kleinsten Wert ersetzen
@@ -74,7 +74,7 @@ source(here::here("00_packages/packages.R"))
 
 \vspace{0.5cm}
 
-## Nutze die Funktion \texttt{seq()} um die Folge $\begin{pmatrix} 0, 0.5, 1, 1.5, \ldots, 99, 99.5, 100 \end{pmatrix}$ zu erzeugen. Wie viele Elemente besitzt dieser Vektor? Überprüfe Deine Vermutung mit \texttt{length()}.
+## Nutzen Sie die Funktion \texttt{seq()} um die Folge \linebreak $\begin{pmatrix} 0, 0.5, 1, 1.5, \ldots, 99, 99.5, 100 \end{pmatrix}$ zu erzeugen. Wie viele Elemente besitzt dieser Vektor? Überprüfen Sie Ihre Vermutung mit \texttt{length()}.
 
 ```{r}
     x <- seq(from = 0, to = 100, by = 0.5)
@@ -84,7 +84,7 @@ source(here::here("00_packages/packages.R"))
 
 \vspace{0.5cm}
 
-## Erzeuge einen neuen Vektor \texttt{characters} mit den Elementen $\begin{pmatrix} a & a & a  & b & b & b & b & c & c \\ \end{pmatrix}$. Finde dazu heraus wie die Funktion \texttt{rep()} funktioniert und nutze diese. 
+##  Erzeugen Sie einen neuen Vektor \texttt{characters} mit den Elementen $\begin{pmatrix} a & a & a  & b & b & b & b & c & c \\ \end{pmatrix}$. Finden Sie dazu heraus wie die Funktion \texttt{rep()} funktioniert und nutzen Sie diese. 
 
 ```{r}
     characters <- rep(c("a", "b", "c"), times = c(3, 4, 2))
@@ -101,7 +101,7 @@ source(here::here("00_packages/packages.R"))
 ```
 \vspace{0.5cm}
 
-##  Ersetze nun alle Elemente mit dem Inhalt \texttt{"z"} durch \texttt{"v"}.
+##  Ersetzen Sie nun alle Elemente mit dem Inhalt \texttt{"z"} durch \texttt{"v"}.
 
 ```{r}
     characters[which(characters == "z")] <- "v"
@@ -122,7 +122,7 @@ Kürzer:
 
 \vspace{0.5cm}
 
-## Kopiere folgenden Code in Dein \texttt{R}-Skript:
+## Kopieren Sie folgenden Code in Ihr \texttt{R}-Skript:
 
 ```{r}
     a <- c(2,5,7,5,12,6)
@@ -132,7 +132,7 @@ Kürzer:
     z <- c(1,2,3,4)
 ```
     
-## Berechne nun $a+b$, $a+x$, $a+y$, $a+z$. Finde heraus, wie \texttt{R} jeweils vorgeht und schreibe einen kurzen Kommentar.
+Berechnen Sie nun $a+b$, $a+x$, $a+y$ und $a+z$. Finden Sie heraus, wie \texttt{R} jeweils vorgeht und schreiben Sie einen kurzen Kommentar.
 
 ```{r}
     a + b 
@@ -161,7 +161,7 @@ Achtung: $a$ und $z$ haben nicht die gleiche Länge und $a$ ist kein vielfaches 
 
 \vspace{0.5cm}
 
-## Erzeuge einen Vektor mit den Elementen $\begin{pmatrix} 1 & 2 & 3 & a & b \\ \end{pmatrix}$ (Also eine Mischung aus numeric und character). Was passiert? Schreibe einen Kommentar.
+## Erzeugen Sie einen Vektor mit den Elementen $\begin{pmatrix} 1 & 2 & 3 & a & b \\ \end{pmatrix}$ (Also eine Mischung aus `numeric` und `character`). Was passiert? Schreiben Sie einen Kommentar.
 
 ```{r}
     v <- c(1, 2, 3, "a", "b")
@@ -175,7 +175,7 @@ Achtung: $a$ und $z$ haben nicht die gleiche Länge und $a$ ist kein vielfaches 
 
 # Übungsaufgaben zu Matrizen 
 
-## Erzeuge mit dem Inputvektor `1:12` und \texttt{matrix()} folgende Matrix $X$.
+## Erzeugen Sie mit dem Inputvektor `1:12` und \texttt{matrix()} folgende Matrix $X$.
 
 $$ X = \begin{pmatrix} 1 & 2 \\ 3 & 4\\ 5 & 6 \\ 7 & 8 \\
 9 & 10 \\ 11 & 12 \\\end{pmatrix}$$
@@ -187,7 +187,7 @@ $$ X = \begin{pmatrix} 1 & 2 \\ 3 & 4\\ 5 & 6 \\ 7 & 8 \\
 
 \vspace{0.5cm}
 
-## Nimm die Matrix aus 2.1 und vertausche die Spalten. Das Ergebnis soll an die Variable $Y$ übergeben werden. 
+## Nehmen Sie die Matrix aus 2.1 und vertauschen Sie die Spalten. Das Ergebnis soll an die Variable $Y$ übergeben werden. 
 
 ```{r}
     Y <- X[ , 2:1] # oder
@@ -197,7 +197,7 @@ $$ X = \begin{pmatrix} 1 & 2 \\ 3 & 4\\ 5 & 6 \\ 7 & 8 \\
 
 \vspace{0.5cm}
 
-## Berechne $XY^{T}$.
+## Berechnen Sie $XY^{T}$.
 
 ```{r}
     X %*% t(Y)
@@ -205,7 +205,7 @@ $$ X = \begin{pmatrix} 1 & 2 \\ 3 & 4\\ 5 & 6 \\ 7 & 8 \\
 
 \vspace{0.5cm}
 
-## Erzeuge eine $2 \times 2$ Matrix aus der 2. und 5. Zeile der Matrix $X$.
+## Erzeugen Sie eine $2 \times 2$ Matrix aus der 2. und 5. Zeile der Matrix $X$.
 
 ```{r}
     X[c(2, 5), ]
@@ -213,7 +213,7 @@ $$ X = \begin{pmatrix} 1 & 2 \\ 3 & 4\\ 5 & 6 \\ 7 & 8 \\
 
 \vspace{0.5cm}
 
-##  Erzeuge die Matrix $X$ mit `X <- matrix(8:-7, nrow = 4)`.
+## Erzeugen Sie die Matrix $X$ mit `X <- matrix(8:-7, nrow = 4)`.
 
 ```{r}
     X <- matrix(8:-7, nrow = 4)
@@ -223,7 +223,7 @@ $$ X = \begin{pmatrix} 1 & 2 \\ 3 & 4\\ 5 & 6 \\ 7 & 8 \\
 Es wird jetzt `nrow` und nicht `ncol` benutzt. Außerdem wurde eine abfallende Folge von natürlichen Zahlen mithilfe von `:` erzeugt.
 
 \begin{enumerate} 
-  \item Ersetze die Elemente auf der Hauptdiagonalen durch `NA`s.
+  \item Ersetzen Sie die Elemente auf der Hauptdiagonalen durch `NA`s. 
 \end{enumerate}
 
 ```{r}
@@ -231,7 +231,7 @@ Es wird jetzt `nrow` und nicht `ncol` benutzt. Außerdem wurde eine abfallende F
 ```
 
 \begin{enumerate} \setcounter{enumi}{1}
-  \item Ersetze jetzt alle `NA`s in der Matrix mit dem Wert $1$. Nutze dazu die Funktion `is.na()`.
+  \item Ersetzen Sie jetzt alle `NA`s in der Matrix mit dem Wert $1$. Nutzen Sie dazu die Funktion `is.na()`.
 \end{enumerate}
 
 ```{r}

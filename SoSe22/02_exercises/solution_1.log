@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.3.4)  4 MAR 2022 11:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.3.4)  4 MAR 2022 13:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1128,7 +1128,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (c:/texlive/2021/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-<includes/duelogo_en.png, id=72, 230.8625pt x 89.33376pt>
+<includes/duelogo_en.png, id=68, 230.8625pt x 89.33376pt>
 File: includes/duelogo_en.png Graphic file (type png)
 <use includes/duelogo_en.png>
 Package pdftex.def Info: includes/duelogo_en.png  used on input line 243.
@@ -1156,27 +1156,39 @@ LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line
 337.
 (c:/texlive/2021/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [2]
-Underfull \hbox (badness 10000) in paragraph at lines 434--434
+)
+Underfull \hbox (badness 10000) in paragraph at lines 364--364
+|[]\T1/lmss/bx/n/10.95 (+20) Nutzen Sie die Funk-tion \T1/lmtt/b/n/10.95 seq() 
+\T1/lmss/bx/n/10.95 (+20) um die Folge
+ []
+
+[2]
+Overfull \hbox (13.28896pt too wide) in paragraph at lines 415--415
+|[]\T1/lmss/bx/n/10.95 (-20) Erzeugen Sie einen neuen Vek-tor \T1/lmtt/b/n/10.9
+5 characters \T1/lmss/bx/n/10.95 (-20) mit den El-e-menten $[]$.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 435--435
 |[]\T1/lmss/bx/n/10.95 (+20) Überschreibe jetzt den Vek-tor \T1/lmtt/b/n/10.95 
 characters \T1/lmss/bx/n/10.95 (+20) mit
  []
 
 [3] [4] [5] [6] [7] (./solution_1.aux)
 Package rerunfilecheck Info: File `solution_1.out' has not changed.
-(rerunfilecheck)             Checksum: 94E682154E5032DAACCC6C8ADA709DA0;9930.
+(rerunfilecheck)             Checksum: 8796E5056E3CD6F49F66026943B66EE1;9782.
 Package logreq Info: Writing requests to 'solution_1.run.xml'.
 \openout1 = `solution_1.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 25677 strings out of 478276
- 445400 string characters out of 5850490
- 1339278 words of memory out of 5000000
- 43334 multiletter control sequences out of 15000+600000
- 513843 words of font info for 95 fonts, out of 8000000 for 9000
+ 25669 strings out of 478276
+ 445296 string characters out of 5850490
+ 1339197 words of memory out of 5000000
+ 43332 multiletter control sequences out of 15000+600000
+ 513659 words of font info for 93 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 60i,9n,78p,1312b,7157s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,9n,78p,1368b,7157s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/texlive/2021
 /texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/texlive/2021/texmf-dist/fonts/enc/
 dvips/lm/lm-ts1.enc}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c
@@ -1191,10 +1203,10 @@ ve/2021/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb><c:/texlive/2021/texmf-di
 st/fonts/type1/public/lm/lmsy10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/pub
 lic/lm/lmtk10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
 <c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
-Output written on solution_1.pdf (7 pages, 236942 bytes).
+Output written on solution_1.pdf (7 pages, 236847 bytes).
 PDF statistics:
- 215 PDF objects out of 1000 (max. 8388607)
- 175 compressed objects within 2 object streams
- 44 named destinations out of 1000 (max. 500000)
- 24724 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 209 PDF objects out of 1000 (max. 8388607)
+ 169 compressed objects within 2 object streams
+ 42 named destinations out of 1000 (max. 500000)
+ 24716 words of extra memory for PDF output out of 24883 (max. 10000000)
 
