@@ -20,7 +20,20 @@ output:
       navigation:
         scroll: true #disable slide transitions by scrolling
 ---
-class: inverse
+
+```{r xaringanExtra-clipboard_2, echo=FALSE}
+# copy button styles mainly in ude.css 
+# https://github.com/gadenbuie/xaringanExtra
+htmltools::tagList(
+  xaringanExtra::use_clipboard(
+    button_text = "<i class=\"fa fa-clipboard\"></i>",
+    success_text = "<i class=\"fa fa-check\" style=\"color: #00ff00\"></i>",
+    error_text = "<i class=\"fa fa-times-circle\" style=\"color: #F94144\"></i>"
+  ),
+  rmarkdown::html_dependency_font_awesome()
+)
+```
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = T, small = T)
 
@@ -38,6 +51,8 @@ r_blue <- icon_style(fontawesome$brands$'r-project', fill = "#004c93")
 # packages
 suppressWarnings(source(here::here('00_packages/packages.R')))
 ```
+
+class: inverse
 
 # Übersicht 
 
