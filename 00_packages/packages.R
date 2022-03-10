@@ -14,7 +14,8 @@ pacman::p_load(dplyr,
                cowplot,
                png,
                knitr,
-               pagedown)
+               pagedown,
+               devtools)
 
 
 
