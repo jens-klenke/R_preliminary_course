@@ -97,6 +97,16 @@ To specify the margin of the first title h1
   display: none;
 }
 
+.title-slide a {
+    color: white;
+  }
+
+.title-slide a:hover {
+    color: black;
+    font-weight: 600 !important;
+  }
+
+
 .exercise_slide {
   background-color: #dfe4f2; /* #dfe4f2 #efe4bf; */
 }
@@ -284,6 +294,9 @@ slides > slide {
   padding: 2px;
 }
 
+.image_chunk {
+  margin-right: 100px;
+}
 
 
 /******************

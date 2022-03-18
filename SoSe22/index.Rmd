@@ -20,7 +20,7 @@ output:
       navigation:
         scroll: true #disable slide transitions by scrolling
 ---
-
+class: title-slide
 ```{r xaringanExtra-clipboard_2, echo=FALSE}
 # copy button styles mainly in ude.css 
 # https://github.com/gadenbuie/xaringanExtra
@@ -53,10 +53,33 @@ smiley <- icon_style(fontawesome("smile", style = "solid"), scale = 2, fill = "#
 grin_wink <- icon_style(fontawesome("grin-wink", style = "solid"), scale = 2, fill = "#004c93")
 ```
 
+```{r hook setup, include=FALSE}
+knitr::knit_hooks$set(class = function(before, options, envir) {
+  if(before){
+    sprintf("<div class = '%s'>", options$class)
+  }else{
+    "</div>"
+  }
+})
+```
 
-## Übersicht 
+
+```{r, echo = FALSE, out.width = "250px", fig.align='left', class = "image_chunk"}
+knitr::include_graphics("01_slides/assets/R_logo.svg.png")
+```
 
 <br> 
-1. [Teil 1](01_slides/vorkurs_1.html)
-1. [Teil 2](01_slides/vorkurs_2.html)
-1. [Teil 3](01_slides/vorkurs_3.html)
+
+# Vorkurs Übersicht 
+
+- [Teil 1](01_slides/vorkurs_1.html)
+- [Teil 2](01_slides/vorkurs_2.html)
+- [Teil 3](01_slides/vorkurs_3.html)
+
+
+
+<!-- ###  [Teil 1](01_slides/vorkurs_1.html) 
+
+### [Teil 2](01_slides/vorkurs_2.html)
+
+### [Teil 3](01_slides/vorkurs_3.html) -->
