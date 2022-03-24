@@ -65,6 +65,11 @@ To specify the margin of the first title h1
   width: 60%;
 }
 
+.pull-right-3 {
+  float: right;
+  width: 95%;
+}
+
 /*code copy button */
 
 .xaringanextra-clipboard-button {
@@ -97,14 +102,6 @@ To specify the margin of the first title h1
   display: none;
 }
 
-.title-slide a {
-    color: white;
-  }
-
-.title-slide a:hover {
-    color: black;
-    font-weight: 600 !important;
-  }
 
 
 .exercise_slide {
@@ -454,6 +451,7 @@ slides > slide {
   vertical-align: top;
   text-shadow: none;
   background-image: url(signet_ude_rgb_neg.png);
+  color: rgba(255, 255, 255, 0.68);
 /*  url(C:\Users\HP\Documents\GitHub\bayes\03_prensentation\logo_claim_en_rgb_negativ.png);
   text-shadow: 0 0 5px #333;*/
   /*padding-left: 100px;   delete this for 4:3 aspect ratio */
@@ -590,3 +588,12 @@ Accent grey - supportive #F1F1F1
 C=0 M=0 Y=0 K=10
 R=241 G=241 B=241
 */
+
+.title-slide a {
+    color: rgba(255, 255, 255, 0.68) !important;
+  }
+
+.title-slide a:hover {
+    color: rgba(255, 255, 255, 1) !important;
+    font-weight: 500 !important;
+  }
