@@ -171,7 +171,7 @@ rchisq(5, df = 10)  # 5 chi^2-verteilte Zufallszahlen
 ### Seeds
 
 .font80[
-Wiederholen wir den Code von Slide 7, erhalten wir andere zufällige Zahlen.
+Wiederholen wir den Code von Slide 6, erhalten wir andere zufällige Zahlen.
 
 ```{r}
 rchisq(5, df = 10)
@@ -485,7 +485,7 @@ was erwartet predict
 ### Dummy-Variablen/Regression ohne Achsenabschnitt
 
 .font80[
-Kategorische Variablen (hier Getriebeart *am* mit Automatik = 0, manuell = 1) können über die Funktion `factor()` als  Regressor mitaufgenommen werden.
+Kategorische Variablen (hier Getriebeart *am* mit Automatik = $0$, manuell = $1$) können über die Funktion `factor()` als  Regressor mit aufgenommen werden.
 ]
 
 --

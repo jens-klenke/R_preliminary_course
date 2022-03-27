@@ -332,7 +332,7 @@ height <- c(184, 165, NA)
 
 </br>
 
-Um eine Untermenge der Elemente eines Vektors anzusprechen (*Subsetting* genannt), nutzen wir in eckigen Klammern eingeschlossene *Indizes*.
+Um eine Teilmenge der Elemente eines Vektors anzusprechen (*Subsetting* genannt), nutzen wir in eckigen Klammern eingeschlossene *Indizes*.
 
 --
 
@@ -511,7 +511,7 @@ max(x)          # größtes Element
 
 which.min(x)    # Index des kleinsten Elements
 
-which.max(x)    # Index des größsten Elements
+which.max(x)    # Index des größten Elements
 
 prod(x)         # Produkt aller Elemente
 

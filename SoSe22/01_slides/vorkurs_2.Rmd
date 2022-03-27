@@ -69,11 +69,11 @@ r_blue <- icons::icon_style(fontawesome$brands$'r-project', fill = "#004c93")
 ## Logische Operatoren
 ### Einführung
 
-Die Klasse `logical` habt Ihr im ersten kennengelernt (`is.na()`).
+Die Klasse `logical` habt Ihr im ersten Teil kennengelernt (`is.na()`).
 
 Logische Vergleiche werden für das Programmieren bedingter Anweisungen benötigt. Sie kommen aber auch häufig bei Schleifen und beim Subsetting von Daten zum Einsatz.
 
-Das Ergebnis logischer Vergleiche ist **immer** ein *boolscher Wert*, also `TRUE` / `FALSE` bzw. `T ` / `F `.
+Das Ergebnis logischer Vergleiche ist **immer** ein *boolescher Wert*, also `TRUE` / `FALSE` bzw. `T ` / `F `.
 
 --
 
@@ -295,7 +295,7 @@ Ein Dataframe ist nach seiner Erstellung veränderbar. Man kann Spalten und Zeil
 ```{r, eval = T}
 df$Greeks <- c("alpha", "beta", "gamma", "delta")   # Hinzufügen der Spalte "Greeks"
 df        <- df[-2, ]                               # Entfernen der zweiten Zeile
-df[2, 2]  <- NA                                     # Beobachtung an Stelle 3x2 auf NA setzen
+df[2, 2]  <- NA                                     # Beobachtung an Stelle 2x2 auf NA setzen
 df
 ```
 
@@ -307,8 +307,8 @@ class: exercise_slide
 </br>
 
 <ol start = "1">
-    <li>Verschaffen Sie sich einen Überblick über den Datensatz<code>mtcars</code> ((dieser ist in base R bereits geladen). Aus wie vielen Variablen besteht er? Welche Klasse haben die einzelnen Variablen?</li>
-    <li>Lassen Sie sich folgende Subsets von \texttt{mtcars} ausgeben:</li>
+    <li>Verschaffen Sie sich einen Überblick über den Datensatz <code>mtcars</code> (dieser ist in base R bereits geladen). Aus wie vielen Variablen besteht der Datensatz? Welche Klasse haben die einzelnen Variablen?</li>
+    <li>Lassen Sie sich folgende Subsets von <code>mtcars</code> ausgeben:</li>
     <ul>
       <li>nur die Variable <code>mpg</code></li>
       <li>nur die ersten drei Zeilen</li>
@@ -604,7 +604,7 @@ Viele Funktionen habt ihr schon kennengelernt: `length()`, `sum()`, `min()`, `da
 
 --
 
-Eigene Funktionen werden wiefolgt definiert:
+Eigene Funktionen werden wie folgt definiert:
 
 .font80[
 ```{r, eval = F}
@@ -660,7 +660,7 @@ internal_ops <- function() {
   int_y <- 10
 } 
 
-internal_ops() # int.x un int.y sind nicht i, Environment-Tab zu sehen.
+internal_ops() # int.x un int.y sind nicht im Environment-Tab zu sehen.
 int_x          # Fehler: int_x existiert nur innerhalb der Funktion
 ```
 ]

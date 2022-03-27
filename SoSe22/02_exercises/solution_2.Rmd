@@ -155,7 +155,7 @@ source(here::here("00_packages/packages.R"))
     str(mtcars)
 ```
 
-Der Datensatz besteht aus elf Variablen, die all der Klasse `numeric` angehören. 
+Der Datensatz besteht aus elf Variablen, die alle der Klasse `numeric` angehören. 
 
 ## Lassen Sie sich folgende Subsets von `mtcars` ausgeben:
 
