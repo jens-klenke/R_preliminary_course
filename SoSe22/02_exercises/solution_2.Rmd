@@ -149,7 +149,7 @@ source(here::here("00_packages/packages.R"))
 
 # Übungsaufgaben zu Dataframes
 
-##  Verschaffen Sie sich einen Überblick über den Datensatz `mtcars` (dieser ist in base R bereits geladen). Aus wie vielen Variablen besteht er? Welche Klasse haben die einzelnen Variablen?
+##  Verschaffen Sie sich einen Überblick über den Datensatz `mtcars` (dieser ist in base R bereits geladen). Aus wie vielen Variablen besteht der Datensatz? Welche Klasse haben die einzelnen Variablen?
 
 ```{r, eval = T}
     str(mtcars)

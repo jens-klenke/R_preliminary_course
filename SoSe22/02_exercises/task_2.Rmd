@@ -68,7 +68,7 @@ source(here::here("00_packages/packages.R"))
 
 # Übungsaufgaben zu Dataframes
 
-## Verschaffen Sie sich einen Überblick über den Datensatz \texttt{mtcars} (dieser ist in base R bereits geladen). Aus wie vielen Variablen besteht er? Welche Klasse haben die einzelnen Variablen?
+## Verschaffen Sie sich einen Überblick über den Datensatz \texttt{mtcars} (dieser ist in base R bereits geladen). Aus wie vielen Variablen besteht der Datensatz? Welche Klasse haben die einzelnen Variablen?
 
 ## Lassen Sie sich folgende Subsets von \texttt{mtcars} ausgeben:
 
