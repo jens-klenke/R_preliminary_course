@@ -523,11 +523,11 @@ class: exercise_slide
 ## Vektoren
 ### Übungsaufgaben zu Vektoren 
 
-1. Erzeugen Sie einen Vektor \texttt{numbers} mit den Elementen $\begin{pmatrix} 4 & 6 & -3 & 2.5 & 18 & \pi &  85 \end{pmatrix}$.
+1. Erzeugen Sie einen Vektor `numbers` mit den Elementen $\begin{pmatrix} 4 & 6 & -3 & 2.5 & 18 & \pi &  85 \end{pmatrix}$.
 
     *Hinweis:* Die Zahl $\pi$ ist in `r r_black` bereits als `pi` vordefiniert.
 
-2. Berechnen Sie das arithmetische und das harmonische Mittel von \texttt{numbers}. 
+2. Berechnen Sie das arithmetische und das harmonische Mittel von `numbers`. 
 
     *Hinweis:* Für einen numerischen Vektor $X$ der Länge $n$ ist das arithmetische Mittel $\overline{X} = \frac{1}{n} \sum_{i=1}^n X_i$ und das harmonische Mittel $\overline{X}_{harm} = \frac{n}{\sum_{i=1}^n 1/X_i}$.
 
