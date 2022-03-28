@@ -570,7 +570,7 @@ Berechnen Sie nun \(a + b\),  \( a + x\),  \( a + y \) und \(a + z\). Finden Sie
 
 
 <ol start="9">
-    <li>Erzeugen Sie einen Vektor mit den Elementen \(\begin{pmatrix} 1 & 2 & 3 & a & b \\ \end{pmatrix}\)(Also eine Mischung aus <code>numeric</code> und <code>character</code>). Was passiert? Schreiben Sie einen Kommentar.</li>
+    <li>Erzeugen Sie einen Vektor mit den Elementen \(\begin{pmatrix} 1 & 2 & 3 & a & b \\ \end{pmatrix}\) (Also eine Mischung aus <code>numeric</code> und <code>character</code>). Was passiert? Schreiben Sie einen Kommentar.</li>
 </ol>
 
 ---
