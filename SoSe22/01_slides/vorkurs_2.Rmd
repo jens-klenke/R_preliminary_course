@@ -509,7 +509,7 @@ class: exercise_slide
     <ul>
       <li><i>Hinweis:</i> Nutzen Sie eine Funktion wie <code>min()</code> oder <code>sum()</code></li>
     </ul>
-    <li>Schreiben Sie Cod, der die Struktur (siehe <code>?str()</code>) eines Objekts <code>df</code> wiedergibt, sofern <code>df</code> zur Klasse <code>data.frame</code> gehört. Andernfalls soll die Länge des Objekts wiedergegeben werden.</li>
+    <li>Schreiben Sie Code, der die Struktur (siehe <code>?str()</code>) eines Objekts <code>df</code> wiedergibt, sofern <code>df</code> zur Klasse <code>data.frame</code> gehört. Andernfalls soll die Länge des Objekts wiedergegeben werden.</li>
 </ol>
 
 ---
