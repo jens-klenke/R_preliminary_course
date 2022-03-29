@@ -2,7 +2,7 @@
 title: "R-Vorkurs"
 subtitle: "Teil 1"
 author: 
-  - "Jens Klenke "
+  - "Jens Klenke"
 date: "28.03.2022"
 output:
   xaringan::moon_reader:
