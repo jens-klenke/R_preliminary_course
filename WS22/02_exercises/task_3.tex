@@ -1,0 +1,384 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{lmodern}
+
+\usepackage{xcolor}
+\usepackage{placeins}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[lmargin = 2cm, rmargin = 2.5cm, tmargin = 2cm, bmargin =
+2.5cm]{geometry}
+
+
+% Figure Placement:
+\usepackage{float}
+\let\origfigure\figure
+\let\endorigfigure\endfigure
+\renewenvironment{figure}[1][2] {
+    \expandafter\origfigure\expandafter[H]
+} {
+    \endorigfigure
+}
+
+%%%% Jens %%%%
+\usepackage[tiny]{titlesec}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\renewcommand{\vec}{\operatorname{vec}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\Var}{\operatorname{Var}} % Variance
+\newcommand{\VAR}{\operatorname{VAR}} % Vector autoregression
+\newcommand{\Lag}{\operatorname{L}} % Lag operator
+\newcommand{\Cov}{\operatorname{Cov}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\adj}{\operatorname{adj}}
+\newcommand{\loglik}{\operatorname{ll}}
+
+\allowdisplaybreaks
+
+\titleformat{\section}
+{\normalfont\large\bfseries}{\thesection}{1em}{}
+
+%### sections
+\newcommand{\tmpsection}[1]{}
+\let\tmpsection=\section
+%\renewcommand{\section}[1]{\tmpsection{\underline{#1}} }
+\titleformat*{\section}{\large\bfseries}
+\titleformat*{\subsection}{\small\bfseries\sffamily}
+%\setkomafont{subsection}{\Large}
+%\setkomafont{subsubsection}{\large}
+%\setkomafont{paragraph}{\large}
+%\setkomafont{subparagraph}{\large}
+
+
+
+
+
+%% citation setup
+\usepackage{csquotes}
+
+\usepackage[backend=biber, maxbibnames = 99, style = apa]{biblatex}
+\setlength\bibitemsep{1.5\itemsep}
+\addbibresource{R_packages.bib}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true, linktocpage = TRUE]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={Jens Klenke},
+            pdftitle={R Propädeutikum},
+            colorlinks=true,
+            citecolor=black,
+            urlcolor=black,
+            linkcolor=black,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{5}
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+  \title{R Propädeutikum}
+  \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+\subtitle{Übungsaufgaben 3}
+  \author{Jens Klenke}
+  \preauthor{\centering\large\emph}
+  \postauthor{\par}
+  \date{}
+  \predate{}\postdate{}
+
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+
+%% linespread settings
+
+\usepackage{setspace}
+
+\onehalfspacing
+
+
+% Language Setup
+
+\usepackage{ifthen}
+\usepackage{iflang}
+\usepackage[super]{nth}
+\usepackage[ngerman, english]{babel}
+
+%Acronyms
+\usepackage[printonlyused, withpage, nohyperlinks]{acronym}
+\usepackage{changepage}
+
+% Multicols for the Title page
+\usepackage{multicol}
+
+
+% foot
+
+
+\begin{document}
+
+\selectlanguage{english}
+
+%%%%%%%%%%%%%% Jens %%%%%
+\numberwithin{equation}{section}
+
+
+
+
+\restoregeometry
+
+
+%%% Header 
+
+\begin{minipage}{0.6\textwidth}
+Universität Duisburg-Essen\\
+Fakultät für Wirtschaftswissenschaften\\
+Lehrstuhl für Ökonometrie\\
+\end{minipage}
+
+%\begin{minipage}{0.4\textwidth}
+	\begin{flushright}
+	\vspace{-3cm}
+	\includegraphics*[width=5cm]{includes/duelogo_en.png}\\
+	\vspace{.125cm}
+	\end{flushright}
+%\end{minipage}
+%\vspace{.125cm}
+\hspace{-0.005cm}Sommersemester 2022
+
+\vspace{0.05cm}
+
+\begin{center}
+	\vspace{.25cm}
+	Jens Klenke \hspace{.5cm}  \\
+	\vspace{.25cm}
+	\textbf{\Large{R Propädeutikum}}\\
+	\vspace{.25cm}
+	\textbf{\large{Übungsaufgaben 3}}\\
+	\vspace{.125cm}
+\end{center}
+
+
+
+
+% body from markdown
+
+\hypertarget{verteilungen-und-zufallszahlen}{%
+\section{Verteilungen und
+Zufallszahlen}\label{verteilungen-und-zufallszahlen}}
+
+\hypertarget{sei-xsim-t5.-berechnen-sie-px6-p3xleq7-und-px4.}{%
+\subsection{\texorpdfstring{Sei \(X\sim t(5)\). Berechnen Sie
+\(P(X<6)\), \(P(3<X\leq7)\) und
+\(P(X>4)\).}{Sei X\textbackslash sim t(5). Berechnen Sie P(X\textless6), P(3\textless X\textbackslash leq7) und P(X\textgreater4).}}\label{sei-xsim-t5.-berechnen-sie-px6-p3xleq7-und-px4.}}
+
+\hypertarget{berechnen-sie-das-0.95-quantil-einer-f4-5-verteilten-zufallsvariable.}{%
+\subsection{\texorpdfstring{Berechnen Sie das \(0.95\)-Quantil einer
+\(F(4, 5)\)-verteilten
+Zufallsvariable.}{Berechnen Sie das 0.95-Quantil einer F(4, 5)-verteilten Zufallsvariable.}}\label{berechnen-sie-das-0.95-quantil-einer-f4-5-verteilten-zufallsvariable.}}
+
+\hypertarget{berechnen-sie-die-wahrscheinlichkeit-dafuxfcr-den-jackpot-im-lotto-zu-gewinnen-d.h.-6-richtige-aus-49.-vernachluxe4ssigen-sie-bei-ihrer-berechnung-zusatz--oder-superzahlen.-hinweis-benutzen-sie-die-hypergeometrische-verteilung.}{%
+\subsection{Berechnen Sie die Wahrscheinlichkeit dafür, den Jackpot im
+Lotto zu gewinnen (d.h. 6 Richtige aus 49). Vernachlässigen Sie bei
+Ihrer Berechnung Zusatz- oder Superzahlen. (Hinweis: Benutzen Sie die
+hypergeometrische
+Verteilung.)}\label{berechnen-sie-die-wahrscheinlichkeit-dafuxfcr-den-jackpot-im-lotto-zu-gewinnen-d.h.-6-richtige-aus-49.-vernachluxe4ssigen-sie-bei-ihrer-berechnung-zusatz--oder-superzahlen.-hinweis-benutzen-sie-die-hypergeometrische-verteilung.}}
+
+\hypertarget{erzeugen-sie-20-chi25-verteilte-zufallszahlen-ohne-dabei-die-rchisq-funktion-zu-benutzen.}{%
+\subsection{\texorpdfstring{Erzeugen Sie 20 \(\chi^2(5)\)-verteilte
+Zufallszahlen ohne (!) dabei die \texttt{rchisq()}-Funktion zu
+benutzen.}{Erzeugen Sie 20 \textbackslash chi\^{}2(5)-verteilte Zufallszahlen ohne (!) dabei die rchisq()-Funktion zu benutzen.}}\label{erzeugen-sie-20-chi25-verteilte-zufallszahlen-ohne-dabei-die-rchisq-funktion-zu-benutzen.}}
+
+\emph{Hinweis}: \(\chi^2(n)=\sum_{i=1}^n Z_i^2\) mit
+\(Z_i\sim\mathcal{N}(0,1)\) für alle \(i=1,...,n\).
+
+\hypertarget{ziehen-sie-10-mal-standardnormalverteilte-zufallszahlen-vom-umfang-n-10000-und-berechnen-sie-fuxfcr-jeden-durchlauf-das-arithmetische-mittel.-schauen-sie-sich-danach-alle-10-mittelwerte-an.-was-fuxe4llt-ihnen-auf-sind-sie-uxfcberrascht}{%
+\subsection{\texorpdfstring{Ziehen Sie 10-mal standardnormalverteilte
+Zufallszahlen vom Umfang \(n = 10000\) und berechnen Sie für jeden
+Durchlauf das arithmetische Mittel. Schauen Sie sich danach alle 10
+Mittelwerte an. Was fällt Ihnen auf? Sind Sie
+überrascht?}{Ziehen Sie 10-mal standardnormalverteilte Zufallszahlen vom Umfang n = 10000 und berechnen Sie für jeden Durchlauf das arithmetische Mittel. Schauen Sie sich danach alle 10 Mittelwerte an. Was fällt Ihnen auf? Sind Sie überrascht?}}\label{ziehen-sie-10-mal-standardnormalverteilte-zufallszahlen-vom-umfang-n-10000-und-berechnen-sie-fuxfcr-jeden-durchlauf-das-arithmetische-mittel.-schauen-sie-sich-danach-alle-10-mittelwerte-an.-was-fuxe4llt-ihnen-auf-sind-sie-uxfcberrascht}}
+
+\textbf{Zusatzaufgabe}: Führen Sie dieselbe Simulationsstudie mit
+Cauchy-verteilten Zufallszahlen (\texttt{rcauchy()}) durch. Was fällt
+Ihnen nun auf? Können Sie sich das Ergebnis erklären?
+
+\hypertarget{zeigen-sie-dass-das-integral-uxfcber-die-dichtefunktion-einer-chi215-verteilten-zufallsvariable-1-ist.}{%
+\subsection{\texorpdfstring{Zeigen Sie, dass das Integral über die
+Dichtefunktion einer \(\chi^2(15)\)-verteilten Zufallsvariable 1
+ist.}{Zeigen Sie, dass das Integral über die Dichtefunktion einer \textbackslash chi\^{}2(15)-verteilten Zufallsvariable 1 ist.}}\label{zeigen-sie-dass-das-integral-uxfcber-die-dichtefunktion-einer-chi215-verteilten-zufallsvariable-1-ist.}}
+
+\emph{Hinweis:} Zum Integrieren in R können Sie \texttt{integrate()}
+benutzen.
+
+\hypertarget{grafiken}{%
+\section{Grafiken}\label{grafiken}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{385}\NormalTok{)}
+\NormalTok{results }\OtherTok{\textless{}{-}} \FunctionTok{rnorm}\NormalTok{(}\DecValTok{1000}\NormalTok{, }\AttributeTok{mean =} \DecValTok{100}\NormalTok{, }\AttributeTok{sd =} \DecValTok{15}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{kopieren-sie-obigen-code-und-nehmen-sie-an-dass-dieser-eine-iq-testreihe-mit-1000-probanden-simuliert.-zeichnen-sie-ein-histogramm-der-ergebnisse.-geben-sie-ihrem-plot-anschlieuxdfend-eine-passende-uxfcberschrift-sowie-passende-achsenbeschriftungen.-spezifizieren-sie-daruxfcber-hinaus-den-bereich-von-x--und-y-achse-auf-40160-bzw.-00.03.}{%
+\subsection{\texorpdfstring{Kopieren Sie obigen Code und nehmen Sie an,
+dass dieser eine IQ-Testreihe mit 1000 Probanden simuliert. Zeichnen Sie
+ein Histogramm der Ergebnisse. Geben Sie Ihrem Plot anschließend eine
+passende Überschrift sowie passende Achsenbeschriftungen. Spezifizieren
+Sie darüber hinaus den Bereich von x- und y-Achse auf \([40,160]\) bzw.
+\([0,0.03]\).}{Kopieren Sie obigen Code und nehmen Sie an, dass dieser eine IQ-Testreihe mit 1000 Probanden simuliert. Zeichnen Sie ein Histogramm der Ergebnisse. Geben Sie Ihrem Plot anschließend eine passende Überschrift sowie passende Achsenbeschriftungen. Spezifizieren Sie darüber hinaus den Bereich von x- und y-Achse auf {[}40,160{]} bzw. {[}0,0.03{]}.}}\label{kopieren-sie-obigen-code-und-nehmen-sie-an-dass-dieser-eine-iq-testreihe-mit-1000-probanden-simuliert.-zeichnen-sie-ein-histogramm-der-ergebnisse.-geben-sie-ihrem-plot-anschlieuxdfend-eine-passende-uxfcberschrift-sowie-passende-achsenbeschriftungen.-spezifizieren-sie-daruxfcber-hinaus-den-bereich-von-x--und-y-achse-auf-40160-bzw.-00.03.}}
+
+\hypertarget{hinterlegen-sie-dem-plot-die-dem-iq-zugrundeliegende-theoretische-dichtefunktion-d.h.-eine-normalverteilung-mit-mu100-und-sigma15.-wuxe4hlen-sie-als-zeichenfarbe-rot-und-machen-sie-die-einzuzeichnende-linie-etwas-breiter.}{%
+\subsection{\texorpdfstring{Hinterlegen Sie dem Plot die dem IQ
+zugrundeliegende, theoretische Dichtefunktion, d.h. eine
+Normalverteilung mit \(\mu=100\) und \(\sigma=15\). Wählen Sie als
+Zeichenfarbe Rot und machen Sie die einzuzeichnende Linie etwas
+breiter.}{Hinterlegen Sie dem Plot die dem IQ zugrundeliegende, theoretische Dichtefunktion, d.h. eine Normalverteilung mit \textbackslash mu=100 und \textbackslash sigma=15. Wählen Sie als Zeichenfarbe Rot und machen Sie die einzuzeichnende Linie etwas breiter.}}\label{hinterlegen-sie-dem-plot-die-dem-iq-zugrundeliegende-theoretische-dichtefunktion-d.h.-eine-normalverteilung-mit-mu100-und-sigma15.-wuxe4hlen-sie-als-zeichenfarbe-rot-und-machen-sie-die-einzuzeichnende-linie-etwas-breiter.}}
+
+\hypertarget{zeichnen-sie-einen-punkt-in-form-eines-dreiecks-an-das-maximum-der-theoretischen-dichte.-wuxe4hlen-sie-als-farbe-blau.}{%
+\subsection{Zeichnen Sie einen Punkt in Form eines Dreiecks an das
+Maximum der theoretischen Dichte. Wählen Sie als Farbe
+Blau.}\label{zeichnen-sie-einen-punkt-in-form-eines-dreiecks-an-das-maximum-der-theoretischen-dichte.-wuxe4hlen-sie-als-farbe-blau.}}
+
+\hypertarget{kennzeichnen-sie-sowohl-das-0.025--als-auch-das-0.975-quantil-der-theoretischen-dichte-in-dem-sie-vertikalen-an-diesen-punkten-einzeichnen.-wuxe4hlen-sie-als-farbe-gruxfcn.}{%
+\subsection{\texorpdfstring{Kennzeichnen Sie sowohl das \(0.025\)- als
+auch das \(0.975\)-Quantil der theoretischen Dichte, in dem Sie
+Vertikalen an diesen Punkten einzeichnen. Wählen Sie als Farbe
+Grün.}{Kennzeichnen Sie sowohl das 0.025- als auch das 0.975-Quantil der theoretischen Dichte, in dem Sie Vertikalen an diesen Punkten einzeichnen. Wählen Sie als Farbe Grün.}}\label{kennzeichnen-sie-sowohl-das-0.025--als-auch-das-0.975-quantil-der-theoretischen-dichte-in-dem-sie-vertikalen-an-diesen-punkten-einzeichnen.-wuxe4hlen-sie-als-farbe-gruxfcn.}}
+
+\hypertarget{lineare-regression}{%
+\section{Lineare Regression}\label{lineare-regression}}
+
+\hypertarget{betrachten-sie-im-folgenden-den-datensatz-faithful-der-daten-zum-old-faithful-geysir-im-yellowstone-nationalpark-enthuxe4lt.-sowohl-die-dauer-einer-eruption-in-min.-eruptions-als-auch-die-wartezeit-bis-zur-nuxe4chsten-eruption-in-min.-waiting-sind-als-variable-im-datensatz-verfuxfcgbar.-unterstellen-sie-nachfolgendes-regressionsmodell-und-schuxe4tzen-sie-die-entsprechenden-parameter-widehatbeta_0-widehatbeta_1.-zeichnen-sie-anschlieuxdfend-eine-geeignete-grafik-und-interpretieren-sie-diese.}{%
+\subsection{\texorpdfstring{Betrachten Sie im Folgenden den Datensatz
+\texttt{faithful}, der Daten zum Old Faithful Geysir im Yellowstone
+Nationalpark enthält. Sowohl die Dauer einer Eruption in Min.
+(\texttt{eruptions}) als auch die Wartezeit bis zur nächsten Eruption in
+Min. (\texttt{waiting}) sind als Variable im Datensatz verfügbar.
+Unterstellen Sie nachfolgendes Regressionsmodell und schätzen Sie die
+entsprechenden Parameter \(\widehat{\beta_0}\), \(\widehat{\beta_1}\).
+Zeichnen Sie anschließend eine geeignete Grafik und interpretieren Sie
+diese.}{Betrachten Sie im Folgenden den Datensatz faithful, der Daten zum Old Faithful Geysir im Yellowstone Nationalpark enthält. Sowohl die Dauer einer Eruption in Min. (eruptions) als auch die Wartezeit bis zur nächsten Eruption in Min. (waiting) sind als Variable im Datensatz verfügbar. Unterstellen Sie nachfolgendes Regressionsmodell und schätzen Sie die entsprechenden Parameter \textbackslash widehat\{\textbackslash beta\_0\}, \textbackslash widehat\{\textbackslash beta\_1\}. Zeichnen Sie anschließend eine geeignete Grafik und interpretieren Sie diese.}}\label{betrachten-sie-im-folgenden-den-datensatz-faithful-der-daten-zum-old-faithful-geysir-im-yellowstone-nationalpark-enthuxe4lt.-sowohl-die-dauer-einer-eruption-in-min.-eruptions-als-auch-die-wartezeit-bis-zur-nuxe4chsten-eruption-in-min.-waiting-sind-als-variable-im-datensatz-verfuxfcgbar.-unterstellen-sie-nachfolgendes-regressionsmodell-und-schuxe4tzen-sie-die-entsprechenden-parameter-widehatbeta_0-widehatbeta_1.-zeichnen-sie-anschlieuxdfend-eine-geeignete-grafik-und-interpretieren-sie-diese.}}
+
+\begin{align*}
+  \text{waiting}_t = \beta_0+\beta_1 \text{eruptions}_t + u_t 
+\end{align*}
+
+\hypertarget{verschaffen-sie-sich-mit-summary-einen-uxfcberblick-uxfcber-ihr-in-3.1-erhaltenes-ergebnis.-interpretieren-sie-die-geschuxe4tzten-koeffizienten-und-speichern-sie-anschlieuxdfend-das-r2-multiple-r-squared-in-der-variablen-r2-ab.-hinweis-schauen-sie-sich-die-beim-ausfuxfchren-von-summary-ausgegebene-datenstruktur-genauer-an.}{%
+\subsection{\texorpdfstring{Verschaffen Sie sich mit \texttt{summary()}
+einen Überblick über ihr in 3.1 erhaltenes Ergebnis. Interpretieren Sie
+die geschätzten Koeffizienten und speichern Sie anschließend das \(R^2\)
+(\emph{Multiple R-squared}) in der Variablen \texttt{R2} ab.
+\emph{Hinweis:} Schauen Sie sich die, beim Ausführen von
+\texttt{summary()}, ausgegebene Datenstruktur genauer
+an.}{Verschaffen Sie sich mit summary() einen Überblick über ihr in 3.1 erhaltenes Ergebnis. Interpretieren Sie die geschätzten Koeffizienten und speichern Sie anschließend das R\^{}2 (Multiple R-squared) in der Variablen R2 ab. Hinweis: Schauen Sie sich die, beim Ausführen von summary(), ausgegebene Datenstruktur genauer an.}}\label{verschaffen-sie-sich-mit-summary-einen-uxfcberblick-uxfcber-ihr-in-3.1-erhaltenes-ergebnis.-interpretieren-sie-die-geschuxe4tzten-koeffizienten-und-speichern-sie-anschlieuxdfend-das-r2-multiple-r-squared-in-der-variablen-r2-ab.-hinweis-schauen-sie-sich-die-beim-ausfuxfchren-von-summary-ausgegebene-datenstruktur-genauer-an.}}
+
+\hypertarget{angenommen-sie-beobachten-einen-zusuxe4tzlichen-datenpunkt-fuxfcr-die-dauer-einer-eruption-von-x_new4.-sagen-sie-die-entsprechende-wartezeit-bis-zur-nuxe4chsten-eruption-vorher.}{%
+\subsection{\texorpdfstring{Angenommen Sie beobachten einen zusätzlichen
+Datenpunkt für die Dauer einer Eruption von \(X_{new}=4\). Sagen Sie die
+entsprechende Wartezeit bis zur nächsten Eruption
+vorher.}{Angenommen Sie beobachten einen zusätzlichen Datenpunkt für die Dauer einer Eruption von X\_\{new\}=4. Sagen Sie die entsprechende Wartezeit bis zur nächsten Eruption vorher.}}\label{angenommen-sie-beobachten-einen-zusuxe4tzlichen-datenpunkt-fuxfcr-die-dauer-einer-eruption-von-x_new4.-sagen-sie-die-entsprechende-wartezeit-bis-zur-nuxe4chsten-eruption-vorher.}}
+
+\end{document}
