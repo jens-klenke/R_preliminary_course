@@ -1,9 +1,9 @@
 ---
-title: "R-Vorkurs"
+title: "R-Vorkurs WS 22/23"
 subtitle: "Teil 2"
 author: 
   - "Jens Klenke"
-date: "29.03.2022"
+date: "05.10.2022"
 output:
   xaringan::moon_reader:
     css: ["default", "assets/ude-fonts.css", "assets/ude.css"]

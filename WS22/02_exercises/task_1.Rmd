@@ -3,7 +3,7 @@ title: 'R Propädeutikum'
 author: 'Jens Klenke'
 author2: ''
 subtitle: 'Übungsaufgaben 1'
-semester: "Sommersemester 2022"
+semester: "Wintersemester 2022"
 output:
   pdf_document:
     keep_tex: yes
@@ -36,7 +36,7 @@ source(here::here("00_packages/packages.R"))
 
 # Übungsaufgaben zu Vektoren 
 
-## Erzeugen Sie einen Vektor \texttt{numbers} mit den Elementen $\begin{pmatrix} 4 & 6 & -3 & 2.5 & 18 & \pi &  85 \end{pmatrix}$.
+## Erzeugen Sie einen Vektor \texttt{numbers} mit den Elementen $\begin{pmatrix} 4, & 6, & -3, & 2.5, & 18, & \pi, &  85 \end{pmatrix}$.
 
 *Hinweis:* Die Zahl $\pi$ ist in `R` bereits als `pi` vordefiniert.
 
@@ -49,10 +49,10 @@ source(here::here("00_packages/packages.R"))
 
 ## Nutzen Sie die Funktion \texttt{seq()} um die Folge \linebreak $\begin{pmatrix} 0, 0.5, 1, 1.5, \ldots, 99, 99.5, 100 \end{pmatrix}$ zu erzeugen. Wie viele Elemente besitzt dieser Vektor? Überprüfen Sie Ihre Vermutung mit \texttt{length()}.
 
-## Erzeugen Sie einen neuen Vektor \texttt{characters} mit den Elementen $\begin{pmatrix} a & a & a  & b & b & b & b & c & c \\ \end{pmatrix}$. Finden Sie dazu heraus wie die Funktion \texttt{rep()} funktioniert und nutzen Sie diese. 
+## Erzeugen Sie einen neuen Vektor \texttt{characters} mit den Elementen $\begin{pmatrix} a, & a, & a,  & b, & b, & b, & b, & c, & c \\ \end{pmatrix}$. Finden Sie dazu heraus wie die Funktion \texttt{rep()} funktioniert und nutzen Sie diese. 
 
 
-## Überschreiben Sie jetzt den Vektor  \texttt{characters}  mit \linebreak  $\begin{pmatrix} x & y & z & x & y & z & x & y & z \\ \end{pmatrix}$. Nutzen Sie wieder die Funktion \texttt{rep()}.
+## Überschreiben Sie jetzt den Vektor  \texttt{characters}  mit \linebreak  $\begin{pmatrix} x, & y, & z, & x, & y, & z, & x, & y, & z \\ \end{pmatrix}$. Nutzen Sie wieder die Funktion \texttt{rep()}.
 
 
 ##  Ersetzen Sie nun alle Elemente mit dem Inhalt \texttt{"z"} durch \texttt{"v"}.
@@ -72,7 +72,7 @@ Berechnen Sie nun $a+b$, $a+x$, $a+y$ und $a+z$. Finden Sie heraus, wie \texttt{
 
 
 
-## Erzeugen Sie einen Vektor mit den Elementen $\begin{pmatrix} 1 & 2 & 3 & a & b \\ \end{pmatrix}$ (Also eine Mischung aus `numeric` und `character`). Was passiert? Schreiben Sie einen Kommentar.
+## Erzeugen Sie einen Vektor mit den Elementen $\begin{pmatrix} 1, & 2, & 3, & a, & b \\ \end{pmatrix}$ (Also eine Mischung aus `numeric` und `character`). Was passiert? Schreiben Sie einen Kommentar.
 
 \vspace{1cm}
 

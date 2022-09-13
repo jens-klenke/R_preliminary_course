@@ -1,9 +1,9 @@
 ---
-title: "R-Vorkurs"
+title: "R-Vorkurs WS 22/23"
 subtitle: "Teil 3"
 author: 
   - "Jens Klenke"
-date: "31.03.2022"
+date: "07.10.2022"
 output:
   xaringan::moon_reader:
     css: ["default", "assets/ude-fonts.css", "assets/ude.css"]
@@ -246,15 +246,15 @@ class: exercise_slide
 .font90[
 1. Sei $X\sim t(5)$. Berechnen Sie $P(X<6)$, $P(3<X\leq7)$ und $P(X>4)$.
 2. Berechnen Sie das 0.95-Quantil einer $F(4,5)$-verteilten Zufallsvariable.
-3. Berechnen Sie die Wahrscheinlichkeit dafür, den Jackpot im Lotto zu gewinnen (d.h. 6 Richtige aus 49). Sie bei Ihrer Berechnung Zusatz- oder Superzahlen. 
-  *Hinweis*: Benutze die hypergeometrische Verteilung.
+3. Berechnen Sie die Wahrscheinlichkeit dafür, den Jackpot im Lotto zu gewinnen (d.h. 6 Richtige aus 49). Vernachlässigen Sie bei Ihrer Berechnung Zusatz- oder Superzahlen.
+  - *Hinweis*: Benutze die hypergeometrische Verteilung.
 4. Erzeugen Sie 20 $\chi^2(5)$-verteilte Zufallszahlen ohne (!) dabei die `rchisq()`-Funktion zu benutzen. 
 *Hinweis*: $\chi^2(n)=\sum_{i=1}^n Z_i^2$ mit $Z_i\sim\mathcal{N}(0,1)$ für alle $i=1,...,n$.
 5. Ziehen Sie 10 mal $n = 10000$ standardnormalverteilte Zufallszahlen und erechnen Sie für jeden Durchlauf das arithmetische Mittel. Schauen Sie sich danach alle 10 Mittelwerte an. Was fällt Ihnen auf? Sind Sie überrascht? 
-**Zusatzaufgabe:**  Führen Sie dieselbe Simulationsstudie mit Cauchy-verteilten Zufallszahlen (`rcauchy()`) durch. Was fällt Ihnen nun auf? Können Sie sich das Ergebnis erklären?
+  - **Zusatzaufgabe:**  Führen Sie dieselbe Simulationsstudie mit Cauchy-verteilten Zufallszahlen (`rcauchy()`) durch. Was fällt Ihnen nun auf? Können Sie sich das Ergebnis erklären?
 
 6. Zeigen Sie, dass das Integral über die Dichtefunktion einer $\chi^2(15)$-verteilten Zufallsvariable 1 ist. 
-*Hinweis:* Nutze `integrate()` zum Integrieren einer `r r_black`-Funktion
+  - *Hinweis:* Nutze `integrate()` zum Integrieren einer `r r_black`-Funktion
 ]
 
 ---

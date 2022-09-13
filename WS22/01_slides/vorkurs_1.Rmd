@@ -1,9 +1,9 @@
 ---
-title: "R-Vorkurs"
+title: "R-Vorkurs WS 22/23"
 subtitle: "Teil 1"
 author: 
   - "Jens Klenke"
-date: "28.03.2022"
+date: "04.10.2022"
 output:
   xaringan::moon_reader:
     css: ["default", "assets/ude-fonts.css", "assets/ude.css"]
@@ -523,7 +523,7 @@ class: exercise_slide
 ## Vektoren
 ### Übungsaufgaben zu Vektoren 
 
-1. Erzeugen Sie einen Vektor `numbers` mit den Elementen $\begin{pmatrix} 4 & 6 & -3 & 2.5 & 18 & \pi &  85 \end{pmatrix}$.
+1. Erzeugen Sie einen Vektor `numbers` mit den Elementen $\begin{pmatrix} 4, & 6, & -3, & 2.5, & 18, & \pi, &  85 \end{pmatrix}$.
 
     *Hinweis:* Die Zahl $\pi$ ist in `r r_black` bereits als `pi` vordefiniert.
 
@@ -541,9 +541,9 @@ class: exercise_slide
 </br>
 
 <ol start="4">
-    <li>Nutzen Sie die Funktion <code>seq()</code> um die Folge \(\begin{pmatrix} 0, 0.5, 1, 1.5, \ldots, 99, 99.5, 100 \end{pmatrix}\) zu erzeugen. Wie viele Elemente besitzt dieser Vektor? Überprüfen Sie Ihre Vermutung mit <code>length()</code></li>
-    <liErzeugen Sie einen neuen Vektor <code>characters</code> mit den Elementen \(\begin{pmatrix} a & a & a  & b & b & b & b & c & c \\ \end{pmatrix}\).  Finden Sie dazu heraus wie die Funktion <code>rep()</code> funktioniert und nutzen Sie diese.</li>
-    <li>Überschreiben Sie jetzt den Vektor <code>characters</code> mit \(\begin{pmatrix} x & y & z & x & y & z & x & y & z \\ \end{pmatrix}\). Nutzen Sie wieder die Funktion <code>rep()</code>.</li>
+    <li>Nutzen Sie die Funktion <code>seq()</code> um die Folge \(\begin{pmatrix} 0, 0.5, 1, 1.5, \ldots, 99, 99.5, 100 \end{pmatrix}\) zu erzeugen. Wie viele Elemente besitzt dieser Vektor? Überprüfen Sie Ihre Vermutung mit <code>length()</code>.</li>
+    <li>Erzeugen Sie einen neuen Vektor <code>characters</code> mit den Elementen \(\begin{pmatrix} a, & a, & a, & b, & b, & b, & b, & c, & c \\ \end{pmatrix}\).  Finden Sie dazu heraus wie die Funktion <code>rep()</code> funktioniert und nutzen Sie diese.</li>
+    <li>Überschreiben Sie jetzt den Vektor <code>characters</code> mit \(\begin{pmatrix} x, & y, & z, & x, & y, & z, & x, & y, & z \\ \end{pmatrix}\). Nutzen Sie wieder die Funktion <code>rep()</code>.</li>
     <li>Ersetzen Sie nun alle Elemente mit dem Inhalt  \(z\) durch \(v\).</li>
 </ol>
 
@@ -570,7 +570,7 @@ Berechnen Sie nun \(a + b\),  \( a + x\),  \( a + y \) und \(a + z\). Finden Sie
 
 
 <ol start="9">
-    <li>Erzeugen Sie einen Vektor mit den Elementen \(\begin{pmatrix} 1 & 2 & 3 & a & b \\ \end{pmatrix}\) (Also eine Mischung aus <code>numeric</code> und <code>character</code>). Was passiert? Schreiben Sie einen Kommentar.</li>
+    <li>Erzeugen Sie einen Vektor mit den Elementen \(\begin{pmatrix} 1, & 2, & 3, & a, & b, \\ \end{pmatrix}\). Was passiert? Schreiben Sie einen Kommentar.</li>
 </ol>
 
 ---
@@ -718,7 +718,7 @@ $$X =\begin{pmatrix}
   \end{pmatrix}$$
 
 <ol start="2">
-    <li>Nehmen Sie die Matrix aus 2.1 und vertauschen Sie die Spalten. Das Ergebnis soll an die Variable $Y$ übergeben werden. </li>
+    <li>Nehmen Sie die Matrix aus 2.1 und vertauschen Sie die Spalten. Das Ergebnis soll an die Variable \(Y\) übergeben werden. </li>
     <li>Berechnen Sie \(XY^{T}\).</li>
 </ol>
  

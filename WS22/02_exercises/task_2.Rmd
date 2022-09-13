@@ -3,7 +3,7 @@ title: 'R Propädeutikum'
 author: 'Jens Klenke'
 author2: ''
 subtitle: 'Übungsaufgaben 2'
-semester: "Sommersemester 2022"
+semester: "Wintersemester 2022"
 output:
   pdf_document:
     keep_tex: yes
@@ -52,9 +52,9 @@ source(here::here("00_packages/packages.R"))
 \begin{itemize}
   \item Die Länge des Vektors $z$ ist ungleich $2$.
   \item Die Länge der logischen Überprüfungen, ob die einzelnen Elemente gleich $2$ sind, ist $4$.
-  \item Der Vektor $z$ hat die Klasse `numeric`.
-  \item Einige Elemente des Vektors $z$ sind `NA`. 
-  \item Das zweite Element des Vektors $z$ ist `numeric`.
+  \item Der Vektor $z$ hat die Klasse \texttt{numeric}.
+  \item Einige Elemente des Vektors $z$ sind \texttt{NA}. 
+  \item Das zweite Element des Vektors $z$ ist \texttt{numeric}.
   \item Das Minimum und das Maximum sind ungleich. 
 \end{itemize}
 
@@ -125,8 +125,8 @@ Geben Sie in jedem Durchlauf die gezogene Zahl mit ` cat(x, "\n")` aus. (Hinweis
 ## Die Dichte der Standardnormalverteilung lautet $$\displaystyle \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}}$$. Schreiben Sie eine Funktion `stdnv`, welche die Dichte von `x` berechnet und zurückgibt.
 
 \begin{itemize}
-  \item \textit{Hinweis:} `?exp`, `?pi`
-  \item \textit{Hinweis:} Wenn die Funktion korrekt ist, sollten `stdnv(x)` und `dnorm(x)` die gleichen Ergebnisse liefern.
+  \item \textit{Hinweis:} \texttt{?exp}, \texttt{?pi}
+  \item \textit{Hinweis:} Wenn die Funktion korrekt ist, sollten \texttt{stdnv(x)} und \texttt{dnorm(x)} die gleichen Ergebnisse liefern.
 \end{itemize}
 
 ## Schreiben Sie eine Funktion, welche die Argumente `z` sowie `opt` erwartet. Im Funktionskörper soll mit einer If-Anweisung gesteuert werden, welche Operation auf `z` ausgeführt werden soll:
