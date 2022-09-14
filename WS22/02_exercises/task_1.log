@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.9.13)  13 SEP 2022 14:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.9.13)  14 SEP 2022 12:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **./task_1.tex
 (task_1.tex
 LaTeX2e <2022-06-01> patch level 5
-L3 programming layer <2022-07-04> (C:\Users\Jens-\AppData\Local\Programs\MiKTeX
+L3 programming layer <2022-08-30> (C:\Users\Jens-\AppData\Local\Programs\MiKTeX
 \tex/latex/base\article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
 (C:\Users\Jens-\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo
@@ -543,16 +543,16 @@ File: biblatex.cfg
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Document encoding is UTF8 ....
 (C:\Users\Jens-\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.sty
-Package: expl3 2022-07-04 L3 programming layer (loader) 
+Package: expl3 2022-08-30 L3 programming layer (loader) 
 
 (C:\Users\Jens-\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
-File: l3backend-pdftex.def 2022-07-01 L3 backend support: PDF output (pdfTeX)
+File: l3backend-pdftex.def 2022-08-30 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count420
 \l__pdf_internal_box=\box57
 ))
 Package biblatex Info: ... and expl3
-(biblatex)             2022-07-04 L3 programming layer (loader) 
+(biblatex)             2022-08-30 L3 programming layer (loader) 
 (biblatex)             is new enough (at least 2020/04/06),
 (biblatex)             setting 'casechanger=expl3'.
 
@@ -859,7 +859,7 @@ Package iflang Info: Naming convention for patterns: babel.
 ) (C:\Users\Jens-\AppData\Local\Programs\MiKTeX\tex/generic/genmisc\nth.sty
 Package: nth 2002/02/27
 ) (C:\Users\Jens-\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
-Package: babel 2022/06/26 3.77 The Babel package
+Package: babel 2022/08/29 3.79 The Babel package
 \babel@savecnt=\count456
 \U@D=\dimen262
 \l@unhyphenated=\language80
@@ -1263,8 +1263,8 @@ Overfull \hbox (37.62233pt too wide) in paragraph at lines 310--310
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 317--317
-|[]\T1/lmss/bx/n/10.95 (+20) Überschreiben Sie jetzt den Vek-tor \T1/lmtt/b/n/1
-0.95 characters \T1/lmss/bx/n/10.95 (+20) mit
+|[]\T1/lmss/bx/n/10.95 (+20) Überschreiben Sie nun den Vek-tor \T1/lmtt/b/n/10.
+95 characters \T1/lmss/bx/n/10.95 (+20) mit
  []
 
 [1
@@ -1273,16 +1273,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 317--317
 {C:/Users/Jens-/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./includes/d
 uelogo_en.png>] [2] (task_1.aux)
 Package rerunfilecheck Info: File `task_1.out' has not changed.
-(rerunfilecheck)             Checksum: 1F4C06062FA8D31595337A979BFD6205;10024.
+(rerunfilecheck)             Checksum: 4494F2A80D34491DD2E77E09DC671F66;9752.
 Package logreq Info: Writing requests to 'task_1.run.xml'.
 \openout1 = `task_1.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 25851 strings out of 478338
- 457312 string characters out of 2836700
- 1367158 words of memory out of 3000000
- 43730 multiletter control sequences out of 15000+600000
+ 25854 strings out of 475389
+ 457279 string characters out of 2777000
+ 1409449 words of memory out of 3000000
+ 46679 multiletter control sequences out of 15000+600000
  517088 words of font info for 89 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  60i,9n,78p,1366b,7171s stack positions out of 10000i,1000n,20000p,200000b,80000s
@@ -1306,7 +1306,7 @@ ns-/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/Jens
 ns-/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Je
 ns-/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtk10.pfb><C:/Users/Je
 ns-/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
-Output written on task_1.pdf (2 pages, 287311 bytes).
+Output written on task_1.pdf (2 pages, 286419 bytes).
 PDF statistics:
  195 PDF objects out of 1000 (max. 8388607)
  37 named destinations out of 1000 (max. 500000)

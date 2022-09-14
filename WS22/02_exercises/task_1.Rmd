@@ -38,7 +38,7 @@ source(here::here("00_packages/packages.R"))
 
 ## Erzeugen Sie einen Vektor \texttt{numbers} mit den Elementen $\begin{pmatrix} 4, & 6, & -3, & 2.5, & 18, & \pi, &  85 \end{pmatrix}$.
 
-*Hinweis:* Die Zahl $\pi$ ist in `R` bereits als `pi` vordefiniert.
+*Hinweis:* Die Zahl $\pi$ ist in \texttt{R} bereits als \texttt{pi} vordefiniert.
 
 ## Berechnen Sie das arithmetische und das harmonische Mittel von \texttt{numbers}.
 
@@ -52,10 +52,10 @@ source(here::here("00_packages/packages.R"))
 ## Erzeugen Sie einen neuen Vektor \texttt{characters} mit den Elementen $\begin{pmatrix} a, & a, & a,  & b, & b, & b, & b, & c, & c \\ \end{pmatrix}$. Finden Sie dazu heraus wie die Funktion \texttt{rep()} funktioniert und nutzen Sie diese. 
 
 
-## Überschreiben Sie jetzt den Vektor  \texttt{characters}  mit \linebreak  $\begin{pmatrix} x, & y, & z, & x, & y, & z, & x, & y, & z \\ \end{pmatrix}$. Nutzen Sie wieder die Funktion \texttt{rep()}.
+## Überschreiben Sie nun den Vektor  \texttt{characters}  mit \linebreak  $\begin{pmatrix} x, & y, & z, & x, & y, & z, & x, & y, & z \\ \end{pmatrix}$. Nutzen Sie wieder die Funktion \texttt{rep()}.
 
 
-##  Ersetzen Sie nun alle Elemente mit dem Inhalt \texttt{"z"} durch \texttt{"v"}.
+## Ersetzen Sie nun alle Elemente mit dem Inhalt \texttt{"z"} durch \texttt{"v"}.
 
 
 ## Kopieren Sie folgenden Code in Ihr \texttt{R}-Skript:
@@ -72,7 +72,7 @@ Berechnen Sie nun $a+b$, $a+x$, $a+y$ und $a+z$. Finden Sie heraus, wie \texttt{
 
 
 
-## Erzeugen Sie einen Vektor mit den Elementen $\begin{pmatrix} 1, & 2, & 3, & a, & b \\ \end{pmatrix}$ (Also eine Mischung aus `numeric` und `character`). Was passiert? Schreiben Sie einen Kommentar.
+## Erzeugen Sie einen Vektor mit den Elementen $\begin{pmatrix} 1, & 2, & 3, & a, & b \\ \end{pmatrix}$. Was passiert? Schreiben Sie einen Kommentar.
 
 \vspace{1cm}
 
@@ -102,4 +102,3 @@ $$X = \begin{pmatrix} 1 & 2 \\ 3 & 4\\ 5 & 6 \\ 7 & 8 \\
 1. Ersetzen Sie die Elemente auf der Hauptdiagonalen durch `NA`s. 
 
 1. Ersetzen Sie jetzt alle `NA`s in der Matrix mit dem Wert $1$. Nutzen Sie dazu die Funktion `is.na()`.
-
