@@ -73,11 +73,8 @@ grin_wink <- icon_style(fontawesome("grin-wink", style = "solid"), scale = 2, fi
 
 ### Was ist *RStudio*? Brauche ich das?
 
-
-*RStudio* ist eine integrierte Entwicklungsumgebung und grafische Benutzeroberfläche für `r r_black`.
-
-
-*RStudio* bietet eine Menge an Komfortfunktionen, die das Arbeiten mit `r r_black` vereinfachen.  
+- *RStudio* ist eine integrierte Entwicklungsumgebung und grafische Benutzeroberfläche für `r r_black`.
+- *RStudio* bietet eine Menge an Komfortfunktionen, die das Arbeiten mit `r r_black` vereinfachen.  
 
 --
 
@@ -85,9 +82,10 @@ grin_wink <- icon_style(fontawesome("grin-wink", style = "solid"), scale = 2, fi
 
 $\Rightarrow$ **Wir arbeiten daher mit RStudio**
 
+--
 
+<br>
 **Wichtig: *RStudio* ist nicht gleich `r r_black`! Ohne eine `r r_black`-Installation bringt *RStudio* nichts.** 
-  
 ---
 ## Grundlagen
   
