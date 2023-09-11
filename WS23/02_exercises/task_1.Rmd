@@ -1,0 +1,104 @@
+---
+title: 'R Propädeutikum'
+author: 'Jens Klenke'
+author2: ''
+subtitle: 'Übungsaufgaben 1'
+semester: "Wintersemester 2022/2023"
+output:
+  pdf_document:
+    keep_tex: yes
+    template: template.tex
+    fig_caption: yes
+    citation_package: biblatex
+    number_sections: true
+toc: true
+lot: true
+lof: true
+graphics: true
+linkcolor: black
+urlcolor: black
+citecolor: black
+colorlinks: true
+font: Times New Roman
+fontsize: 12pt
+geometry: lmargin = 2cm, rmargin = 2.5cm, tmargin = 2cm, bmargin = 2.5cm
+classoption: a4paper
+---
+
+```{r , include=FALSE}
+Sys.setlocale(locale = "English_United States.1252") ## English US Windows
+knitr::opts_chunk$set(echo = TRUE)
+
+#options(kableExtra.latex.load_packages = FALSE)
+#### required packages ####
+source(here::here("00_packages/packages.R"))
+```
+
+# Übungsaufgaben zu Vektoren 
+
+## Erzeugen Sie einen Vektor \texttt{numbers} mit den Elementen $\begin{pmatrix} 4, & 6, & -3, & 2.5, & 18, & \pi, &  85 \end{pmatrix}$.
+
+*Hinweis:* Die Zahl $\pi$ ist in \texttt{R} bereits als \texttt{pi} vordefiniert.
+
+## Berechnen Sie das arithmetische und das harmonische Mittel von \texttt{numbers}.
+
+*Hinweis:* Für einen numerischen Vektor $X$ der Länge $n$ ist das arithmetische Mittel $\overline{X} = \frac{1}{n} \sum_{i=1}^n X_i$ und das harmonische Mittel $\overline{X}_{harm} = \frac{n}{\sum_{i=1}^n 1/X_i}$.
+
+## Sie kommen zu dem Schluss, dass die höchste und die niedrigste Zahl die Schätzung verzerren und entscheiden darum, diese Werte zu ignorieren. Ersetzen Sie beide Werte durch \texttt{NA} und berechnen Sie die Mittelwerte aus Aufgabe 1.2 erneut.
+
+
+## Nutzen Sie die Funktion \texttt{seq()} um die Folge \linebreak $\begin{pmatrix} 0, 0.5, 1, 1.5, \ldots, 99, 99.5, 100 \end{pmatrix}$ zu erzeugen. Wie viele Elemente besitzt dieser Vektor? Überprüfen Sie Ihre Vermutung mit \texttt{length()}.
+
+## Erzeugen Sie einen neuen Vektor \texttt{characters} mit den Elementen $\begin{pmatrix} a, & a, & a,  & b, & b, & b, & b, & c, & c \\ \end{pmatrix}$. Finden Sie dazu heraus wie die Funktion \texttt{rep()} funktioniert und nutzen Sie diese. 
+
+
+## Überschreiben Sie nun den Vektor  \texttt{characters}  mit \linebreak  $\begin{pmatrix} x, & y, & z, & x, & y, & z, & x, & y, & z \\ \end{pmatrix}$. Nutzen Sie wieder die Funktion \texttt{rep()}.
+
+
+## Ersetzen Sie nun alle Elemente mit dem Inhalt \texttt{"z"} durch \texttt{"v"}.
+
+
+## Kopieren Sie folgenden Code in Ihr \texttt{R}-Skript:
+
+```{r}
+    a <- c(2,5,7,5,12,6)
+    b <- c(1,2,3,4,5,6)
+    x <- c(1:2)
+    y <- 3
+    z <- c(1,2,3,4)
+```
+    
+Berechnen Sie nun $a+b$, $a+x$, $a+y$ und $a+z$. Finden Sie heraus, wie \texttt{R} jeweils vorgeht und schreiben Sie einen kurzen Kommentar.
+
+
+
+## Erzeugen Sie einen Vektor mit den Elementen $\begin{pmatrix} 1, & 2, & 3, & a, & b \\ \end{pmatrix}$. Was passiert? Schreiben Sie einen Kommentar.
+
+\vspace{1cm}
+
+# Übungsaufgaben zu Matrizen 
+
+## Erzeugen Sie mit dem Inputvektor `1:12` und \texttt{matrix()} folgende Matrix $X$.
+
+$$X = \begin{pmatrix} 1 & 2 \\ 3 & 4\\ 5 & 6 \\ 7 & 8 \\
+9 & 10 \\ 11 & 12 \\\end{pmatrix}$$
+
+\vspace{0.5cm}
+
+## Nehmen Sie die Matrix aus 2.1 und vertauschen Sie die Spalten. Das Ergebnis soll an die Variable $Y$ übergeben werden. 
+
+\vspace{0.5cm}
+
+## Berechnen Sie $XY^{T}$.
+
+\vspace{0.5cm}
+
+## Erzeugen Sie eine $2 \times 2$ Matrix aus der 2. und 5. Zeile der Matrix $X$.
+
+\vspace{0.5cm}
+
+##  Erzeugen Sie die Matrix $X$ mit `X <- matrix(8:-7, nrow = 4)`.
+
+1. Ersetzen Sie die Elemente auf der Hauptdiagonalen durch `NA`s. 
+
+1. Ersetzen Sie jetzt alle `NA`s in der Matrix mit dem Wert $1$. Nutzen Sie dazu die Funktion `is.na()`.

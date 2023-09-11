@@ -1,0 +1,277 @@
+---
+title: 'R Propädeutikum'
+author: 'Jens Klenke'
+author2: ''
+subtitle: 'Lösung Übungsaufgaben 3'
+semester: 'Wintersemester 2022/2023'
+output:
+  pdf_document:
+    keep_tex: yes
+    template: template.tex
+    fig_caption: yes
+    citation_package: biblatex
+    number_sections: true
+toc: true
+lot: true
+lof: true
+graphics: true
+linkcolor: black
+urlcolor: black
+citecolor: black
+colorlinks: true
+font: Times New Roman
+fontsize: 12pt
+geometry: lmargin = 2cm, rmargin = 2.5cm, tmargin = 2cm, bmargin = 2.5cm
+classoption: a4paper
+---
+
+```{r , include=FALSE}
+Sys.setlocale(locale = "English_United States.1252") ## English US Windows
+knitr::opts_chunk$set(echo = TRUE, fig.align = 'center', out.width = '300px')
+options(width = 70)
+
+
+#options(kableExtra.latex.load_packages = FALSE)
+#### required packages ####
+source(here::here("00_packages/packages.R"))
+```
+
+# Verteilungen und Zufallszahlen
+
+## Sei $X\sim t(5)$. Berechnen Sie $P(X<6)$, $P(3<X\leq7)$ und $P(X>4)$.
+
+\begin{itemize}
+  \item  $P(X<6)$
+\end{itemize}
+<!-- 6 da kontinuierlich   -->
+```{r}
+    pt(6, df = 5)
+```
+
+\begin{itemize}
+  \item  $P(3< X \leq 7)$
+\end{itemize}
+
+```{r}
+    pt(7, df = 5) - pt(3, df = 5)
+```
+
+\begin{itemize}
+  \item $P(X>4)$.
+\end{itemize}
+
+```{r}
+    1 - pt(4, df = 5)
+```
+
+## Berechnen Sie das $0.95$-Quantil einer $F(4, 5)$-verteilten Zufallsvariable.
+
+```{r}
+    qf(0.95, df1 = 4, df2 = 5)
+```
+
+## Berechnen Sie die Wahrscheinlichkeit dafür, den Jackpot im Lotto zu gewinnen (d.h. 6 Richtige aus 49). Vernachlässigen Sie bei Ihrer Berechnung Zusatz- oder Superzahlen. (Hinweis: Benutzen Sie die hypergeometrische Verteilung.)
+
+```{r}
+    dhyper(6, m = 6, n = 43, k = 6)
+    # oder per Binomialkoeffizient:
+    # 1/choose(49, 6)
+```
+
+## Erzeugen Sie 20 $\chi^2(5)$-verteilte Zufallszahlen ohne (!) dabei die `rchisq()`-Funktion zu benutzen. 
+
+*Hinweis*: $\chi^2(n)=\sum_{i=1}^n Z_i^2$ mit $Z_i\sim\mathcal{N}(0,1)$ für alle $i=1,...,n$.
+
+```{r}
+    # seed damit bei beiden Befehlen die Ergebnisse gleich sind
+    set.seed(1549) 
+    # schnell: 
+    replicate(20, sum(rnorm(5)^2))
+    
+    # seed damit bei beiden Befehlen die Ergebnisse gleich sind
+    set.seed(1549)
+    # mit schleife:
+    rn <- numeric()
+    for(i in 1:20){
+      rn[i] <- sum(rnorm(5)^2)
+    }
+    rn
+```
+
+
+## Ziehen Sie 10-mal standardnormalverteilte Zufallszahlen vom Umfang $n = 10000$ und berechnen Sie für jeden Durchlauf das arithmetische Mittel. Schauen Sie sich danach alle 10 Mittelwerte an. Was fällt Ihnen auf? Sind Sie überrascht? 
+
+```{r}
+    norm <- numeric()
+    for(i in 1:10){
+      norm[i] <- mean(rnorm(10000))
+    }
+    norm
+```
+
+Alle 10 Mittelwerte liegen sehr nahe bei 0. Nicht überraschend, da wir Zufallszahlen mit Erwartungswert 0 ziehen.
+
+**Zusatzaufgabe:** Führen Sie dieselbe Simulationsstudie mit Cauchy-verteilten Zufallszahlen (`rcauchy()`) durch. Was fällt Ihnen nun auf? Können Sie sich das Ergebnis erklären?
+
+```{r}    
+    cauchy <- numeric()
+    for(i in 1:10){
+      cauchy[i] <- mean(rt(10000, df = 1))
+    }
+    cauchy
+```
+
+Nun liegen die Mittelwerte nicht wirklich nahe beieinander. Erklärung: die Cauchy-Verteilung hat keinen Erwartungswert.
+
+## Zeigen Sie, dass das Integral über die Dichtefunktion einer $\chi^2(15)$-verteilten Zufallsvariable 1 ist. 
+
+```{r}
+    integrate(dchisq, lower = 0, upper = Inf, df = 15)
+```
+
+\newpage
+
+# Grafiken 
+
+```{r, eval = FALSE}
+set.seed(385)
+results <- rnorm(1000, mean = 100, sd = 15)
+```
+
+## Kopieren Sie obigen Code und nehmen Sie an, dass dieser eine IQ-Testreihe mit 1000 Probanden simuliert. Zeichnen Sie ein Histogramm der Ergebnisse. Geben Sie Ihrem Plot anschließend eine passende Überschrift sowie passende Achsenbeschriftungen. Spezifizieren Sie darüber hinaus den Bereich von x- und y-Achse auf $[40,160]$ bzw. $[0,0.03]$.
+
+```{r}
+    set.seed(385)
+    results <- rnorm(1000, mean = 100, sd = 15)
+    hist(results, 
+         freq = F,
+         xlab = 'IQ', 
+         ylab = 'Anteil', 
+         main = 'Verteilung der IQ-Testergebnisse', 
+         xlim = c(40, 160), 
+         ylim = c(0, 0.03))
+```
+
+
+
+## Hinterlegen Sie dem Plot die dem IQ zugrundeliegende, theoretische Dichtefunktion, d.h. eine Normalverteilung mit $\mu=100$ und $\sigma=15$. Wählen Sie als Zeichenfarbe Rot und machen Sie die einzuzeichnende Linie etwas breiter.
+
+```{r}
+    set.seed(385)
+    results <- rnorm(1000, mean = 100, sd = 15)
+    hist(results, freq = F, xlab = 'IQ', ylab = 'Anteil', 
+         main = 'Verteilung der IQ-Testergebnisse',
+         xlim = c(40, 160), ylim = c(0, 0.03))
+    x <- seq(40, 160, 0.01)
+    y <- dnorm(x, mean = 100, sd = 15)
+    lines(x, y, col = 'red', lwd = 2)
+```
+
+
+## Zeichnen Sie einen Punkt in Form eines Dreiecks an das Maximum der theoretischen Dichte. Wählen Sie als Farbe Blau.
+
+```{r}
+    hist(results, 
+         freq = F, 
+         xlab = 'IQ', 
+         ylab = 'Anteil', 
+         main = 'Verteilung der IQ-Testergebnisse', 
+         xlim = c(40, 160), 
+         ylim = c(0, 0.03))
+    
+    x <- seq(40, 160, 0.01)
+    y <- dnorm(x, mean = 100, sd = 15)
+    
+    lines(x, 
+          y, 
+          col = 'red', 
+          lwd = 2)
+    
+    points(100, 
+           dnorm(100, mean = 100, sd = 15), 
+           pch = 2, 
+           col = 'blue')
+```
+
+
+## Kennzeichnen Sie sowohl das $0.025$- als auch das $0.975$-Quantil der theoretischen Dichte, in dem Sie Vertikalen an diesen Punkten einzeichnen. Wählen Sie als Farbe Grün.
+
+```{r}
+
+    hist(results, 
+         freq = F, 
+         xlab = 'IQ', 
+         ylab = 'Anteil', 
+         main = 'Verteilung der IQ-Testergebnisse', 
+         xlim = c(40, 160), 
+         ylim = c(0, 0.03))
+    
+    x <- seq(40, 160, 0.01)
+    y <- dnorm(x, mean = 100, sd = 15)
+    
+    lines(x, y, col = 'red', lwd = 2)
+    
+    points(100, 
+           dnorm(100, mean = 100, sd = 15), 
+           pch = 2, 
+           col = 'blue')
+    
+    abline(v = qnorm(0.025, mean = 100, sd = 15), col = 'green')
+    abline(v = qnorm(0.975, mean = 100, sd = 15), col = 'green')
+```
+
+# Lineare Regression
+
+## Betrachten Sie im Folgenden den Datensatz `faithful`, der Daten zum Old Faithful Geysir im Yellowstone Nationalpark enthält. Sowohl die Dauer einer Eruption in Min. (`eruptions`) als auch die Wartezeit bis zur nächsten Eruption in Min. (`waiting`) sind als Variable im Datensatz verfügbar. Unterstellen Sie nachfolgendes Regressionsmodell und schätzen Sie die entsprechenden Parameter $\widehat{\beta_0}$, $\widehat{\beta_1}$. Zeichnen Sie anschließend eine geeignete Grafik und interpretieren Sie diese.
+
+\begin{align*}
+  \text{waiting}_t = \beta_0+\beta_1 \text{eruptions}_t + u_t 
+\end{align*}
+
+```{r}
+    model_ff <- lm(waiting ~ eruptions, data = faithful)
+   
+    plot(faithful$eruptions, 
+         faithful$waiting, 
+         xlab = 'Dauer einer Eruption (in Min.)',
+         ylab = 'Wartezeit zur nächsten Eruption (in Min.)')
+    
+    abline(model_ff, col = 'red')
+```
+
+Grundsätzlich: Je länger die Dauer einer Eruption ist, desto länger ist die Wartezeit bis zur nächsten Eruption.
+    
+## Verschaffen Sie sich mit `summary()` einen Überblick über ihr in 3.1 erhaltenes Ergebnis. Interpretieren Sie die geschätzten Koeffizienten und speichern Sie anschließend das $R^2$ (*Multiple R-squared*) in der Variablen `R2` ab. (Hinweis: Schauen Sie sich die, beim Ausführen von `summary()`, ausgegebene Datenstruktur genauer an.)
+
+```{r}
+    summary(model_ff)
+```
+
+\begin{itemize}
+  \item Achsenabschnitt (\texttt{Intercept})
+  \begin{itemize}
+    \item Bei einer Eruptionsdauer von 0 Minuten, beträgt die Wartezeit bis zur nächsten Eruption etwa 33.5 Minuten (nicht wirklich sinnvoll interpretierbar).
+  \end{itemize}
+  \item Steigungskoeffizient (\texttt{eruptions})
+  \begin{itemize}
+    \item Steigt die Dauer einer Eruption um eine Minute, steigt die Wartezeit bis zur nächsten Eruption um etwa 10.7 Minuten.
+  \end{itemize}
+\end{itemize}
+
+```{r}
+    R2 <- summary(model_ff)$r.squared
+    R2
+```
+
+Summary erstellt ebenfalls eine Liste, in der u. a. auch das $R^2$ enthalten ist.
+
+## Angenommen Sie beobachten einen zusätzlichen Datenpunkt für die Dauer einer Eruption von $X_{new}=4$. Sagen Sie die entsprechende Wartezeit bis zur nächsten Eruption vorher.
+
+```{r}
+    new_value <- data.frame(eruptions = 4)
+    predict(model_ff, newdata = new_value)
+```
+
+
+Bei einer Eruptionsdauer von 4 Min. beträgt die mit unserem Modell geschätzte Wartezeit etwa. 76.4 Min.
+

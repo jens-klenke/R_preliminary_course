@@ -1,0 +1,735 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{lmodern}
+
+\usepackage{xcolor}
+\usepackage{placeins}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[lmargin = 2cm, rmargin = 2.5cm, tmargin = 2cm, bmargin =
+2.5cm]{geometry}
+
+
+% Figure Placement:
+\usepackage{float}
+\let\origfigure\figure
+\let\endorigfigure\endfigure
+\renewenvironment{figure}[1][2] {
+    \expandafter\origfigure\expandafter[H]
+} {
+    \endorigfigure
+}
+
+%%%% Jens %%%%
+\usepackage[tiny]{titlesec}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\renewcommand{\vec}{\operatorname{vec}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\Var}{\operatorname{Var}} % Variance
+\newcommand{\VAR}{\operatorname{VAR}} % Vector autoregression
+\newcommand{\Lag}{\operatorname{L}} % Lag operator
+\newcommand{\Cov}{\operatorname{Cov}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\adj}{\operatorname{adj}}
+\newcommand{\loglik}{\operatorname{ll}}
+
+\allowdisplaybreaks
+
+\titleformat{\section}
+{\normalfont\large\bfseries}{\thesection}{1em}{}
+
+%### sections
+\newcommand{\tmpsection}[1]{}
+\let\tmpsection=\section
+%\renewcommand{\section}[1]{\tmpsection{\underline{#1}} }
+\titleformat*{\section}{\large\bfseries}
+\titleformat*{\subsection}{\small\bfseries\sffamily}
+%\setkomafont{subsection}{\Large}
+%\setkomafont{subsubsection}{\large}
+%\setkomafont{paragraph}{\large}
+%\setkomafont{subparagraph}{\large}
+
+
+
+
+
+%% citation setup
+\usepackage{csquotes}
+
+\usepackage[backend=biber, maxbibnames = 99, style = apa]{biblatex}
+\setlength\bibitemsep{1.5\itemsep}
+\addbibresource{R_packages.bib}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true, linktocpage = TRUE]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={Jens Klenke},
+            pdftitle={R-Propädeutikum},
+            colorlinks=true,
+            citecolor=black,
+            urlcolor=black,
+            linkcolor=black,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{5}
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+  \title{R-Propädeutikum}
+  \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+\subtitle{Lösung Übungsaufgaben 1}
+  \author{Jens Klenke}
+  \preauthor{\centering\large\emph}
+  \postauthor{\par}
+  \date{}
+  \predate{}\postdate{}
+
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+
+%% linespread settings
+
+\usepackage{setspace}
+
+\onehalfspacing
+
+
+% Language Setup
+
+\usepackage{ifthen}
+\usepackage{iflang}
+\usepackage[super]{nth}
+\usepackage[ngerman, english]{babel}
+
+%Acronyms
+\usepackage[printonlyused, withpage, nohyperlinks]{acronym}
+\usepackage{changepage}
+
+% Multicols for the Title page
+\usepackage{multicol}
+
+
+% foot
+
+
+\begin{document}
+
+\selectlanguage{english}
+
+%%%%%%%%%%%%%% Jens %%%%%
+\numberwithin{equation}{section}
+
+
+
+
+\restoregeometry
+
+
+%%% Header 
+
+\begin{minipage}{0.6\textwidth}
+Universität Duisburg-Essen\\
+Fakultät für Wirtschaftswissenschaften\\
+Lehrstuhl für Ökonometrie\\
+\end{minipage}
+
+%\begin{minipage}{0.4\textwidth}
+	\begin{flushright}
+	\vspace{-3cm}
+	\includegraphics*[width=5cm]{includes/duelogo_en.png}\\
+	\vspace{.125cm}
+	\end{flushright}
+%\end{minipage}
+%\vspace{.125cm}
+\hspace{-0.005cm}Wintersemester 2022/2023
+
+\vspace{0.05cm}
+
+\begin{center}
+	\vspace{.25cm}
+	Jens Klenke \hspace{.5cm}  \\
+	\vspace{.25cm}
+	\textbf{\Large{R-Propädeutikum}}\\
+	\vspace{.25cm}
+	\textbf{\large{Lösung Übungsaufgaben 1}}\\
+	\vspace{.125cm}
+\end{center}
+
+
+
+
+% body from markdown
+
+\hypertarget{uxfcbungsaufgaben-zu-vektoren}{%
+\section{Übungsaufgaben zu
+Vektoren}\label{uxfcbungsaufgaben-zu-vektoren}}
+
+\hypertarget{erzeugen-sie-einen-vektor-mit-den-elementen-beginpmatrix-4-6--3-2.5-18-pi-85-endpmatrix.}{%
+\subsection{\texorpdfstring{Erzeugen Sie einen Vektor \texttt{numbers}
+mit den Elementen
+\(\begin{pmatrix} 4, & 6, & -3, & 2.5, & 18, & \pi, & 85 \end{pmatrix}\).}{Erzeugen Sie einen Vektor  mit den Elementen \textbackslash begin\{pmatrix\} 4, \& 6, \& -3, \& 2.5, \& 18, \& \textbackslash pi, \& 85 \textbackslash end\{pmatrix\}.}}\label{erzeugen-sie-einen-vektor-mit-den-elementen-beginpmatrix-4-6--3-2.5-18-pi-85-endpmatrix.}}
+
+\emph{Hinweis:} Die Zahl \(\pi\) ist in \texttt{R} bereits als
+\texttt{pi} vordefiniert.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    numbers }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{ , }\DecValTok{6}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{3}\NormalTok{, }\FloatTok{2.5}\NormalTok{, }\DecValTok{18}\NormalTok{, pi, }\DecValTok{85}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\vspace{0.5cm}
+
+\hypertarget{berechnen-sie-das-arithmetische-und-das-harmonische-mittel-von-.}{%
+\subsection{\texorpdfstring{Berechnen Sie das arithmetische und das
+harmonische Mittel von
+\texttt{numbers}.}{Berechnen Sie das arithmetische und das harmonische Mittel von .}}\label{berechnen-sie-das-arithmetische-und-das-harmonische-mittel-von-.}}
+
+\emph{Hinweis:} Für einen numerischen Vektor \(X\) der Länge \(n\) ist
+das arithmetische Mittel \(\overline{X} = \frac{1}{n} \sum_{i=1}^n X_i\)
+und das harmonische Mittel
+\(\overline{X}_{harm} = \frac{n}{\sum_{i=1}^n 1/X_i}\).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+    \CommentTok{\# arithmetisches Mittel}
+    \FunctionTok{mean}\NormalTok{(numbers) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 16.52023
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+    \CommentTok{\# harmonisches Mittel}
+    \FunctionTok{length}\NormalTok{(numbers) }\SpecialCharTok{/}\NormalTok{(}\FunctionTok{sum}\NormalTok{(}\DecValTok{1}\SpecialCharTok{/}\NormalTok{numbers))       }\CommentTok{\# 1. Möglichkeit}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 8.055574
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+    \DecValTok{1}\SpecialCharTok{/}\FunctionTok{mean}\NormalTok{(}\DecValTok{1}\SpecialCharTok{/}\NormalTok{numbers)                       }\CommentTok{\# 2. Möglichkeit}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 8.055574
+\end{verbatim}
+
+\vspace{0.5cm}
+
+\hypertarget{sie-kommen-zu-dem-schluss-dass-die-huxf6chste-und-die-niedrigste-zahl-die-schuxe4tzung-verzerren-und-entscheiden-darum-diese-werte-zu-ignorieren.-ersetzen-sie-beide-werte-durch-und-berechnen-sie-die-mittelwerte-aus-aufgabe-1.2-erneut.}{%
+\subsection{\texorpdfstring{Sie kommen zu dem Schluss, dass die höchste
+und die niedrigste Zahl die Schätzung verzerren und entscheiden darum,
+diese Werte zu ignorieren. Ersetzen Sie beide Werte durch \texttt{NA}
+und berechnen Sie die Mittelwerte aus Aufgabe 1.2
+erneut.}{Sie kommen zu dem Schluss, dass die höchste und die niedrigste Zahl die Schätzung verzerren und entscheiden darum, diese Werte zu ignorieren. Ersetzen Sie beide Werte durch  und berechnen Sie die Mittelwerte aus Aufgabe 1.2 erneut.}}\label{sie-kommen-zu-dem-schluss-dass-die-huxf6chste-und-die-niedrigste-zahl-die-schuxe4tzung-verzerren-und-entscheiden-darum-diese-werte-zu-ignorieren.-ersetzen-sie-beide-werte-durch-und-berechnen-sie-die-mittelwerte-aus-aufgabe-1.2-erneut.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    numbers[}\FunctionTok{which.min}\NormalTok{(numbers)] }\OtherTok{\textless{}{-}} \ConstantTok{NA}     \CommentTok{\# kleinsten Wert ersetzen}
+\NormalTok{    numbers[}\FunctionTok{which.max}\NormalTok{(numbers)] }\OtherTok{\textless{}{-}} \ConstantTok{NA}     \CommentTok{\# größten Wert esetzen }
+    \CommentTok{\# oder einfach }
+\NormalTok{    numbers[}\FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{7}\NormalTok{)] }\OtherTok{\textless{}{-}} \ConstantTok{NA}                \CommentTok{\# 3. und 7. Wert ersetzen }
+    
+    \CommentTok{\# Mittelwerte berechnen und \textquotesingle{}NA\textquotesingle{}s ignorieren}
+    \FunctionTok{mean}\NormalTok{(numbers, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 6.728319
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+    \DecValTok{1}\SpecialCharTok{/}\FunctionTok{mean}\NormalTok{(}\DecValTok{1}\SpecialCharTok{/}\NormalTok{numbers, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 4.199803
+\end{verbatim}
+
+\vspace{0.5cm}
+
+\hypertarget{nutzen-sie-die-funktion-um-die-folge-beginpmatrix-0-0.5-1-1.5-ldots-99-99.5-100-endpmatrix-zu-erzeugen.-wie-viele-elemente-besitzt-dieser-vektor-uxfcberpruxfcfen-sie-ihre-vermutung-mit-.}{%
+\subsection{\texorpdfstring{Nutzen Sie die Funktion \texttt{seq()} um
+die Folge
+\linebreak \(\begin{pmatrix} 0, 0.5, 1, 1.5, \ldots, 99, 99.5, 100 \end{pmatrix}\)
+zu erzeugen. Wie viele Elemente besitzt dieser Vektor? Überprüfen Sie
+Ihre Vermutung mit
+\texttt{length()}.}{Nutzen Sie die Funktion  um die Folge \textbackslash begin\{pmatrix\} 0, 0.5, 1, 1.5, \textbackslash ldots, 99, 99.5, 100 \textbackslash end\{pmatrix\} zu erzeugen. Wie viele Elemente besitzt dieser Vektor? Überprüfen Sie Ihre Vermutung mit .}}\label{nutzen-sie-die-funktion-um-die-folge-beginpmatrix-0-0.5-1-1.5-ldots-99-99.5-100-endpmatrix-zu-erzeugen.-wie-viele-elemente-besitzt-dieser-vektor-uxfcberpruxfcfen-sie-ihre-vermutung-mit-.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    x }\OtherTok{\textless{}{-}} \FunctionTok{seq}\NormalTok{(}\AttributeTok{from =} \DecValTok{0}\NormalTok{, }\AttributeTok{to =} \DecValTok{100}\NormalTok{, }\AttributeTok{by =} \FloatTok{0.5}\NormalTok{)}
+\NormalTok{    x}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   [1]   0.0   0.5   1.0   1.5   2.0   2.5   3.0   3.5   4.0   4.5
+##  [11]   5.0   5.5   6.0   6.5   7.0   7.5   8.0   8.5   9.0   9.5
+##  [21]  10.0  10.5  11.0  11.5  12.0  12.5  13.0  13.5  14.0  14.5
+##  [31]  15.0  15.5  16.0  16.5  17.0  17.5  18.0  18.5  19.0  19.5
+##  [41]  20.0  20.5  21.0  21.5  22.0  22.5  23.0  23.5  24.0  24.5
+##  [51]  25.0  25.5  26.0  26.5  27.0  27.5  28.0  28.5  29.0  29.5
+##  [61]  30.0  30.5  31.0  31.5  32.0  32.5  33.0  33.5  34.0  34.5
+##  [71]  35.0  35.5  36.0  36.5  37.0  37.5  38.0  38.5  39.0  39.5
+##  [81]  40.0  40.5  41.0  41.5  42.0  42.5  43.0  43.5  44.0  44.5
+##  [91]  45.0  45.5  46.0  46.5  47.0  47.5  48.0  48.5  49.0  49.5
+## [101]  50.0  50.5  51.0  51.5  52.0  52.5  53.0  53.5  54.0  54.5
+## [111]  55.0  55.5  56.0  56.5  57.0  57.5  58.0  58.5  59.0  59.5
+## [121]  60.0  60.5  61.0  61.5  62.0  62.5  63.0  63.5  64.0  64.5
+## [131]  65.0  65.5  66.0  66.5  67.0  67.5  68.0  68.5  69.0  69.5
+## [141]  70.0  70.5  71.0  71.5  72.0  72.5  73.0  73.5  74.0  74.5
+## [151]  75.0  75.5  76.0  76.5  77.0  77.5  78.0  78.5  79.0  79.5
+## [161]  80.0  80.5  81.0  81.5  82.0  82.5  83.0  83.5  84.0  84.5
+## [171]  85.0  85.5  86.0  86.5  87.0  87.5  88.0  88.5  89.0  89.5
+## [181]  90.0  90.5  91.0  91.5  92.0  92.5  93.0  93.5  94.0  94.5
+## [191]  95.0  95.5  96.0  96.5  97.0  97.5  98.0  98.5  99.0  99.5
+## [201] 100.0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+    \FunctionTok{length}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 201
+\end{verbatim}
+
+\vspace{0.5cm}
+
+\hypertarget{erzeugen-sie-einen-neuen-vektor-mit-den-elementen-beginpmatrix-a-a-a-b-b-b-b-c-c-endpmatrix.-finden-sie-dazu-heraus-wie-die-funktion-funktioniert-und-nutzen-sie-diese.}{%
+\subsection{\texorpdfstring{Erzeugen Sie einen neuen Vektor
+\texttt{characters} mit den Elementen
+\(\begin{pmatrix} a, & a, & a, & b, & b, & b, & b, & c, & c \\ \end{pmatrix}\).
+Finden Sie dazu heraus wie die Funktion \texttt{rep()} funktioniert und
+nutzen Sie
+diese.}{Erzeugen Sie einen neuen Vektor  mit den Elementen \textbackslash begin\{pmatrix\} a, \& a, \& a, \& b, \& b, \& b, \& b, \& c, \& c \textbackslash\textbackslash{} \textbackslash end\{pmatrix\}. Finden Sie dazu heraus wie die Funktion  funktioniert und nutzen Sie diese.}}\label{erzeugen-sie-einen-neuen-vektor-mit-den-elementen-beginpmatrix-a-a-a-b-b-b-b-c-c-endpmatrix.-finden-sie-dazu-heraus-wie-die-funktion-funktioniert-und-nutzen-sie-diese.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    characters }\OtherTok{\textless{}{-}} \FunctionTok{rep}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"a"}\NormalTok{, }\StringTok{"b"}\NormalTok{, }\StringTok{"c"}\NormalTok{), }\AttributeTok{times =} \FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{2}\NormalTok{))}
+\NormalTok{    characters}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "a" "a" "a" "b" "b" "b" "b" "c" "c"
+\end{verbatim}
+
+\vspace{0.5cm}
+
+\hypertarget{uxfcberschreiben-sie-nun-den-vektor-mit-beginpmatrix-x-y-z-x-y-z-x-y-z-endpmatrix.-nutzen-sie-wieder-die-funktion-.}{%
+\subsection{\texorpdfstring{Überschreiben Sie nun den Vektor
+\texttt{characters} mit
+\linebreak  \(\begin{pmatrix} x, & y, & z, & x, & y, & z, & x, & y, & z \\ \end{pmatrix}\).
+Nutzen Sie wieder die Funktion
+\texttt{rep()}.}{Überschreiben Sie nun den Vektor  mit \textbackslash begin\{pmatrix\} x, \& y, \& z, \& x, \& y, \& z, \& x, \& y, \& z \textbackslash\textbackslash{} \textbackslash end\{pmatrix\}. Nutzen Sie wieder die Funktion .}}\label{uxfcberschreiben-sie-nun-den-vektor-mit-beginpmatrix-x-y-z-x-y-z-x-y-z-endpmatrix.-nutzen-sie-wieder-die-funktion-.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    characters }\OtherTok{\textless{}{-}} \FunctionTok{rep}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"x"}\NormalTok{, }\StringTok{"y"}\NormalTok{, }\StringTok{"z"}\NormalTok{), }\AttributeTok{times =} \DecValTok{3}\NormalTok{)}
+\NormalTok{    characters}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "x" "y" "z" "x" "y" "z" "x" "y" "z"
+\end{verbatim}
+
+\vspace{0.5cm}
+
+\hypertarget{ersetzen-sie-nun-alle-elemente-mit-dem-inhalt-durch-.}{%
+\subsection{\texorpdfstring{Ersetzen Sie nun alle Elemente mit dem
+Inhalt \texttt{"z"} durch
+\texttt{"v"}.}{Ersetzen Sie nun alle Elemente mit dem Inhalt  durch .}}\label{ersetzen-sie-nun-alle-elemente-mit-dem-inhalt-durch-.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    characters[}\FunctionTok{which}\NormalTok{(characters }\SpecialCharTok{==} \StringTok{"z"}\NormalTok{)] }\OtherTok{\textless{}{-}} \StringTok{"v"}
+\NormalTok{    characters}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "x" "y" "v" "x" "y" "v" "x" "y" "v"
+\end{verbatim}
+
+Kürzer:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    characters[characters }\SpecialCharTok{==} \StringTok{"z"}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"v"}
+\NormalTok{    characters}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "x" "y" "v" "x" "y" "v" "x" "y" "v"
+\end{verbatim}
+
+\vspace{0.5cm}
+
+\hypertarget{kopieren-sie-folgenden-code-in-ihr--skript}{%
+\subsection{\texorpdfstring{Kopieren Sie folgenden Code in Ihr
+\texttt{R}-Skript:}{Kopieren Sie folgenden Code in Ihr -Skript:}}\label{kopieren-sie-folgenden-code-in-ihr--skript}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    a }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{7}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{12}\NormalTok{,}\DecValTok{6}\NormalTok{)}
+\NormalTok{    b }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{6}\NormalTok{)}
+\NormalTok{    x }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{2}\NormalTok{)}
+\NormalTok{    y }\OtherTok{\textless{}{-}} \DecValTok{3}
+\NormalTok{    z }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Berechnen Sie nun \(a+b\), \(a+x\), \(a+y\) und \(a+z\). Finden Sie
+heraus, wie \texttt{R} jeweils vorgeht und schreiben Sie einen kurzen
+Kommentar.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    a }\SpecialCharTok{+}\NormalTok{ b }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  3  7 10  9 17 12
+\end{verbatim}
+
+Normale Vektoraddition.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    a }\SpecialCharTok{+}\NormalTok{ x}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  3  7  8  7 13  8
+\end{verbatim}
+
+\(x\) wird so häufig wiederholt, bis der Vektor die gleiche Länge hat
+wie der Vektor \(a\) und wird dann addiert.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    a }\SpecialCharTok{+}\NormalTok{ y}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  5  8 10  8 15  9
+\end{verbatim}
+
+Der Skalar \(y\) wird einfach auf jedes Element von \(a\) addiert.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    a }\SpecialCharTok{+}\NormalTok{ z}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in a + z: Länge des längeren Objektes
+##       ist kein Vielfaches der Länge des kürzeren Objektes
+\end{verbatim}
+
+\begin{verbatim}
+## [1]  3  7 10  9 13  8
+\end{verbatim}
+
+Achtung: \(a\) und \(z\) haben nicht die gleiche Länge und \(a\) ist
+kein vielfaches von \(z\)! \texttt{R} wiederholt den Vektor und füllt
+die fehlenden Werte von vorne auf. Allerdings wird eine Warnmeldung
+ausgegeben.
+
+\vspace{0.5cm}
+
+\hypertarget{erzeugen-sie-einen-vektor-mit-den-elementen-beginpmatrix-1-2-3-a-b-endpmatrix.-was-passiert-schreiben-sie-einen-kommentar.}{%
+\subsection{\texorpdfstring{Erzeugen Sie einen Vektor mit den Elementen
+\(\begin{pmatrix} 1, & 2, & 3, & a, & b \\ \end{pmatrix}\). Was
+passiert? Schreiben Sie einen
+Kommentar.}{Erzeugen Sie einen Vektor mit den Elementen \textbackslash begin\{pmatrix\} 1, \& 2, \& 3, \& a, \& b \textbackslash\textbackslash{} \textbackslash end\{pmatrix\}. Was passiert? Schreiben Sie einen Kommentar.}}\label{erzeugen-sie-einen-vektor-mit-den-elementen-beginpmatrix-1-2-3-a-b-endpmatrix.-was-passiert-schreiben-sie-einen-kommentar.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    v }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\StringTok{"a"}\NormalTok{, }\StringTok{"b"}\NormalTok{)}
+    \FunctionTok{class}\NormalTok{(v)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "character"
+\end{verbatim}
+
+\texttt{R} nimmt immer die bestmöglichste Klasse (die Klasse, welche die
+meisten ``Berechnungen'' zulässt, vgl. Skalenniveau) an, in die die
+Elemente vereint werden können. In diesem Fall ist es die Klasse
+\texttt{character}.
+
+\vspace{0.5cm}
+
+\hypertarget{uxfcbungsaufgaben-zu-matrizen}{%
+\section{Übungsaufgaben zu
+Matrizen}\label{uxfcbungsaufgaben-zu-matrizen}}
+
+\hypertarget{erzeugen-sie-mit-dem-inputvektor-112-und-folgende-matrix-x.}{%
+\subsection{\texorpdfstring{Erzeugen Sie mit dem Inputvektor
+\texttt{1:12} und \texttt{matrix()} folgende Matrix
+\(X\).}{Erzeugen Sie mit dem Inputvektor 1:12 und  folgende Matrix X.}}\label{erzeugen-sie-mit-dem-inputvektor-112-und-folgende-matrix-x.}}
+
+\[ X = \begin{pmatrix} 1 & 2 \\ 3 & 4\\ 5 & 6 \\ 7 & 8 \\
+9 & 10 \\ 11 & 12 \\\end{pmatrix}\]
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    X }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{12}\NormalTok{, }\AttributeTok{ncol =} \DecValTok{2}\NormalTok{, }\AttributeTok{byrow =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{    X}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2]
+## [1,]    1    2
+## [2,]    3    4
+## [3,]    5    6
+## [4,]    7    8
+## [5,]    9   10
+## [6,]   11   12
+\end{verbatim}
+
+\vspace{0.5cm}
+
+\hypertarget{nehmen-sie-die-matrix-aus-2.1-und-vertauschen-sie-die-spalten.-das-ergebnis-soll-an-die-variable-y-uxfcbergeben-werden.}{%
+\subsection{\texorpdfstring{Nehmen Sie die Matrix aus 2.1 und
+vertauschen Sie die Spalten. Das Ergebnis soll an die Variable \(Y\)
+übergeben
+werden.}{Nehmen Sie die Matrix aus 2.1 und vertauschen Sie die Spalten. Das Ergebnis soll an die Variable Y übergeben werden.}}\label{nehmen-sie-die-matrix-aus-2.1-und-vertauschen-sie-die-spalten.-das-ergebnis-soll-an-die-variable-y-uxfcbergeben-werden.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    Y }\OtherTok{\textless{}{-}}\NormalTok{ X[ , }\DecValTok{2}\SpecialCharTok{:}\DecValTok{1}\NormalTok{] }\CommentTok{\# oder}
+\NormalTok{    Y }\OtherTok{\textless{}{-}}\NormalTok{ X[ , }\FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{)]}
+\NormalTok{    Y}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2]
+## [1,]    2    1
+## [2,]    4    3
+## [3,]    6    5
+## [4,]    8    7
+## [5,]   10    9
+## [6,]   12   11
+\end{verbatim}
+
+\vspace{0.5cm}
+
+\hypertarget{berechnen-sie-xyt.}{%
+\subsection{\texorpdfstring{Berechnen Sie
+\(XY^{T}\).}{Berechnen Sie XY\^{}\{T\}.}}\label{berechnen-sie-xyt.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    X }\SpecialCharTok{\%*\%} \FunctionTok{t}\NormalTok{(Y)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2] [,3] [,4] [,5] [,6]
+## [1,]    4   10   16   22   28   34
+## [2,]   10   24   38   52   66   80
+## [3,]   16   38   60   82  104  126
+## [4,]   22   52   82  112  142  172
+## [5,]   28   66  104  142  180  218
+## [6,]   34   80  126  172  218  264
+\end{verbatim}
+
+\vspace{0.5cm}
+
+\hypertarget{erzeugen-sie-eine-2-times-2-matrix-aus-der-2.-und-5.-zeile-der-matrix-x.}{%
+\subsection{\texorpdfstring{Erzeugen Sie eine \(2 \times 2\) Matrix aus
+der 2. und 5. Zeile der Matrix
+\(X\).}{Erzeugen Sie eine 2 \textbackslash times 2 Matrix aus der 2. und 5. Zeile der Matrix X.}}\label{erzeugen-sie-eine-2-times-2-matrix-aus-der-2.-und-5.-zeile-der-matrix-x.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    X[}\FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{5}\NormalTok{), ]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2]
+## [1,]    3    4
+## [2,]    9   10
+\end{verbatim}
+
+\vspace{0.5cm}
+
+\hypertarget{erzeugen-sie-die-matrix-x-mit-x---matrix8-7-nrow-4.}{%
+\subsection{\texorpdfstring{Erzeugen Sie die Matrix \(X\) mit
+\texttt{X\ \textless{}-\ matrix(8:-7,\ nrow\ =\ 4)}.}{Erzeugen Sie die Matrix X mit X \textless- matrix(8:-7, nrow = 4).}}\label{erzeugen-sie-die-matrix-x-mit-x---matrix8-7-nrow-4.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    X }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\DecValTok{8}\SpecialCharTok{:{-}}\DecValTok{7}\NormalTok{, }\AttributeTok{nrow =} \DecValTok{4}\NormalTok{)}
+\NormalTok{    X}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2] [,3] [,4]
+## [1,]    8    4    0   -4
+## [2,]    7    3   -1   -5
+## [3,]    6    2   -2   -6
+## [4,]    5    1   -3   -7
+\end{verbatim}
+
+Es wird jetzt \texttt{nrow} und nicht \texttt{ncol} benutzt. Außerdem
+wurde eine abfallende Folge von natürlichen Zahlen mithilfe von
+\texttt{:} erzeugt.
+
+\begin{enumerate} 
+  \item Ersetzen Sie die Elemente auf der Hauptdiagonalen durch \texttt{NA}s. 
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+    \FunctionTok{diag}\NormalTok{(X) }\OtherTok{\textless{}{-}} \ConstantTok{NA}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate} \setcounter{enumi}{1}
+  \item Ersetzen Sie jetzt alle \texttt{NA}s in der Matrix mit dem Wert $1$. Nutzen Sie dazu die Funktion \texttt{is.na()}.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    X[}\FunctionTok{is.na}\NormalTok{(X)] }\OtherTok{\textless{}{-}} \DecValTok{1}
+\end{Highlighting}
+\end{Shaded}
+
+\texttt{is.na(X)} gibt eine Matrix mit logischen Einträgen
+(\texttt{TRUE} / \texttt{FALSE}) zurück, wobei für Elemente mit
+\texttt{NA} der Wert \texttt{TRUE} gesetzt wird.
+
+\end{document}
