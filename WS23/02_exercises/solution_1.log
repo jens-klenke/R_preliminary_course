@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.9.13)  2 OCT 2022 22:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.9.13)  22 SEP 2023 23:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1249,6 +1249,8 @@ LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.95> not available
 (Font)              Font shape `T1/lmtt/b/n' tried instead on input line 274.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10.95> on input line 274.
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 281.
 [1
 
 
@@ -1284,11 +1286,11 @@ Package logreq Info: Writing requests to 'solution_1.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 25909 strings out of 475389
- 458236 string characters out of 2777000
- 1406467 words of memory out of 3000000
- 46716 multiletter control sequences out of 15000+600000
- 518078 words of font info for 95 fonts, out of 8000000 for 9000
+ 25912 strings out of 475389
+ 458289 string characters out of 2777000
+ 1406473 words of memory out of 3000000
+ 46719 multiletter control sequences out of 15000+600000
+ 518396 words of font info for 96 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  60i,9n,78p,1370b,7171s stack positions out of 10000i,1000n,20000p,200000b,80000s
 {C:/Users/Jens-/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}{
@@ -1313,7 +1315,7 @@ ppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/Jens-
 /AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtk10.pfb><C:/Users/Jens-
 /AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb><C:/Users/Jens-
 /AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtti10.pfb>
-Output written on solution_1.pdf (7 pages, 326011 bytes).
+Output written on solution_1.pdf (7 pages, 326806 bytes).
 PDF statistics:
  226 PDF objects out of 1000 (max. 8388607)
  42 named destinations out of 1000 (max. 500000)

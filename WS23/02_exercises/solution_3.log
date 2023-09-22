@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.9.13)  2 OCT 2022 22:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.9.13)  22 SEP 2023 23:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1251,15 +1251,16 @@ LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
 81.
 (C:\Users\Jens-\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [1
+)
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 282.
+[1
 
 
 {C:/Users/Jens-/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./includes/d
 uelogo_en.png>]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.95> not available
 (Font)              Font shape `T1/lmtt/b/n' tried instead on input line 360.
-LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 387.
 [2] [3]
 LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
 489.
@@ -1324,7 +1325,7 @@ Package logreq Info: Writing requests to 'solution_3.run.xml'.
 Here is how much of TeX's memory you used:
  26035 strings out of 475389
  464708 string characters out of 2777000
- 1406285 words of memory out of 3000000
+ 1406291 words of memory out of 3000000
  46797 multiletter control sequences out of 15000+600000
  529092 words of font info for 116 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
@@ -1350,7 +1351,7 @@ Jens-/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/
 Jens-/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtk10.pfb><C:/Users/
 Jens-/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb><C:/Users/
 Jens-/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtti10.pfb>
-Output written on solution_3.pdf (9 pages, 541028 bytes).
+Output written on solution_3.pdf (9 pages, 542591 bytes).
 PDF statistics:
  264 PDF objects out of 1000 (max. 8388607)
  42 named destinations out of 1000 (max. 500000)

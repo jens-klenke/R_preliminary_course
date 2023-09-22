@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.9.13)  2 OCT 2022 22:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.9.13)  22 SEP 2023 23:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1254,6 +1254,8 @@ LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.95> not available
 
 {C:/Users/Jens-/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./includes/d
 uelogo_en.png>]
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 320.
 LaTeX Font Info:    Font shape `T1/lmss/bx/it' in size <10.95> not available
 (Font)              Font shape `T1/lmss/bx/sl' tried instead on input line 376.
 
@@ -1265,11 +1267,11 @@ Package logreq Info: Writing requests to 'task_3.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 25894 strings out of 475389
- 460252 string characters out of 2777000
- 1403260 words of memory out of 3000000
- 46686 multiletter control sequences out of 15000+600000
- 527444 words of font info for 108 fonts, out of 8000000 for 9000
+ 25897 strings out of 475389
+ 460305 string characters out of 2777000
+ 1403266 words of memory out of 3000000
+ 46689 multiletter control sequences out of 15000+600000
+ 527762 words of font info for 109 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  60i,10n,78p,2822b,7171s stack positions out of 10000i,1000n,20000p,200000b,80000s
 {C:/Users/Jens-/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}{C
@@ -1291,7 +1293,7 @@ ens-/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbo10.pfb><C:/Users
 rs/Jens-/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Use
 rs/Jens-/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtk10.pfb><C:/Use
 rs/Jens-/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
-Output written on task_3.pdf (2 pages, 309820 bytes).
+Output written on task_3.pdf (2 pages, 310218 bytes).
 PDF statistics:
  185 PDF objects out of 1000 (max. 8388607)
  35 named destinations out of 1000 (max. 500000)
