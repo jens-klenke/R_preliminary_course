@@ -76,8 +76,8 @@ knitr::include_graphics("01_slides/assets/R_logo.svg.png")
 .pull-right-3[
 
 - [Teil 1](01_slides/vorkurs_1.html)
-- [Teil 2](01_slides/vorkurs_2.html)
-- [Teil 3](01_slides/vorkurs_3.html)
+- Teil 2
+- Teil 3
 
 ]
 
