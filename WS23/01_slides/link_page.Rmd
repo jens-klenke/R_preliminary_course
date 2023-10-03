@@ -1,0 +1,80 @@
+---
+title: "R-Vorkurs WS 23/24"
+subtitle: "Teil 1"
+author: 
+  - "Jens Klenke"
+date: "04.10.2023"
+output:
+  xaringan::moon_reader:
+    css: ["default", "assets/ude-fonts.css", "assets/ude.css"]
+    self_contained: true # if true, fonts will be stored locally
+    seal: false # show a title slide with YAML information
+    includes:
+      in_header: "assets/mathjax-equation-numbers.html"
+    nature:
+      beforeInit: ["assets/remark-zoom.js", "https://platform.twitter.com/widgets.js"]
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9' #alternatives '16:9' or '4:3' or others e.g. 13:9
+      navigation:
+        scroll: true #disable slide transitions by scrolling
+---
+class: center, middle, inverse
+
+```{r xaringanExtra-clipboard_2, echo=FALSE}
+# copy button styles mainly in ude.css 
+# https://github.com/gadenbuie/xaringanExtra
+htmltools::tagList(
+  xaringanExtra::use_clipboard(
+    button_text = "<i class=\"fa fa-clipboard\"></i>",
+    success_text = "<i class=\"fa fa-check\" style=\"color: #00ff00\"></i>",
+    error_text = "<i class=\"fa fa-times-circle\" style=\"color: #F94144\"></i>"
+  ),
+  rmarkdown::html_dependency_font_awesome()
+)
+```
+
+```{r setup, include=FALSE}
+options(repos = list(CRAN = "http://cran.rstudio.com/"))
+options(htmltools.dir.version = FALSE)
+options(servr.daemon = TRUE)
+options(servr.interval = 0.5)
+
+#xaringan::inf_mr()
+
+#### required packages ####
+# packages
+suppressWarnings(source(here::here('00_packages/packages.R')))
+
+r_white <- icon_style(fontawesome$brands$'r-project', fill = "white")
+r_black <- icon_style(fontawesome$brands$'r-project', fill = "black")
+r_blue <- icon_style(fontawesome$brands$'r-project', fill = "#004c93")
+smiley <- icon_style(fontawesome("smile", style = "solid"), scale = 2, fill = "#004c93")
+grin_wink <- icon_style(fontawesome("grin-wink", style = "solid"), scale = 2, fill = "#004c93")
+```
+
+# Links 
+<br>
+
+.pull-left[
+
+```{r, echo = FALSE}
+knitr::include_graphics(here::here("WS23/01_slides/assets/moodle_qrcode.svg"))
+```
+
+
+.center.font200[Moodle] 
+]
+
+.pull-right[
+
+```{r, echo = FALSE, fig.height=1}
+knitr::include_graphics(here::here("WS23/01_slides/assets/r_slides_qrcode.svg"),
+                        auto_pdf = FALSE)
+```
+
+.center.font200[Slides]  
+
+]
+
