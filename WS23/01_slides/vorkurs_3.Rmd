@@ -517,7 +517,7 @@ class: exercise_slide
 ### Übungsaufgaben
 
 .font90[
-1. Betrachten Sie im Folgenden den Datensatz `faithful`, der Daten zum [Old Faithful Geysir](https://de.wikipedia.org/wiki/Old_Faithful) im Yellowstone Nationalpark enthält. Sowohl die Dauer einer Eruption in Min. (`eruptions`) als auch die Wartezeit bis zur nächsten Eruption in Min. (`waiting`) sind als Variablen im Datensatz verfügbar. Unterstellen Sie nachfolgendes Regressionsmodell und schätzen Sie die entsprechenden Parameter und schätze die Parameter $\beta_0$, $\beta_1$. Zeichnen Sie anschließend eine geeignete Grafik und interpretieren Sie diese. $$\text{waiting}_t=\beta_0+\beta_1 \text{eruptions}_t + u_t$$
+1. Betrachten Sie im Folgenden den Datensatz `faithful`, der Daten zum [Old Faithful Geysir](https://de.wikipedia.org/wiki/Old_Faithful) im Yellowstone Nationalpark enthält. Sowohl die Dauer einer Eruption in Min. (`eruptions`) als auch die Wartezeit bis zur nächsten Eruption in Min. (`waiting`) sind als Variablen im Datensatz verfügbar. Unterstellen Sie nachfolgendes Regressionsmodell und schätzen Sie die entsprechenden Parameter $\beta_0$, $\beta_1$. Zeichnen Sie anschließend eine geeignete Grafik und interpretieren Sie diese. $$\text{waiting}_t=\beta_0+\beta_1 \text{eruptions}_t + u_t$$
 
 2. Verschaffen Sie sich mit  `summary()` einen Überblick über ihr in 1 erhaltenes Ergebnis. Interpretieren Sie die geschätzten Koeffizienten und speichern Sie anschließend das $R^2$ (*Multiple R-squared*) in `R2` ab. *Hinweise:* Schauen Sie sich die, beim Ausführen von `summary()`, ausgegebene Datenstruktur genauer an.
 
