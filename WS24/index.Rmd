@@ -3,7 +3,7 @@ title: "R-Vorkurs WS 24/25"
 subtitle: "Teil 1"
 author: 
   - "Jens Klenke"
-date: "XX.10.2023"
+date: "30.09.2024 - 02.10.2024"
 output:
   xaringan::moon_reader:
     css: ["default", "01_slides/assets/ude-fonts.css", "01_slides/assets/ude.css"]
