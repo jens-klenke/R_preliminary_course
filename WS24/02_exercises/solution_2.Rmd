@@ -1,0 +1,366 @@
+---
+title: 'R Propädeutikum'
+author: 'Jens Klenke'
+author2: ''
+subtitle: 'Lösung Übungsaufgaben 2'
+semester: "Wintersemester 2023/2024"
+output:
+  pdf_document:
+    keep_tex: yes
+    template: template.tex
+    fig_caption: yes
+    citation_package: biblatex
+    number_sections: true
+toc: true
+lot: true
+lof: true
+graphics: true
+linkcolor: black
+urlcolor: black
+citecolor: black
+colorlinks: true
+font: Times New Roman
+fontsize: 12pt
+geometry: lmargin = 2cm, rmargin = 2.5cm, tmargin = 2cm, bmargin = 2.5cm
+classoption: a4paper
+---
+
+```{r , include=FALSE}
+Sys.setlocale(locale = "English_United States.1252") ## English US Windows
+knitr::opts_chunk$set(echo = TRUE)
+options(width = 70)
+
+
+#options(kableExtra.latex.load_packages = FALSE)
+#### required packages ####
+source(here::here("00_packages/packages.R"))
+```
+
+# Übungsaufgaben zur Logik. 
+## Überprüfen Sie in `R` ob die folgenden Ausdrücke `TRUE` oder `FALSE` sind?
+
+\begin{itemize}
+  \item $5 \geq 5$
+\end{itemize}
+
+```{r, eval = T}
+    5 >= 5
+```
+
+\begin{itemize}
+  \item $5 > 5$
+\end{itemize}
+
+```{r, eval = T}
+    5 > 5
+```
+\begin{itemize}
+  \item $T = 5$
+\end{itemize}
+
+```{r, eval = T}
+    T == 5
+```
+
+\begin{itemize}
+  \item $T \land F \ \lor \ F \land T$
+\end{itemize}
+
+```{r, eval = T}
+    T&F | F&T
+```
+
+\begin{itemize}
+  \item $F \land F \land F\ \lor \ T$
+\end{itemize}
+
+```{r, eval = T}
+    F&F&F | T
+```
+
+\begin{itemize}
+  \item $(\neg (5 > 3) \lor A = B)$
+\end{itemize}
+
+```{r, eval = T}
+    (!(5 > 3) | "A" == "B") 
+```
+\begin{itemize}
+  \item $\neg(((T > F) > T) \land \ \neg T)$
+\end{itemize}
+
+```{r, eval = T}
+    !(((T > F) > T) & !T)
+```
+
+## Es sei `z <- c(1, 2, NA, 4)`. Überprüfen Sie die folgenden Aussagen mittels einer Logikabfrage in `R`.
+
+\begin{itemize}
+  \item Die Länge des Vektors $z$ ist ungleich $2$.
+\end{itemize}
+```{r, eval=T}
+    z <- c(1, 2, NA, 4)
+    
+    length(z) != 2
+```
+\begin{itemize}
+  \item Die Länge der logischen Überprüfungen, ob die einzelnen Elemente gleich 2 sind, ist 4.
+\end{itemize}
+```{r, eval = T}
+    length(z == 2)
+```
+
+\begin{itemize}
+  \item Der Vektor $z$ hat die Klasse `numeric`.
+\end{itemize}
+
+```{r, eval = T}
+    is.numeric(z)
+```
+\begin{itemize}
+  \item Einige Elemente des Vektors $z$ sind `NA`. 
+\end{itemize}
+```{r, eval = T}
+    is.na(z)
+```
+\begin{itemize}
+  \item Das zweite Element des Vektors $z$ ist `numeric`.
+\end{itemize}
+```{r, eval = T}
+    is.numeric(z[2])
+```
+\begin{itemize}
+  \item Das Minimum und das Maximum sind ungleich. 
+\end{itemize}
+```{r, eval = T}
+    (min(z) != max(z))
+    (min(z, na.rm = TRUE) != max(z, na.rm = TRUE))
+```
+
+## Es sei `M <- matrix(1:9, ncol = 3)`. Was ergeben folgende Ausdrücke:
+
+```{r, eval = T}
+    M <- matrix(1:9, ncol = 3)
+    
+    sum(M[ , 1]) == 6
+    max(M[ , 2]) <= 5
+    M[2, 2] != 4 & M[2, 2] > 6
+```
+
+# Übungsaufgaben zu Dataframes
+
+##  Verschaffen Sie sich einen Überblick über den Datensatz `mtcars` (dieser ist in base R bereits geladen). Aus wie vielen Variablen besteht der Datensatz? Welche Klasse haben die einzelnen Variablen?
+
+```{r, eval = T}
+    str(mtcars)
+```
+
+Der Datensatz besteht aus elf Variablen, die alle der Klasse `numeric` angehören. 
+
+## Lassen Sie sich folgende Subsets von `mtcars` ausgeben:
+
+\begin{itemize}
+  \item nur die Variable \texttt{mpg}
+\end{itemize}
+
+```{r, eval = T}
+    mtcars$mpg
+```
+
+\begin{itemize}
+  \item nur die ersten drei Zeilen
+\end{itemize}
+
+```{r, eval = TRUE}
+    mtcars[1:3, ]
+```
+
+\begin{itemize}
+  \item nur die ersten drei Variablen
+\end{itemize}
+
+```{r, eval = TRUE}
+    mtcars[, 1:3]
+```
+
+\begin{itemize}
+  \item nur die ersten beiden Beobachtungen der Variablen \texttt{cyl} und \texttt{hp}
+\end{itemize}
+
+```{r, eval = TRUE}
+    mtcars[1:2, c(2, 4)]
+```
+
+\begin{itemize}
+  \item alle Beobachtungen deren Ausprägung der Variable \texttt{hp} größer ist als $200$
+\end{itemize}
+
+```{r, eval = TRUE}
+    mtcars[mtcars$hp > 200,]
+```
+
+## Erstellen Sie einen Dataframe `persons` mit den Variablen `Name` (`character`), `Height` (cm, `numeric`) und `Weight` (kg, `numeric`) von 5 fiktiven Personen.
+
+```{r, eval = T}
+    persons <- data.frame(Name   = c("Jerry", "Beth", "Summer", "Morty", "Rick"),
+                          Height = c(180, 170, 170, 155, 175),
+                          Weight = c(75, 73, 55, 52, 67))
+```    
+
+\begin{itemize}
+  \item Lassen Sie sich das Körpergewicht der 3. Person anzeigen.
+\end{itemize}
+
+```{r, eval = T}
+    persons[3, ]$Weight
+```
+
+\begin{itemize}
+  \item Lassen Sie sich nun die Körpergröße aller Personen anzeigen.
+\end{itemize}
+
+```{r, eval = T}
+    persons$Height
+```
+
+\begin{itemize}
+  \item Fügen Sie die Variable “Augenfarbe” hinzu. Die Ausprägungen sollten vom Typ \texttt{character} sein. Schauen Sie sich den veränderten dataframe an.
+\end{itemize}
+
+```{r, eval = T}
+    persons$Eyecolor <- c("black", "blue", "black", "green", "black")
+    persons
+```
+
+# Übungsaufgaben zu bedingte Anweisungen
+
+## Schreiben Sie Code, der die Wurzel (\texttt{sqrt()}) eines Vektors \texttt{x} der Länge 1 berechnet, wenn der Wert in \texttt{x} nicht negativ ist.
+
+```{r, eval = T}
+    x <- 2 # - 2, testen!
+    if(x >= 0) sqrt(x)
+```
+
+## Erstellen Sie Code, welcher die Wurzel der Elemente eines Vektors \texttt{x} berechnet, wenn alle Werte in \texttt{x} nicht negativ sind.
+
+  *Hinweis:* Nutzen Sie eine Funktion wie `min()` oder `sum()`.
+
+```{r, eval= T}
+    x <- c(4, 16, 64)
+    if(min(x) >= 0) sqrt(x)
+    
+    # ODER
+    if(!sum(x < 0)) sqrt(x)
+```
+
+
+## Schreiben Sie Code, der die Struktur (\texttt{str()}) eines Objekts \texttt{df} wiedergibt, sofern \texttt{df} zur Klasse \texttt{data.frame} gehört. Andernfalls soll die Länge des Objekts wiedergegeben werden.
+
+```{r, eval = T}
+    df <- data.frame(A = 1:3)
+    if(class(df) == "data.frame") {
+      str(df)
+    } else {
+      length(df)
+    }
+```
+
+# Übungsaufgaben zu Schleifen
+## Schreiben Sie eine Schleife, welche die Zahlen von $1$ bis $15$ aufaddiert.
+
+```{r, eval=T}
+    x <- 0
+    for(i in 1:15) {
+      x <- x + i
+    }
+    x
+```
+
+## Erstellen Sie eine Matrix $M$ von folgender Gestalt:
+
+$$
+M=\begin{pmatrix}
+1 & 4 & 7 & 10 & 13\\
+2 & 5 & 8 & 11 & 14\\
+3 & 6 & 9 & 12 & 15\\
+\end{pmatrix}
+$$
+
+\begin{itemize}
+  \item Schreiben Sie eine Schleife, welche für jede Spalte die Spaltensumme berechnet und ausgibt.
+\end{itemize}
+
+```{r, eval = T}
+    M <- matrix(1:15, ncol = 5)
+    
+    # Schleife
+    for(i in 1:ncol(M)) {
+      print(sum(M[,i]))
+    }
+```
+
+## Mit \texttt{rnorm(1)} ziehen Sie eine Zufallszahl aus der Standardnormalverteilung (in der Konsole ausprobieren!). Schreiben Sie eine Schleife, welche solange ausgeführt wird, bis ein Wert gezogen wird, der größer als $1$ ist. 
+
+Geben Sie in jedem Durchlauf die gezogene Zahl mit ` cat(x, "\n")` aus. (Hinweis: `\n` steht für einen Zeilenumbruch)
+
+```{r, eval = TRUE}
+    set.seed(420)
+    
+    x <- rnorm(1)
+    while(x <= 1) {
+      cat(x, "\n")
+      x <- rnorm(1)
+    }
+```
+
+# Übungsaufgaben zu Funktionen
+
+## Die Dichte der Standardnormalverteilung lautet $$\displaystyle \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}}$$. Schreiben Sie eine Funktion `stdnv`, welche die Dichte von `x` berechnet und zurückgibt.
+
+\begin{itemize}
+  \item \textit{Hinweis:} `?exp`, `?pi`
+  \item \textit{Hinweis:} Wenn die Funktion korrekt ist, sollten `stdnv(x)` und `dnorm(x)` die gleichen Ergebnisse liefern.
+\end{itemize}
+
+```{r, eval = T}
+    stdnv <- function(x){
+      return(1/sqrt(2*pi) * exp(-x^2/2))
+    }
+    
+    stdnv(0.1337)
+    dnorm(0.1337)
+```
+
+## Schreiben Sie eine Funktion, welche die Argumente `z` sowie `opt` erwartet. Im Funktionskörper soll mit einer If-Anweisung gesteuert werden, welche Operation auf `z` ausgeführt werden soll:
+
+*WENN opt gleich "add" ist, DANN addiere die Elemente von `z`, WENN `opt` gleich "mult" ist, dann multipliziere die Elemente von `z`, andernfalls führe keine Operation aus.*\newline\newline
+Am Ende soll die Funktion das jeweilige Ergebnis wiedergeben.
+
+```{r, eval = T}
+    myFun <- function(z, opt) {
+      if (opt == "add") {
+        result <- sum(z)
+      } else if (opt == "mult") {
+        result <- prod(z)
+      }
+      return(result)
+    }
+    
+    x <- 1:5
+    myFun(z = x, opt = "mult")
+    myFun(z = x, opt = "add")
+```
+
+## Schreiben Sie eine Funktion, die den MSE (mean squared error) von zwei Vektoren `y` und `yhat` (die Argumente) berechnet. Der MSE is definiert als $$\displaystyle \frac{1}{n}\sum_{i=1}^n (\hat{Y}_i - Y_i)^2$$. 
+
+Testen Sie Ihre Funktion anhand der beiden Vektoren $y = {2, 4, 2, 5, 7}$ und $\hat{y}= {2.3, 3.5, 2.1, 5.5, 7.6}$ (das Ergebnis sollte 0.192 lauten).
+
+```{r, eval = T}
+    y    <- c(2, 4, 2, 5, 7)
+    yhat <- c(2.3, 3.5, 2.1, 5.5, 7.6)
+    mse <- function(y, yhat) {
+      1/length(y) * (sum((yhat - y)^2))
+    }
+    mse(y = y, yhat = yhat)
+```
+

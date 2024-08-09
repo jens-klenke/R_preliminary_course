@@ -1,0 +1,246 @@
+---
+title: 'R-Propädeutikum'
+author: 'Jens Klenke'
+author2: ''
+subtitle: 'Lösung Übungsaufgaben 1'
+semester: "Wintersemester 2023/2024"
+output:
+  pdf_document:
+    keep_tex: yes
+    template: template.tex
+    fig_caption: yes
+    citation_package: biblatex
+    number_sections: true
+toc: true
+lot: true
+lof: true
+graphics: true
+linkcolor: black
+urlcolor: black
+citecolor: black
+colorlinks: true
+font: Times New Roman
+fontsize: 12pt
+geometry: lmargin = 2cm, rmargin = 2.5cm, tmargin = 2cm, bmargin = 2.5cm
+classoption: a4paper
+---
+
+```{r , include=FALSE}
+Sys.setlocale(locale = "English_United States.1252") ## English US Windows
+knitr::opts_chunk$set(echo = TRUE)
+options(width = 70)
+
+
+#options(kableExtra.latex.load_packages = FALSE)
+#### required packages ####
+source(here::here("00_packages/packages.R"))
+```
+
+# Übungsaufgaben zu Vektoren 
+
+## Erzeugen Sie einen Vektor \texttt{numbers} mit den Elementen $\begin{pmatrix} 4, & 6, & -3, & 2.5, & 18, & \pi, &  85 \end{pmatrix}$.
+
+*Hinweis:* Die Zahl $\pi$ ist in \texttt{R} bereits als \texttt{pi} vordefiniert.
+
+```{r}
+    numbers <- c(4 , 6, -3, 2.5, 18, pi, 85)
+```
+
+\vspace{0.5cm}
+
+## Berechnen Sie das arithmetische und das harmonische Mittel von \texttt{numbers}.
+
+*Hinweis:* Für einen numerischen Vektor $X$ der Länge $n$ ist das arithmetische Mittel $\overline{X} = \frac{1}{n} \sum_{i=1}^n X_i$ und das harmonische Mittel $\overline{X}_{harm} = \frac{n}{\sum_{i=1}^n 1/X_i}$.
+
+```{r}
+    # arithmetisches Mittel
+    mean(numbers) 
+    # harmonisches Mittel
+    length(numbers) /(sum(1/numbers))       # 1. Möglichkeit
+    1/mean(1/numbers)                       # 2. Möglichkeit
+```
+
+\vspace{0.5cm}
+
+## Sie kommen zu dem Schluss, dass die höchste und die niedrigste Zahl die Schätzung verzerren und entscheiden darum, diese Werte zu ignorieren. Ersetzen Sie beide Werte durch \texttt{NA} und berechnen Sie die Mittelwerte aus Aufgabe 1.2 erneut.
+
+```{r}
+    numbers[which.min(numbers)] <- NA     # kleinsten Wert ersetzen
+    numbers[which.max(numbers)] <- NA     # größten Wert esetzen 
+    # oder einfach 
+    numbers[c(3, 7)] <- NA                # 3. und 7. Wert ersetzen 
+    
+    # Mittelwerte berechnen und 'NA's ignorieren
+    mean(numbers, na.rm = TRUE)
+    1/mean(1/numbers, na.rm = TRUE)
+```
+
+\vspace{0.5cm}
+
+## Nutzen Sie die Funktion \texttt{seq()} um die Folge \linebreak $\begin{pmatrix} 0, 0.5, 1, 1.5, \ldots, 99, 99.5, 100 \end{pmatrix}$ zu erzeugen. Wie viele Elemente besitzt dieser Vektor? Überprüfen Sie Ihre Vermutung mit \texttt{length()}.
+
+```{r}
+    x <- seq(from = 0, to = 100, by = 0.5)
+    x
+    length(x)
+```
+
+\vspace{0.5cm}
+
+## Erzeugen Sie einen neuen Vektor \texttt{characters} mit den Elementen $\begin{pmatrix} a, & a, & a,  & b, & b, & b, & b, & c, & c \\ \end{pmatrix}$. Finden Sie dazu heraus wie die Funktion \texttt{rep()} funktioniert und nutzen Sie diese. 
+
+```{r}
+    characters <- rep(c("a", "b", "c"), times = c(3, 4, 2))
+    characters
+```
+
+\vspace{0.5cm}
+
+## Überschreiben Sie nun den Vektor  \texttt{characters}  mit \linebreak  $\begin{pmatrix} x, & y, & z, & x, & y, & z, & x, & y, & z \\ \end{pmatrix}$. Nutzen Sie wieder die Funktion \texttt{rep()}.
+
+```{r}
+    characters <- rep(c("x", "y", "z"), times = 3)
+    characters
+```
+\vspace{0.5cm}
+
+## Ersetzen Sie nun alle Elemente mit dem Inhalt \texttt{"z"} durch \texttt{"v"}.
+
+```{r}
+    characters[which(characters == "z")] <- "v"
+    characters
+```
+
+```{r, include = FALSE}
+    characters <- rep(c("x", "y", "z"), times = 3)
+    characters
+```
+
+Kürzer:
+```{r}
+    characters[characters == "z"] <- "v"
+    characters
+```
+
+
+\vspace{0.5cm}
+
+## Kopieren Sie folgenden Code in Ihr \texttt{R}-Skript:
+
+```{r}
+    a <- c(2,5,7,5,12,6)
+    b <- c(1,2,3,4,5,6)
+    x <- c(1:2)
+    y <- 3
+    z <- c(1,2,3,4)
+```
+    
+Berechnen Sie nun $a+b$, $a+x$, $a+y$ und $a+z$. Finden Sie heraus, wie \texttt{R} jeweils vorgeht und schreiben Sie einen kurzen Kommentar.
+
+```{r}
+    a + b 
+```
+
+Normale Vektoraddition.
+
+```{r}
+    a + x
+```
+
+$x$ wird so häufig wiederholt, bis der Vektor die gleiche Länge hat wie der Vektor $a$ und wird dann addiert.
+
+```{r}
+    a + y
+```
+
+Der Skalar $y$ wird einfach auf jedes Element von $a$ addiert.
+
+```{r}
+    a + z
+```
+
+Achtung: $a$ und $z$ haben nicht die gleiche Länge und $a$ ist kein vielfaches von $z$! \texttt{R} wiederholt den Vektor und füllt die fehlenden Werte von vorne auf. Allerdings wird eine Warnmeldung ausgegeben. 
+
+
+\vspace{0.5cm}
+
+## Erzeugen Sie einen Vektor mit den Elementen $\begin{pmatrix} 1, & 2, & 3, & a, & b \\ \end{pmatrix}$. Was passiert? Schreiben Sie einen Kommentar.
+
+```{r}
+    v <- c(1, 2, 3, "a", "b")
+    class(v)
+```
+
+\texttt{R} nimmt immer die bestmöglichste Klasse (die Klasse, welche die meisten "Berechnungen" zulässt, vgl. Skalenniveau) an, in die die Elemente vereint werden können. In diesem Fall ist es die Klasse \texttt{character}. 
+  
+
+\vspace{0.5cm}
+
+# Übungsaufgaben zu Matrizen 
+
+## Erzeugen Sie mit dem Inputvektor `1:12` und \texttt{matrix()} folgende Matrix $X$.
+
+$$ X = \begin{pmatrix} 1 & 2 \\ 3 & 4\\ 5 & 6 \\ 7 & 8 \\
+9 & 10 \\ 11 & 12 \\\end{pmatrix}$$
+
+```{r}
+    X <- matrix(1:12, ncol = 2, byrow = TRUE)
+    X
+```
+
+\vspace{0.5cm}
+
+## Nehmen Sie die Matrix aus 2.1 und vertauschen Sie die Spalten. Das Ergebnis soll an die Variable $Y$ übergeben werden. 
+
+```{r}
+    Y <- X[ , 2:1] # oder
+    Y <- X[ , c(2,1)]
+    Y
+```
+
+\vspace{0.5cm}
+
+## Berechnen Sie $XY^{T}$.
+
+```{r}
+    X %*% t(Y)
+```
+
+\vspace{0.5cm}
+
+## Erzeugen Sie eine $2 \times 2$ Matrix aus der 2. und 5. Zeile der Matrix $X$.
+
+```{r}
+    X[c(2, 5), ]
+```
+
+\vspace{0.5cm}
+
+## Erzeugen Sie die Matrix $X$ mit `X <- matrix(8:-7, nrow = 4)`.
+
+```{r}
+    X <- matrix(8:-7, nrow = 4)
+    X
+```
+
+Es wird jetzt \texttt{nrow} und nicht \texttt{ncol} benutzt. Außerdem wurde eine abfallende Folge von natürlichen Zahlen mithilfe von \texttt{:} erzeugt.
+
+\begin{enumerate} 
+  \item Ersetzen Sie die Elemente auf der Hauptdiagonalen durch \texttt{NA}s. 
+\end{enumerate}
+
+```{r}
+    diag(X) <- NA
+```
+
+\begin{enumerate} \setcounter{enumi}{1}
+  \item Ersetzen Sie jetzt alle \texttt{NA}s in der Matrix mit dem Wert $1$. Nutzen Sie dazu die Funktion \texttt{is.na()}.
+\end{enumerate}
+
+```{r}
+    X[is.na(X)] <- 1
+```
+
+\texttt{is.na(X)} gibt eine Matrix mit logischen Einträgen (\texttt{TRUE} / \texttt{FALSE}) zurück, wobei für Elemente mit \texttt{NA} der Wert \texttt{TRUE} gesetzt wird.
+
+

@@ -1,0 +1,1019 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{lmodern}
+
+\usepackage{xcolor}
+\usepackage{placeins}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[lmargin = 2cm, rmargin = 2.5cm, tmargin = 2cm, bmargin =
+2.5cm]{geometry}
+
+
+% Figure Placement:
+\usepackage{float}
+\let\origfigure\figure
+\let\endorigfigure\endfigure
+\renewenvironment{figure}[1][2] {
+    \expandafter\origfigure\expandafter[H]
+} {
+    \endorigfigure
+}
+
+%%%% Jens %%%%
+\usepackage[tiny]{titlesec}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\renewcommand{\vec}{\operatorname{vec}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\Var}{\operatorname{Var}} % Variance
+\newcommand{\VAR}{\operatorname{VAR}} % Vector autoregression
+\newcommand{\Lag}{\operatorname{L}} % Lag operator
+\newcommand{\Cov}{\operatorname{Cov}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\adj}{\operatorname{adj}}
+\newcommand{\loglik}{\operatorname{ll}}
+
+\allowdisplaybreaks
+
+\titleformat{\section}
+{\normalfont\large\bfseries}{\thesection}{1em}{}
+
+%### sections
+\newcommand{\tmpsection}[1]{}
+\let\tmpsection=\section
+%\renewcommand{\section}[1]{\tmpsection{\underline{#1}} }
+\titleformat*{\section}{\large\bfseries}
+\titleformat*{\subsection}{\small\bfseries\sffamily}
+%\setkomafont{subsection}{\Large}
+%\setkomafont{subsubsection}{\large}
+%\setkomafont{paragraph}{\large}
+%\setkomafont{subparagraph}{\large}
+
+
+
+
+
+%% citation setup
+\usepackage{csquotes}
+
+\usepackage[backend=biber, maxbibnames = 99, style = apa]{biblatex}
+\setlength\bibitemsep{1.5\itemsep}
+\addbibresource{R_packages.bib}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true, linktocpage = TRUE]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={Jens Klenke},
+            pdftitle={R Propädeutikum},
+            colorlinks=true,
+            citecolor=black,
+            urlcolor=black,
+            linkcolor=black,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{5}
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+  \title{R Propädeutikum}
+  \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+\subtitle{Lösung Übungsaufgaben 2}
+  \author{Jens Klenke}
+  \preauthor{\centering\large\emph}
+  \postauthor{\par}
+  \date{}
+  \predate{}\postdate{}
+
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+
+%% linespread settings
+
+\usepackage{setspace}
+
+\onehalfspacing
+
+
+% Language Setup
+
+\usepackage{ifthen}
+\usepackage{iflang}
+\usepackage[super]{nth}
+\usepackage[ngerman, english]{babel}
+
+%Acronyms
+\usepackage[printonlyused, withpage, nohyperlinks]{acronym}
+\usepackage{changepage}
+
+% Multicols for the Title page
+\usepackage{multicol}
+
+
+% foot
+
+
+\begin{document}
+
+\selectlanguage{english}
+
+%%%%%%%%%%%%%% Jens %%%%%
+\numberwithin{equation}{section}
+
+
+
+
+\restoregeometry
+
+
+%%% Header 
+
+\begin{minipage}{0.6\textwidth}
+Universität Duisburg-Essen\\
+Fakultät für Wirtschaftswissenschaften\\
+Lehrstuhl für Ökonometrie\\
+\end{minipage}
+
+%\begin{minipage}{0.4\textwidth}
+	\begin{flushright}
+	\vspace{-3cm}
+	\includegraphics*[width=5cm]{includes/duelogo_en.png}\\
+	\vspace{.125cm}
+	\end{flushright}
+%\end{minipage}
+%\vspace{.125cm}
+\hspace{-0.005cm}Wintersemester 2023/2024
+
+\vspace{0.05cm}
+
+\begin{center}
+	\vspace{.25cm}
+	Jens Klenke \hspace{.5cm}  \\
+	\vspace{.25cm}
+	\textbf{\Large{R Propädeutikum}}\\
+	\vspace{.25cm}
+	\textbf{\large{Lösung Übungsaufgaben 2}}\\
+	\vspace{.125cm}
+\end{center}
+
+
+
+
+% body from markdown
+
+\hypertarget{uxfcbungsaufgaben-zur-logik.}{%
+\section{Übungsaufgaben zur Logik.}\label{uxfcbungsaufgaben-zur-logik.}}
+
+\hypertarget{uxfcberpruxfcfen-sie-in-r-ob-die-folgenden-ausdruxfccke-true-oder-false-sind}{%
+\subsection{\texorpdfstring{Überprüfen Sie in \texttt{R} ob die
+folgenden Ausdrücke \texttt{TRUE} oder \texttt{FALSE}
+sind?}{Überprüfen Sie in R ob die folgenden Ausdrücke TRUE oder FALSE sind?}}\label{uxfcberpruxfcfen-sie-in-r-ob-die-folgenden-ausdruxfccke-true-oder-false-sind}}
+
+\begin{itemize}
+  \item $5 \geq 5$
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+    \DecValTok{5} \SpecialCharTok{\textgreater{}=} \DecValTok{5}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\begin{itemize}
+  \item $5 > 5$
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+    \DecValTok{5} \SpecialCharTok{\textgreater{}} \DecValTok{5}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] FALSE
+\end{verbatim}
+
+\begin{itemize}
+  \item $T = 5$
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    T }\SpecialCharTok{==} \DecValTok{5}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] FALSE
+\end{verbatim}
+
+\begin{itemize}
+  \item $T \land F \ \lor \ F \land T$
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    T}\SpecialCharTok{\&}\NormalTok{F }\SpecialCharTok{|}\NormalTok{ F}\SpecialCharTok{\&}\NormalTok{T}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] FALSE
+\end{verbatim}
+
+\begin{itemize}
+  \item $F \land F \land F\ \lor \ T$
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    F}\SpecialCharTok{\&}\NormalTok{F}\SpecialCharTok{\&}\NormalTok{F }\SpecialCharTok{|}\NormalTok{ T}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\begin{itemize}
+  \item $(\neg (5 > 3) \lor A = B)$
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    (}\SpecialCharTok{!}\NormalTok{(}\DecValTok{5} \SpecialCharTok{\textgreater{}} \DecValTok{3}\NormalTok{) }\SpecialCharTok{|} \StringTok{"A"} \SpecialCharTok{==} \StringTok{"B"}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] FALSE
+\end{verbatim}
+
+\begin{itemize}
+  \item $\neg(((T > F) > T) \land \ \neg T)$
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+    \SpecialCharTok{!}\NormalTok{(((T }\SpecialCharTok{\textgreater{}}\NormalTok{ F) }\SpecialCharTok{\textgreater{}}\NormalTok{ T) }\SpecialCharTok{\&} \SpecialCharTok{!}\NormalTok{T)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\hypertarget{es-sei-z---c1-2-na-4.-uxfcberpruxfcfen-sie-die-folgenden-aussagen-mittels-einer-logikabfrage-in-r.}{%
+\subsection{\texorpdfstring{Es sei
+\texttt{z\ \textless{}-\ c(1,\ 2,\ NA,\ 4)}. Überprüfen Sie die
+folgenden Aussagen mittels einer Logikabfrage in
+\texttt{R}.}{Es sei z \textless- c(1, 2, NA, 4). Überprüfen Sie die folgenden Aussagen mittels einer Logikabfrage in R.}}\label{es-sei-z---c1-2-na-4.-uxfcberpruxfcfen-sie-die-folgenden-aussagen-mittels-einer-logikabfrage-in-r.}}
+
+\begin{itemize}
+  \item Die Länge des Vektors $z$ ist ungleich $2$.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    z }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\ConstantTok{NA}\NormalTok{, }\DecValTok{4}\NormalTok{)}
+    
+    \FunctionTok{length}\NormalTok{(z) }\SpecialCharTok{!=} \DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\begin{itemize}
+  \item Die Länge der logischen Überprüfungen, ob die einzelnen Elemente gleich 2 sind, ist 4.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+    \FunctionTok{length}\NormalTok{(z }\SpecialCharTok{==} \DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 4
+\end{verbatim}
+
+\begin{itemize}
+  \item Der Vektor $z$ hat die Klasse `numeric`.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+    \FunctionTok{is.numeric}\NormalTok{(z)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\begin{itemize}
+  \item Einige Elemente des Vektors $z$ sind `NA`. 
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+    \FunctionTok{is.na}\NormalTok{(z)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] FALSE FALSE  TRUE FALSE
+\end{verbatim}
+
+\begin{itemize}
+  \item Das zweite Element des Vektors $z$ ist `numeric`.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+    \FunctionTok{is.numeric}\NormalTok{(z[}\DecValTok{2}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\begin{itemize}
+  \item Das Minimum und das Maximum sind ungleich. 
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    (}\FunctionTok{min}\NormalTok{(z) }\SpecialCharTok{!=} \FunctionTok{max}\NormalTok{(z))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] NA
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    (}\FunctionTok{min}\NormalTok{(z, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{!=} \FunctionTok{max}\NormalTok{(z, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\hypertarget{es-sei-m---matrix19-ncol-3.-was-ergeben-folgende-ausdruxfccke}{%
+\subsection{\texorpdfstring{Es sei
+\texttt{M\ \textless{}-\ matrix(1:9,\ ncol\ =\ 3)}. Was ergeben folgende
+Ausdrücke:}{Es sei M \textless- matrix(1:9, ncol = 3). Was ergeben folgende Ausdrücke:}}\label{es-sei-m---matrix19-ncol-3.-was-ergeben-folgende-ausdruxfccke}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    M }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{9}\NormalTok{, }\AttributeTok{ncol =} \DecValTok{3}\NormalTok{)}
+    
+    \FunctionTok{sum}\NormalTok{(M[ , }\DecValTok{1}\NormalTok{]) }\SpecialCharTok{==} \DecValTok{6}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+    \FunctionTok{max}\NormalTok{(M[ , }\DecValTok{2}\NormalTok{]) }\SpecialCharTok{\textless{}=} \DecValTok{5}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] FALSE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    M[}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{] }\SpecialCharTok{!=} \DecValTok{4} \SpecialCharTok{\&}\NormalTok{ M[}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{] }\SpecialCharTok{\textgreater{}} \DecValTok{6}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] FALSE
+\end{verbatim}
+
+\hypertarget{uxfcbungsaufgaben-zu-dataframes}{%
+\section{Übungsaufgaben zu
+Dataframes}\label{uxfcbungsaufgaben-zu-dataframes}}
+
+\hypertarget{verschaffen-sie-sich-einen-uxfcberblick-uxfcber-den-datensatz-mtcars-dieser-ist-in-base-r-bereits-geladen.-aus-wie-vielen-variablen-besteht-der-datensatz-welche-klasse-haben-die-einzelnen-variablen}{%
+\subsection{\texorpdfstring{Verschaffen Sie sich einen Überblick über
+den Datensatz \texttt{mtcars} (dieser ist in base R bereits geladen).
+Aus wie vielen Variablen besteht der Datensatz? Welche Klasse haben die
+einzelnen
+Variablen?}{Verschaffen Sie sich einen Überblick über den Datensatz mtcars (dieser ist in base R bereits geladen). Aus wie vielen Variablen besteht der Datensatz? Welche Klasse haben die einzelnen Variablen?}}\label{verschaffen-sie-sich-einen-uxfcberblick-uxfcber-den-datensatz-mtcars-dieser-ist-in-base-r-bereits-geladen.-aus-wie-vielen-variablen-besteht-der-datensatz-welche-klasse-haben-die-einzelnen-variablen}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+    \FunctionTok{str}\NormalTok{(mtcars)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 'data.frame':    32 obs. of  11 variables:
+##  $ mpg : num  21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...
+##  $ cyl : num  6 6 4 6 8 6 8 4 4 6 ...
+##  $ disp: num  160 160 108 258 360 ...
+##  $ hp  : num  110 110 93 110 175 105 245 62 95 123 ...
+##  $ drat: num  3.9 3.9 3.85 3.08 3.15 2.76 3.21 3.69 3.92 3.92 ...
+##  $ wt  : num  2.62 2.88 2.32 3.21 3.44 ...
+##  $ qsec: num  16.5 17 18.6 19.4 17 ...
+##  $ vs  : num  0 0 1 1 0 1 0 1 1 1 ...
+##  $ am  : num  1 1 1 0 0 0 0 0 0 0 ...
+##  $ gear: num  4 4 4 3 3 3 3 4 4 4 ...
+##  $ carb: num  4 4 1 1 2 1 4 2 2 4 ...
+\end{verbatim}
+
+Der Datensatz besteht aus elf Variablen, die alle der Klasse
+\texttt{numeric} angehören.
+
+\hypertarget{lassen-sie-sich-folgende-subsets-von-mtcars-ausgeben}{%
+\subsection{\texorpdfstring{Lassen Sie sich folgende Subsets von
+\texttt{mtcars}
+ausgeben:}{Lassen Sie sich folgende Subsets von mtcars ausgeben:}}\label{lassen-sie-sich-folgende-subsets-von-mtcars-ausgeben}}
+
+\begin{itemize}
+  \item nur die Variable \texttt{mpg}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    mtcars}\SpecialCharTok{$}\NormalTok{mpg}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] 21.0 21.0 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 17.8 16.4 17.3
+## [14] 15.2 10.4 10.4 14.7 32.4 30.4 33.9 21.5 15.5 15.2 13.3 19.2 27.3
+## [27] 26.0 30.4 15.8 19.7 15.0 21.4
+\end{verbatim}
+
+\begin{itemize}
+  \item nur die ersten drei Zeilen
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    mtcars[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{, ]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4     21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag 21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710    22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+\end{verbatim}
+
+\begin{itemize}
+  \item nur die ersten drei Variablen
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    mtcars[, }\DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                      mpg cyl  disp
+## Mazda RX4           21.0   6 160.0
+## Mazda RX4 Wag       21.0   6 160.0
+## Datsun 710          22.8   4 108.0
+## Hornet 4 Drive      21.4   6 258.0
+## Hornet Sportabout   18.7   8 360.0
+## Valiant             18.1   6 225.0
+## Duster 360          14.3   8 360.0
+## Merc 240D           24.4   4 146.7
+## Merc 230            22.8   4 140.8
+## Merc 280            19.2   6 167.6
+## Merc 280C           17.8   6 167.6
+## Merc 450SE          16.4   8 275.8
+## Merc 450SL          17.3   8 275.8
+## Merc 450SLC         15.2   8 275.8
+## Cadillac Fleetwood  10.4   8 472.0
+## Lincoln Continental 10.4   8 460.0
+## Chrysler Imperial   14.7   8 440.0
+## Fiat 128            32.4   4  78.7
+## Honda Civic         30.4   4  75.7
+## Toyota Corolla      33.9   4  71.1
+## Toyota Corona       21.5   4 120.1
+## Dodge Challenger    15.5   8 318.0
+## AMC Javelin         15.2   8 304.0
+## Camaro Z28          13.3   8 350.0
+## Pontiac Firebird    19.2   8 400.0
+## Fiat X1-9           27.3   4  79.0
+## Porsche 914-2       26.0   4 120.3
+## Lotus Europa        30.4   4  95.1
+## Ford Pantera L      15.8   8 351.0
+## Ferrari Dino        19.7   6 145.0
+## Maserati Bora       15.0   8 301.0
+## Volvo 142E          21.4   4 121.0
+\end{verbatim}
+
+\begin{itemize}
+  \item nur die ersten beiden Beobachtungen der Variablen \texttt{cyl} und \texttt{hp}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    mtcars[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{2}\NormalTok{, }\FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{4}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##               cyl  hp
+## Mazda RX4       6 110
+## Mazda RX4 Wag   6 110
+\end{verbatim}
+
+\begin{itemize}
+  \item alle Beobachtungen deren Ausprägung der Variable \texttt{hp} größer ist als $200$
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    mtcars[mtcars}\SpecialCharTok{$}\NormalTok{hp }\SpecialCharTok{\textgreater{}} \DecValTok{200}\NormalTok{,]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                      mpg cyl disp  hp drat    wt  qsec vs am gear
+## Duster 360          14.3   8  360 245 3.21 3.570 15.84  0  0    3
+## Cadillac Fleetwood  10.4   8  472 205 2.93 5.250 17.98  0  0    3
+## Lincoln Continental 10.4   8  460 215 3.00 5.424 17.82  0  0    3
+## Chrysler Imperial   14.7   8  440 230 3.23 5.345 17.42  0  0    3
+## Camaro Z28          13.3   8  350 245 3.73 3.840 15.41  0  0    3
+## Ford Pantera L      15.8   8  351 264 4.22 3.170 14.50  0  1    5
+## Maserati Bora       15.0   8  301 335 3.54 3.570 14.60  0  1    5
+##                     carb
+## Duster 360             4
+## Cadillac Fleetwood     4
+## Lincoln Continental    4
+## Chrysler Imperial      4
+## Camaro Z28             4
+## Ford Pantera L         4
+## Maserati Bora          8
+\end{verbatim}
+
+\hypertarget{erstellen-sie-einen-dataframe-persons-mit-den-variablen-name-character-height-cm-numeric-und-weight-kg-numeric-von-5-fiktiven-personen.}{%
+\subsection{\texorpdfstring{Erstellen Sie einen Dataframe
+\texttt{persons} mit den Variablen \texttt{Name} (\texttt{character}),
+\texttt{Height} (cm, \texttt{numeric}) und \texttt{Weight} (kg,
+\texttt{numeric}) von 5 fiktiven
+Personen.}{Erstellen Sie einen Dataframe persons mit den Variablen Name (character), Height (cm, numeric) und Weight (kg, numeric) von 5 fiktiven Personen.}}\label{erstellen-sie-einen-dataframe-persons-mit-den-variablen-name-character-height-cm-numeric-und-weight-kg-numeric-von-5-fiktiven-personen.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    persons }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{Name   =} \FunctionTok{c}\NormalTok{(}\StringTok{"Jerry"}\NormalTok{, }\StringTok{"Beth"}\NormalTok{, }\StringTok{"Summer"}\NormalTok{, }\StringTok{"Morty"}\NormalTok{, }\StringTok{"Rick"}\NormalTok{),}
+                          \AttributeTok{Height =} \FunctionTok{c}\NormalTok{(}\DecValTok{180}\NormalTok{, }\DecValTok{170}\NormalTok{, }\DecValTok{170}\NormalTok{, }\DecValTok{155}\NormalTok{, }\DecValTok{175}\NormalTok{),}
+                          \AttributeTok{Weight =} \FunctionTok{c}\NormalTok{(}\DecValTok{75}\NormalTok{, }\DecValTok{73}\NormalTok{, }\DecValTok{55}\NormalTok{, }\DecValTok{52}\NormalTok{, }\DecValTok{67}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+  \item Lassen Sie sich das Körpergewicht der 3. Person anzeigen.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    persons[}\DecValTok{3}\NormalTok{, ]}\SpecialCharTok{$}\NormalTok{Weight}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 55
+\end{verbatim}
+
+\begin{itemize}
+  \item Lassen Sie sich nun die Körpergröße aller Personen anzeigen.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    persons}\SpecialCharTok{$}\NormalTok{Height}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 180 170 170 155 175
+\end{verbatim}
+
+\begin{itemize}
+  \item Fügen Sie die Variable “Augenfarbe” hinzu. Die Ausprägungen sollten vom Typ \texttt{character} sein. Schauen Sie sich den veränderten dataframe an.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    persons}\SpecialCharTok{$}\NormalTok{Eyecolor }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"black"}\NormalTok{, }\StringTok{"blue"}\NormalTok{, }\StringTok{"black"}\NormalTok{, }\StringTok{"green"}\NormalTok{, }\StringTok{"black"}\NormalTok{)}
+\NormalTok{    persons}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     Name Height Weight Eyecolor
+## 1  Jerry    180     75    black
+## 2   Beth    170     73     blue
+## 3 Summer    170     55    black
+## 4  Morty    155     52    green
+## 5   Rick    175     67    black
+\end{verbatim}
+
+\hypertarget{uxfcbungsaufgaben-zu-bedingte-anweisungen}{%
+\section{Übungsaufgaben zu bedingte
+Anweisungen}\label{uxfcbungsaufgaben-zu-bedingte-anweisungen}}
+
+\hypertarget{schreiben-sie-code-der-die-wurzel-eines-vektors-der-luxe4nge-1-berechnet-wenn-der-wert-in-nicht-negativ-ist.}{%
+\subsection{\texorpdfstring{Schreiben Sie Code, der die Wurzel
+(\texttt{sqrt()}) eines Vektors \texttt{x} der Länge 1 berechnet, wenn
+der Wert in \texttt{x} nicht negativ
+ist.}{Schreiben Sie Code, der die Wurzel () eines Vektors  der Länge 1 berechnet, wenn der Wert in  nicht negativ ist.}}\label{schreiben-sie-code-der-die-wurzel-eines-vektors-der-luxe4nge-1-berechnet-wenn-der-wert-in-nicht-negativ-ist.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    x }\OtherTok{\textless{}{-}} \DecValTok{2} \CommentTok{\# {-} 2, testen!}
+    \ControlFlowTok{if}\NormalTok{(x }\SpecialCharTok{\textgreater{}=} \DecValTok{0}\NormalTok{) }\FunctionTok{sqrt}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.414214
+\end{verbatim}
+
+\hypertarget{erstellen-sie-code-welcher-die-wurzel-der-elemente-eines-vektors-berechnet-wenn-alle-werte-in-nicht-negativ-sind.}{%
+\subsection{\texorpdfstring{Erstellen Sie Code, welcher die Wurzel der
+Elemente eines Vektors \texttt{x} berechnet, wenn alle Werte in
+\texttt{x} nicht negativ
+sind.}{Erstellen Sie Code, welcher die Wurzel der Elemente eines Vektors  berechnet, wenn alle Werte in  nicht negativ sind.}}\label{erstellen-sie-code-welcher-die-wurzel-der-elemente-eines-vektors-berechnet-wenn-alle-werte-in-nicht-negativ-sind.}}
+
+\emph{Hinweis:} Nutzen Sie eine Funktion wie \texttt{min()} oder
+\texttt{sum()}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    x }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{16}\NormalTok{, }\DecValTok{64}\NormalTok{)}
+    \ControlFlowTok{if}\NormalTok{(}\FunctionTok{min}\NormalTok{(x) }\SpecialCharTok{\textgreater{}=} \DecValTok{0}\NormalTok{) }\FunctionTok{sqrt}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2 4 8
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+    \CommentTok{\# ODER}
+    \ControlFlowTok{if}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{sum}\NormalTok{(x }\SpecialCharTok{\textless{}} \DecValTok{0}\NormalTok{)) }\FunctionTok{sqrt}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2 4 8
+\end{verbatim}
+
+\hypertarget{schreiben-sie-code-der-die-struktur-eines-objekts-wiedergibt-sofern-zur-klasse-gehuxf6rt.-andernfalls-soll-die-luxe4nge-des-objekts-wiedergegeben-werden.}{%
+\subsection{\texorpdfstring{Schreiben Sie Code, der die Struktur
+(\texttt{str()}) eines Objekts \texttt{df} wiedergibt, sofern
+\texttt{df} zur Klasse \texttt{data.frame} gehört. Andernfalls soll die
+Länge des Objekts wiedergegeben
+werden.}{Schreiben Sie Code, der die Struktur () eines Objekts  wiedergibt, sofern  zur Klasse  gehört. Andernfalls soll die Länge des Objekts wiedergegeben werden.}}\label{schreiben-sie-code-der-die-struktur-eines-objekts-wiedergibt-sofern-zur-klasse-gehuxf6rt.-andernfalls-soll-die-luxe4nge-des-objekts-wiedergegeben-werden.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    df }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{A =} \DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{)}
+    \ControlFlowTok{if}\NormalTok{(}\FunctionTok{class}\NormalTok{(df) }\SpecialCharTok{==} \StringTok{"data.frame"}\NormalTok{) \{}
+      \FunctionTok{str}\NormalTok{(df)}
+\NormalTok{    \} }\ControlFlowTok{else}\NormalTok{ \{}
+      \FunctionTok{length}\NormalTok{(df)}
+\NormalTok{    \}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 'data.frame':    3 obs. of  1 variable:
+##  $ A: int  1 2 3
+\end{verbatim}
+
+\hypertarget{uxfcbungsaufgaben-zu-schleifen}{%
+\section{Übungsaufgaben zu
+Schleifen}\label{uxfcbungsaufgaben-zu-schleifen}}
+
+\hypertarget{schreiben-sie-eine-schleife-welche-die-zahlen-von-1-bis-15-aufaddiert.}{%
+\subsection{\texorpdfstring{Schreiben Sie eine Schleife, welche die
+Zahlen von \(1\) bis \(15\)
+aufaddiert.}{Schreiben Sie eine Schleife, welche die Zahlen von 1 bis 15 aufaddiert.}}\label{schreiben-sie-eine-schleife-welche-die-zahlen-von-1-bis-15-aufaddiert.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    x }\OtherTok{\textless{}{-}} \DecValTok{0}
+    \ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\DecValTok{15}\NormalTok{) \{}
+\NormalTok{      x }\OtherTok{\textless{}{-}}\NormalTok{ x }\SpecialCharTok{+}\NormalTok{ i}
+\NormalTok{    \}}
+\NormalTok{    x}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 120
+\end{verbatim}
+
+\hypertarget{erstellen-sie-eine-matrix-m-von-folgender-gestalt}{%
+\subsection{\texorpdfstring{Erstellen Sie eine Matrix \(M\) von
+folgender
+Gestalt:}{Erstellen Sie eine Matrix M von folgender Gestalt:}}\label{erstellen-sie-eine-matrix-m-von-folgender-gestalt}}
+
+\[
+M=\begin{pmatrix}
+1 & 4 & 7 & 10 & 13\\
+2 & 5 & 8 & 11 & 14\\
+3 & 6 & 9 & 12 & 15\\
+\end{pmatrix}
+\]
+
+\begin{itemize}
+  \item Schreiben Sie eine Schleife, welche für jede Spalte die Spaltensumme berechnet und ausgibt.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    M }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{15}\NormalTok{, }\AttributeTok{ncol =} \DecValTok{5}\NormalTok{)}
+    
+    \CommentTok{\# Schleife}
+    \ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{ncol}\NormalTok{(M)) \{}
+      \FunctionTok{print}\NormalTok{(}\FunctionTok{sum}\NormalTok{(M[,i]))}
+\NormalTok{    \}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 6
+## [1] 15
+## [1] 24
+## [1] 33
+## [1] 42
+\end{verbatim}
+
+\hypertarget{mit-ziehen-sie-eine-zufallszahl-aus-der-standardnormalverteilung-in-der-konsole-ausprobieren.-schreiben-sie-eine-schleife-welche-solange-ausgefuxfchrt-wird-bis-ein-wert-gezogen-wird-der-gruxf6uxdfer-als-1-ist.}{%
+\subsection{\texorpdfstring{Mit \texttt{rnorm(1)} ziehen Sie eine
+Zufallszahl aus der Standardnormalverteilung (in der Konsole
+ausprobieren!). Schreiben Sie eine Schleife, welche solange ausgeführt
+wird, bis ein Wert gezogen wird, der größer als \(1\)
+ist.}{Mit  ziehen Sie eine Zufallszahl aus der Standardnormalverteilung (in der Konsole ausprobieren!). Schreiben Sie eine Schleife, welche solange ausgeführt wird, bis ein Wert gezogen wird, der größer als 1 ist.}}\label{mit-ziehen-sie-eine-zufallszahl-aus-der-standardnormalverteilung-in-der-konsole-ausprobieren.-schreiben-sie-eine-schleife-welche-solange-ausgefuxfchrt-wird-bis-ein-wert-gezogen-wird-der-gruxf6uxdfer-als-1-ist.}}
+
+Geben Sie in jedem Durchlauf die gezogene Zahl mit
+\texttt{cat(x,\ "\textbackslash{}n")} aus. (Hinweis:
+\texttt{\textbackslash{}n} steht für einen Zeilenumbruch)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+    \FunctionTok{set.seed}\NormalTok{(}\DecValTok{420}\NormalTok{)}
+    
+\NormalTok{    x }\OtherTok{\textless{}{-}} \FunctionTok{rnorm}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+    \ControlFlowTok{while}\NormalTok{(x }\SpecialCharTok{\textless{}=} \DecValTok{1}\NormalTok{) \{}
+      \FunctionTok{cat}\NormalTok{(x, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{      x }\OtherTok{\textless{}{-}} \FunctionTok{rnorm}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+\NormalTok{    \}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 0.2677109 
+## -0.9367075 
+## 0.5962061 
+## -0.3120436 
+## 0.3979791 
+## -0.5147962 
+## -0.5518658 
+## -0.4605003 
+## -2.948791 
+## -0.7671461 
+## 0.9385212 
+## -0.2870975
+\end{verbatim}
+
+\hypertarget{uxfcbungsaufgaben-zu-funktionen}{%
+\section{Übungsaufgaben zu
+Funktionen}\label{uxfcbungsaufgaben-zu-funktionen}}
+
+\hypertarget{die-dichte-der-standardnormalverteilung-lautet-displaystyle-frac1sqrt2pi-e-fracx22.-schreiben-sie-eine-funktion-stdnv-welche-die-dichte-von-x-berechnet-und-zuruxfcckgibt.}{%
+\subsection{\texorpdfstring{Die Dichte der Standardnormalverteilung
+lautet \[\displaystyle \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}}\].
+Schreiben Sie eine Funktion \texttt{stdnv}, welche die Dichte von
+\texttt{x} berechnet und
+zurückgibt.}{Die Dichte der Standardnormalverteilung lautet \textbackslash displaystyle \textbackslash frac\{1\}\{\textbackslash sqrt\{2\textbackslash pi\}\} e\^{}\{-\textbackslash frac\{x\^{}2\}\{2\}\}. Schreiben Sie eine Funktion stdnv, welche die Dichte von x berechnet und zurückgibt.}}\label{die-dichte-der-standardnormalverteilung-lautet-displaystyle-frac1sqrt2pi-e-fracx22.-schreiben-sie-eine-funktion-stdnv-welche-die-dichte-von-x-berechnet-und-zuruxfcckgibt.}}
+
+\begin{itemize}
+  \item \textit{Hinweis:} `?exp`, `?pi`
+  \item \textit{Hinweis:} Wenn die Funktion korrekt ist, sollten `stdnv(x)` und `dnorm(x)` die gleichen Ergebnisse liefern.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    stdnv }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x)\{}
+      \FunctionTok{return}\NormalTok{(}\DecValTok{1}\SpecialCharTok{/}\FunctionTok{sqrt}\NormalTok{(}\DecValTok{2}\SpecialCharTok{*}\NormalTok{pi) }\SpecialCharTok{*} \FunctionTok{exp}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{x}\SpecialCharTok{\^{}}\DecValTok{2}\SpecialCharTok{/}\DecValTok{2}\NormalTok{))}
+\NormalTok{    \}}
+    
+    \FunctionTok{stdnv}\NormalTok{(}\FloatTok{0.1337}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.3953925
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+    \FunctionTok{dnorm}\NormalTok{(}\FloatTok{0.1337}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.3953925
+\end{verbatim}
+
+\hypertarget{schreiben-sie-eine-funktion-welche-die-argumente-z-sowie-opt-erwartet.-im-funktionskuxf6rper-soll-mit-einer-if-anweisung-gesteuert-werden-welche-operation-auf-z-ausgefuxfchrt-werden-soll}{%
+\subsection{\texorpdfstring{Schreiben Sie eine Funktion, welche die
+Argumente \texttt{z} sowie \texttt{opt} erwartet. Im Funktionskörper
+soll mit einer If-Anweisung gesteuert werden, welche Operation auf
+\texttt{z} ausgeführt werden
+soll:}{Schreiben Sie eine Funktion, welche die Argumente z sowie opt erwartet. Im Funktionskörper soll mit einer If-Anweisung gesteuert werden, welche Operation auf z ausgeführt werden soll:}}\label{schreiben-sie-eine-funktion-welche-die-argumente-z-sowie-opt-erwartet.-im-funktionskuxf6rper-soll-mit-einer-if-anweisung-gesteuert-werden-welche-operation-auf-z-ausgefuxfchrt-werden-soll}}
+
+\emph{WENN opt gleich ``add'' ist, DANN addiere die Elemente von
+\texttt{z}, WENN \texttt{opt} gleich ``mult'' ist, dann multipliziere
+die Elemente von \texttt{z}, andernfalls führe keine Operation
+aus.}\newline\newline Am Ende soll die Funktion das jeweilige Ergebnis
+wiedergeben.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    myFun }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(z, opt) \{}
+      \ControlFlowTok{if}\NormalTok{ (opt }\SpecialCharTok{==} \StringTok{"add"}\NormalTok{) \{}
+\NormalTok{        result }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(z)}
+\NormalTok{      \} }\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (opt }\SpecialCharTok{==} \StringTok{"mult"}\NormalTok{) \{}
+\NormalTok{        result }\OtherTok{\textless{}{-}} \FunctionTok{prod}\NormalTok{(z)}
+\NormalTok{      \}}
+      \FunctionTok{return}\NormalTok{(result)}
+\NormalTok{    \}}
+    
+\NormalTok{    x }\OtherTok{\textless{}{-}} \DecValTok{1}\SpecialCharTok{:}\DecValTok{5}
+    \FunctionTok{myFun}\NormalTok{(}\AttributeTok{z =}\NormalTok{ x, }\AttributeTok{opt =} \StringTok{"mult"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 120
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+    \FunctionTok{myFun}\NormalTok{(}\AttributeTok{z =}\NormalTok{ x, }\AttributeTok{opt =} \StringTok{"add"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 15
+\end{verbatim}
+
+\hypertarget{schreiben-sie-eine-funktion-die-den-mse-mean-squared-error-von-zwei-vektoren-y-und-yhat-die-argumente-berechnet.-der-mse-is-definiert-als-displaystyle-frac1nsum_i1n-haty_i---y_i2.}{%
+\subsection{\texorpdfstring{Schreiben Sie eine Funktion, die den MSE
+(mean squared error) von zwei Vektoren \texttt{y} und \texttt{yhat} (die
+Argumente) berechnet. Der MSE is definiert als
+\[\displaystyle \frac{1}{n}\sum_{i=1}^n (\hat{Y}_i - Y_i)^2\].}{Schreiben Sie eine Funktion, die den MSE (mean squared error) von zwei Vektoren y und yhat (die Argumente) berechnet. Der MSE is definiert als \textbackslash displaystyle \textbackslash frac\{1\}\{n\}\textbackslash sum\_\{i=1\}\^{}n (\textbackslash hat\{Y\}\_i - Y\_i)\^{}2.}}\label{schreiben-sie-eine-funktion-die-den-mse-mean-squared-error-von-zwei-vektoren-y-und-yhat-die-argumente-berechnet.-der-mse-is-definiert-als-displaystyle-frac1nsum_i1n-haty_i---y_i2.}}
+
+Testen Sie Ihre Funktion anhand der beiden Vektoren
+\(y = {2, 4, 2, 5, 7}\) und \(\hat{y}= {2.3, 3.5, 2.1, 5.5, 7.6}\) (das
+Ergebnis sollte 0.192 lauten).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    y    }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{7}\NormalTok{)}
+\NormalTok{    yhat }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{2.3}\NormalTok{, }\FloatTok{3.5}\NormalTok{, }\FloatTok{2.1}\NormalTok{, }\FloatTok{5.5}\NormalTok{, }\FloatTok{7.6}\NormalTok{)}
+\NormalTok{    mse }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(y, yhat) \{}
+      \DecValTok{1}\SpecialCharTok{/}\FunctionTok{length}\NormalTok{(y) }\SpecialCharTok{*}\NormalTok{ (}\FunctionTok{sum}\NormalTok{((yhat }\SpecialCharTok{{-}}\NormalTok{ y)}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{))}
+\NormalTok{    \}}
+    \FunctionTok{mse}\NormalTok{(}\AttributeTok{y =}\NormalTok{ y, }\AttributeTok{yhat =}\NormalTok{ yhat)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.192
+\end{verbatim}
+
+\end{document}
