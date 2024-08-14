@@ -3,7 +3,7 @@ title: 'R Propädeutikum'
 author: 'Jens Klenke'
 author2: ''
 subtitle: 'Übungsaufgaben 1'
-semester: "Wintersemester 2023/2024"
+semester: "Wintersemester 2024/2025"
 output:
   pdf_document:
     keep_tex: yes
@@ -25,7 +25,7 @@ geometry: lmargin = 2cm, rmargin = 2.5cm, tmargin = 2cm, bmargin = 2.5cm
 classoption: a4paper
 ---
 
-```{r , include=FALSE}
+```{r set-up, include=FALSE}
 Sys.setlocale(locale = "English_United States.1252") ## English US Windows
 knitr::opts_chunk$set(echo = TRUE)
 
