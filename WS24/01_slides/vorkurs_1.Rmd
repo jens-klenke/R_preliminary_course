@@ -53,6 +53,7 @@ smiley <- icon_style(fontawesome("smile", style = "solid"), scale = 2, fill = "#
 grin_wink <- icon_style(fontawesome("grin-wink", style = "solid"), scale = 2, fill = "#004c93")
 ```
 
+class: inverse
 
 ## Übersicht 
 

@@ -52,6 +52,7 @@ r_black <- icons::icon_style(fontawesome$brands$'r-project', fill = "black")
 r_blue <- icons::icon_style(fontawesome$brands$'r-project', fill = "#004c93")
 ```
 
+class: inverse
 
 # Übersicht 
 
