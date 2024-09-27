@@ -3,7 +3,7 @@ title: 'R Propädeutikum'
 author: 'Jens Klenke'
 author2: ''
 subtitle: 'Übungsaufgaben 3'
-semester: 'Wintersemester 2023/2024'
+semester: 'Wintersemester 2024/2025'
 output:
   pdf_document:
     keep_tex: yes
