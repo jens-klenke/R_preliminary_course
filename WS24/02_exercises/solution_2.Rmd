@@ -247,10 +247,10 @@ Der Datensatz besteht aus elf Variablen, die alle der Klasse `numeric` angehöre
 
 ```{r, eval= T}
     x <- c(4, 16, 64)
-    if(min(x) >= 0) sqrt(x)
+    if(min(x) > 0) sqrt(x)
     
     # ODER
-    if(!sum(x < 0)) sqrt(x)
+    if(!sum(x <= 0)) sqrt(x)
 ```
 
 
