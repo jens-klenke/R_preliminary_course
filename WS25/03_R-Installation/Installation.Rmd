@@ -1,0 +1,131 @@
+---
+title: 'Installation von \texttt{R} und \texttt{RStudio}'
+author: 'Martin Arnold'
+author2: 'Jens Klenke'
+subtitle: 'R Propädeutikum'
+semester: "Wintersemester 2020/2021"
+output:
+  pdf_document:
+    keep_tex: yes
+    template: template.tex
+    fig_caption: yes
+    citation_package: biblatex
+    number_sections: true
+toc: true
+lot: true
+lof: true
+graphics: true
+language: german
+linkcolor: blue
+urlcolor: blue
+citecolor: blue
+colorlinks: true
+font: Times New Roman
+fontsize: 12pt
+geometry: lmargin = 2cm, rmargin = 2.5cm, tmargin = 2cm, bmargin = 2.5cm
+classoption: a4paper
+---
+
+```{r , include=FALSE}
+Sys.setlocale(locale = "English_United States.1252") ## English US Windows
+knitr::opts_chunk$set(echo = TRUE)
+
+#options(kableExtra.latex.load_packages = FALSE)
+#### required packages ####
+source("packages/packages.R")
+```
+
+# Installation unter Windows 10/8/7  
+
+## R
+
+\begin{enumerate}
+  \item Laden Sie den \texttt{R}-installer von der \href{https://cran.r-project.org/bin/windows/base/}{\texttt{R}-Projekt Seite} herunter, indem Sie auf die Schaltfläche \textit{Download} (siehe Abbildung \ref{fig:r_side}) klicken.
+  \FloatBarrier
+	\begin{figure}[h]
+		\centering						
+		\includegraphics[width=0.8\textwidth]{images/r_projekt_side.PNG}
+		\caption{R-Projektseite}
+    \label{fig:r_side}
+	\end{figure}
+	\FloatBarrier
+	\item Nach dem Download öffnen Sie den Installer per Doppelklick. Starten Sie anschließend die Installation, indem Sie auf \textit{Ausführen} klicken. 
+	\begin{figure}
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.95\linewidth]{images/overview.PNG}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.95\linewidth]{images/ausfuehren.PNG}
+  \label{fig:sub2}
+\end{subfigure}
+\label{fig_start}
+\caption{Öffnen der Datei (links), Starten der Installation (rechts)}
+\end{figure}
+  \item Nachdem Sie die Installationssprache ausgewählt haben, klicken Sie wiederholt auf \textit{Weiter}\footnote{R wird auf diesem Weg mit den Standardeinstellungen installiert.} bis die Schaltfläche \textit{Fertigstellen} erscheint. Klicken Sie dann erneut auf die Schaltfläche. 
+  \item Ihre \texttt{R}-Distribution ist nun installiert. 
+\end{enumerate}
+
+## RStudio
+
+\begin{enumerate}
+  \item Der nächste Schritt ist, \texttt{RStudio} von der RStudio-Website \href{https://rstudio.com/products/rstudio/download/#download}{herunterzuladen}.
+\FloatBarrier
+	\begin{figure}[h]
+		\centering						
+		\includegraphics[width=0.95\textwidth]{images/Rstudio.PNG}
+		\caption{Download von RStudio}
+    \label{fig:rstudio_side}
+	\end{figure}
+\FloatBarrier
+  \item Gehen sie erneut vor wie in Schritt 2 und 3. Ihre \texttt{R-Studio}-Version ist nun installiert. Die Verbindung zu \texttt{R} wird automatisch erstellt.
+\end{enumerate}  
+
+
+# Installation unter MacOS X
+
+## R
+
+\begin{enumerate}
+  \item Laden Sie den \texttt{R}-installer von der \href{https://cran.r-project.org/bin/macosx/base/}{\texttt{R}-Projekt-Website} herunter, indem Sie auf die Schaltfläche \textit{Download} klicken.
+  \FloatBarrier
+	\begin{figure}[h]
+		\centering						
+		\includegraphics[width=0.8\textwidth]{images/mac_r_seite.PNG}
+		\caption{R-Projektseite für MacOS}
+    \label{fig:r_side_mac}
+	\end{figure}
+	\FloatBarrier
+	\item Öffnen Sie die .pkg-Datei und führen Sie die Installation durch, indem Sie stets die Schaltfläche \textit{Continue} klicken, bis Sie zum Menüpunkt \textbf{Installation type} gelangen. Starten Sie die Installation mit einem Klick auf \textit{install}.
+  \item Ihre \texttt{R}-Distribution ist nun installiert. Schließen Sie den Installer.
+\end{enumerate}
+
+## RStudio
+
+\begin{enumerate}
+  \item Der nächste Schritt ist, \texttt{RStudio} von der RStudio-Website \href{https://rstudio.com/products/rstudio/download/#download}{herunterzuladen}.
+  \item Öffnen Sie die Datei und kopieren Sie die App \texttt{RStudio} in den Ordner Applications, in dem Sie die Datei auf den Ordner ziehen.
+  \begin{figure}
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.95\linewidth]{images/r_studio_mac.PNG}
+  \label{fig:c}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.95\linewidth]{images/mac_r_studio_install.PNG}
+  \label{fig:start.mac_sub_2}
+\end{subfigure}
+\label{fig:start.mac_sub_2}
+\caption{Homepage von RStudio (links), Installation von RStudio (rechts)}
+\end{figure}
+  \item RStudio ist nun installiert. RStudio erkennt die installierte R-Version automatisch.
+\end{enumerate}  
+
+
+
+
