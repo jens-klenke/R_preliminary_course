@@ -425,15 +425,15 @@ Ihnen nun auf? Können Sie sich das Ergebnis erklären?
 \begin{Highlighting}[]
 \NormalTok{    cauchy }\OtherTok{\textless{}{-}} \FunctionTok{numeric}\NormalTok{()}
     \ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\DecValTok{10}\NormalTok{)\{}
-\NormalTok{      cauchy[i] }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(}\FunctionTok{rt}\NormalTok{(}\DecValTok{10000}\NormalTok{, }\AttributeTok{df =} \DecValTok{1}\NormalTok{))}
+\NormalTok{      cauchy[i] }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(}\FunctionTok{rcauchy}\NormalTok{(}\DecValTok{10000}\NormalTok{))}
 \NormalTok{    \}}
 \NormalTok{    cauchy}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]  2.86061674  0.28687124 20.24954554 -2.26699594 -0.93806437
-##  [6] -0.09852194  0.06981833  0.03190819  0.16937363  0.36625186
+##  [1] -2.6966473  1.0814162 -0.4963880  0.1321720 -1.8948533 20.6048489
+##  [7] -2.6628281 -0.3183328  2.8270567  1.4972502
 \end{verbatim}
 
 Nun liegen die Mittelwerte nicht wirklich nahe beieinander. Erklärung:

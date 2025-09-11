@@ -116,7 +116,7 @@ Alle 10 Mittelwerte liegen sehr nahe bei 0. Nicht überraschend, da wir Zufallsz
 ```{r}    
     cauchy <- numeric()
     for(i in 1:10){
-      cauchy[i] <- mean(rt(10000, df = 1))
+      cauchy[i] <- mean(rcauchy(10000))
     }
     cauchy
 ```
