@@ -1,4 +1,4 @@
-install.packages('qrcode')
+# install.packages('qrcode')
 library(qrcode)
 
 moodle  <- qr_code("https://moodle.uni-due.de/course/view.php?id=41613")
